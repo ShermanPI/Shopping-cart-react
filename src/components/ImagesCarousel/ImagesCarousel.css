@@ -1,6 +1,39 @@
 .carousel-container{
-    background-color: red;
-    height: 10px;
     display: flex;
     flex-direction: column;
+}
+
+.carousel-images-container {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    max-height: 100%;
+    background-color: green;
+}
+
+.carousel-images-container::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-image{
+    width: 100%;
+    aspect-ratio: 12/6;
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+}
+
+.carousel-points-container{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.carousel-point{
+    height: 8px;
+    width: 8px;
+    cursor: pointer;
+    background-color: red;
+    border-radius: 100%;
 }

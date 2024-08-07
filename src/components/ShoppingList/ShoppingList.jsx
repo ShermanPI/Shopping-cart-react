@@ -7,9 +7,7 @@ function ShoppingList ({ products }) {
       <section className='products-container'>
         {products.map(product => {
           return (
-            <div key={product.id}>
-              <ProductCard images={product.images} img={product.img} title={product.title} price={product.price} />
-            </div>
+            <ProductCard key={product.id} images={product.images} img={product.img} title={product.title} price={product.price} />
           )
         }
         )}

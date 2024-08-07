@@ -10,4 +10,15 @@
 
 html { 
   font-size: 62.5%
-} 
+}
+
+img{
+  max-width: 100%;
+}
+
+.shop-title{
+  text-align: center;
+  margin-block: 4rem;
+  font-weight: 700;
+  user-select: none;
+}

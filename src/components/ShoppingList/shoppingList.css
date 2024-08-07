@@ -2,8 +2,8 @@
     width: 90%;
     max-width: 1024px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    background-color: red;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     margin-inline: auto;
-    gap: 1rem;
+    margin: auto;
+    gap: 2rem;
 }

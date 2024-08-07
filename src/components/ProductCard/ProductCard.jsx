@@ -6,8 +6,9 @@ import './ProductCard.css'
 function ProductCard ({ title, price, images }) {
   return (
     <div className='card'>
-      {title} - {price}
+
       <ImagesCarousel imagesArray={images} />
+      {title} - {price}
       <Button>
         <ShoppingCart width={18} height={18} />
         Add to cart

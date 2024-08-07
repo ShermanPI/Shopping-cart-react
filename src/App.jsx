@@ -7,6 +7,7 @@ function App () {
 
   return (
     <>
+      <h1 className='shop-title'>SHOPPING CART 🛒</h1>
       <ShoppingList products={data.products} />
     </>
   )
