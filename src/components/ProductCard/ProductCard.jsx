@@ -7,8 +7,18 @@ function ProductCard ({ title, price, images }) {
   return (
     <div className='card'>
 
-      <ImagesCarousel imagesArray={images} />
-      {title} - {price}
+      <div>
+        <ImagesCarousel imagesArray={images} />
+        <div className='name-price-container'>
+          <p className='product-name'>
+            {title}
+          </p>
+          <p className='product-price'>
+            <span>$</span>
+            {price}
+          </p>
+        </div>
+      </div>
       <Button>
         <ShoppingCart width={18} height={18} />
         Add to cart
