@@ -22,3 +22,7 @@ img{
   font-weight: 700;
   user-select: none;
 }
+
+body{
+  background-color: #ffffff;
+}

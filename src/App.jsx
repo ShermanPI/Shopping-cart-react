@@ -3,8 +3,6 @@ import * as data from './mocks/products.json'
 import './App.css'
 
 function App () {
-  console.log(data.products)
-
   return (
     <>
       <h1 className='shop-title'>SHOPPING CART 🛒</h1>

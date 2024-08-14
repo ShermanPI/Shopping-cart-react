@@ -3,26 +3,32 @@ import Button from '../Button/Button'
 import ImagesCarousel from '../ImagesCarousel/ImagesCarousel'
 import './ProductCard.css'
 
-function ProductCard ({ title, price, images }) {
+function ProductCard ({ title, price, images, description }) {
   return (
     <div className='card'>
-
-      <div>
+      <div className='images-and-name'>
         <ImagesCarousel imagesArray={images} />
         <div className='name-price-container'>
           <p className='product-name'>
             {title}
           </p>
           <p className='product-price'>
-            <span>$</span>
             {price}
           </p>
         </div>
+        <div className='product-description'>
+          <p>
+            {description}
+          </p>
+        </div>
       </div>
-      <Button>
-        <ShoppingCart width={18} height={18} />
-        Add to cart
-      </Button>
+
+      <div className='cart-btn-container'>
+        <Button>
+          <ShoppingCart width={18} height={18} />
+          Add to cart
+        </Button>
+      </div>
     </div>
   )
 }

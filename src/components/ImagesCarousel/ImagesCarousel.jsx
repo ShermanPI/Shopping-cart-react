@@ -13,7 +13,7 @@ function ImagesCarousel ({ imagesArray }) {
       >
         {imagesArray.map((imageSrc, index) =>
           <div
-            className='carousel-image' key={index}
+            key={index} className='carousel-image'
           >
             <img src={imageSrc} />
           </div>

@@ -1,5 +1,6 @@
 import './shoppingList.css'
 import ProductCard from '../ProductCard/ProductCard'
+import { Fragment } from 'react'
 
 function ShoppingList ({ products }) {
   return (
@@ -7,7 +8,9 @@ function ShoppingList ({ products }) {
       <section className='products-container'>
         {products.map(product => {
           return (
-            <ProductCard key={product.id} images={product.images} img={product.img} title={product.title} price={product.price} />
+            <Fragment key={product.id}>
+              <ProductCard images={product.images} img={product.img} title={product.title} price={product.price} description={product.description} />
+            </Fragment>
           )
         }
         )}
