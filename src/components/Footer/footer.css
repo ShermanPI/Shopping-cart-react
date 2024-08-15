@@ -1,0 +1,9 @@
+.footer-container{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+    font-size: 12px;
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+}

@@ -25,6 +25,7 @@ function Button ({ children }) {
     <button
       onMouseDown={() => setIsPressed(true)}
       onMouseUp={() => setIsPressed(false)}
+      onMouseLeave={() => setIsPressed(false)}
       className={`regular-btn ${isPressed ? 'pressed' : ''}`}
       onClick={clickHandler}
       ref={buttonRef}
