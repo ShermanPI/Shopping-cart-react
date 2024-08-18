@@ -19,7 +19,7 @@ function Button ({ children }) {
 
     setTimeout(() => {
       document.body.removeChild(plusOneDiv)
-    }, 15000)
+    }, 1500)
   }
 
   return (

@@ -1,9 +1,50 @@
 .footer-container{
-    background-color: rgba(0, 0, 0, 0.788);
+    background-color: black;
     color: white;
-    padding: 20px;
-    font-size: 12px;
+    padding: 14px;
+    padding-inline: 24px;
+    font-size: 14px;
     position: fixed;
     left: 20px;
-    bottom: 20px;
+    bottom: -70px;
+    border-radius: 100rem;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    user-select: none;
+}
+
+.footer-container:hover{
+    transform: translateY(-75px);
+}
+
+.project-name{
+    font-weight: 700;
+}
+
+.show-arrow{
+    position: absolute;
+    top: -35px;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    padding-bottom: 1rem;
+    padding-inline: 0.5rem;
+    background-color: black;
+}
+
+.show-arrow{
+    animation: shine 0.8s linear infinite;
+}
+
+@keyframes shine {
+    50% {
+        color: #39FF14;
+    }
+}
+
+.github-url{
+    color: white;
+}
+
+.motive-container{
+    color: rgba(255, 255, 255, 0.767);
 }

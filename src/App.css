@@ -17,12 +17,30 @@ img{
 }
 
 .shop-title{
-  text-align: center;
   margin-block: 4rem;
   font-weight: 700;
   user-select: none;
 }
 
 body{
-  background-color: #ffffff;
+  background-color: #e5e5e5;
+}
+
+.shop-main-container {
+  display: flex;
+
+}
+
+.filters-main-container{
+  display: flex;
+  width: 20%;
+  max-width: 200px;
+  min-width: 120px;
+  background-color: red;
+}
+
+.products-main-container{
+  width: 100%;
+  padding-inline: 100px;
+  overflow: auto;
 }
