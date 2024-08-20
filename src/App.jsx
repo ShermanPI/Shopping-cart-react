@@ -1,16 +1,26 @@
 import ShoppingList from './components/ShoppingList/ShoppingList'
-import * as data from './mocks/products.json'
 import './App.css'
 import Footer from './components/Footer/Footer'
 import Filters from './components/Filters/Filters'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import getAllTheProducts from './services/getAllTheProducts'
 
 function App () {
   const [filters, setFilters] = useState({ category: 'All' })
+  const [products, setProducts] = useState([])
 
-  const filteredProducts = data.products.filter(el => {
+  const filteredProducts = products?.filter(el => {
     return filters.category === 'All' || (el.category === filters.category)
   })
+
+  useEffect(() => {
+    (async () => {
+      const result = await getAllTheProducts()
+
+      setProducts(result.products)
+      console.log(products, '🦆🦆🦆')
+    })()
+  }, [])
 
   return (
     <>
