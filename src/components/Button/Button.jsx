@@ -1,8 +1,7 @@
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import './Button.css'
 
 function Button ({ children }) {
-  const [isPressed, setIsPressed] = useState(false)
   const buttonRef = useRef(null)
 
   const clickHandler = (e) => {
@@ -23,16 +22,15 @@ function Button ({ children }) {
   }
 
   return (
-    <button
-      onMouseDown={() => setIsPressed(true)}
-      onMouseUp={() => setIsPressed(false)}
-      onMouseLeave={() => setIsPressed(false)}
-      className={`regular-btn ${isPressed ? 'pressed' : ''}`}
-      onClick={clickHandler}
-      ref={buttonRef}
-    >
-      {children}
-    </button>
+    <>
+      <button
+        className='regular-btn '
+        onClick={clickHandler}
+        ref={buttonRef}
+      >
+        {children}
+      </button>
+    </>
   )
 }
 

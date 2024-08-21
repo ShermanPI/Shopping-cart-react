@@ -21,7 +21,7 @@
     user-select: none;
 }
 
-.regular-btn.pressed {
+.regular-btn:active  {
     /* background-color: white; */
     /* color: black; */
     border: 1px solid black;
