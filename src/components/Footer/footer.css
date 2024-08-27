@@ -37,7 +37,7 @@
 
 @keyframes shine {
     50% {
-        color: #39FF14;
+        color: var(--secondary-color);
     }
 }
 

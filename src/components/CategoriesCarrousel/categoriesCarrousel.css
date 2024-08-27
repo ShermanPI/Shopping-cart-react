@@ -1,0 +1,9 @@
+.carrousel-container {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-block: 2rem;
+}
+

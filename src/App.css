@@ -8,6 +8,10 @@
   font-style: normal;
 }
 
+:root{
+  --secondary-color: #b0dc41;
+}
+
 html { 
   font-size: 62.5%
 }

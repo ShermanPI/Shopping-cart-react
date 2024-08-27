@@ -5,6 +5,7 @@ function Button ({ children }) {
   const buttonRef = useRef(null)
 
   const clickHandler = (e) => {
+    console.log('click')
     const plusOneDiv = document.createElement('div')
 
     const buttonClientRect = buttonRef.current.getBoundingClientRect()
@@ -22,15 +23,13 @@ function Button ({ children }) {
   }
 
   return (
-    <>
-      <button
-        className='regular-btn '
-        onClick={clickHandler}
-        ref={buttonRef}
-      >
-        {children}
-      </button>
-    </>
+    <button
+      className='regular-btn '
+      onClick={clickHandler}
+      ref={buttonRef}
+    >
+      {children}
+    </button>
   )
 }
 

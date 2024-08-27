@@ -1,0 +1,28 @@
+.carrousel-btn {
+    background-color: white;
+    color: black;
+    border: solid 1px transparent;
+    border-radius: 2rem;
+
+    box-shadow:
+        2px 2px 0px 0px rgba(0, 0, 0, 0.75);
+    padding-inline: 2rem;
+    padding-block: 0.8rem;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    user-select: none;
+    white-space: nowrap;
+    border: solid 1px var(--secondary-color);
+}
+
+.carrousel-btn.active{
+    background-color: var(--secondary-color);
+    color: #181919;
+    border: solid 1px transparent;
+    box-shadow:
+        0px 0px 0px 0px rgba(0, 0, 0, 0.75);
+    transform: translate(2px, 2px);
+}

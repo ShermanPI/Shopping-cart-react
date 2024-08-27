@@ -5,6 +5,7 @@ export default function Filters ({ setFilters, filters }) {
 
   return (
     <div>
+
       <select onChange={handleCategoryFilter}>
         <option value='All'> All </option>
         <option value='beauty'> beauty </option>
