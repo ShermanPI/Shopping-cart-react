@@ -1,9 +1,43 @@
 .carrousel-container {
     display: flex;
+    align-items: center;
     width: 100%;
-    overflow: hidden;
     gap: 1rem;
     margin-top: 1rem;
-    padding-block: 2rem;
+    margin-block: 3rem;
+    position: relative;
 }
 
+.carrousel-btns-container{
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    padding-block: 1rem;
+    overflow: hidden;
+    scroll-behavior: unset;
+}
+
+.carrousel-move-btn{
+    font-size: 5rem;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    user-select: none;
+}
+
+.carrousel-move-btn.left-btn{
+    left: 0px;
+    background-color: red;
+}
+
+
+.carrousel-move-btn.right-btn{
+    right: 0px;
+    background-color: green;
+}
+
+
+.invisible-category-button{
+    opacity: 0;
+    pointer-events: none;
+}

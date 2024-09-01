@@ -44,7 +44,15 @@ body{
 }
 
 .products-main-container{
-  width: 100%;
-  padding-inline: 100px;
+  width: 90%;
   overflow: auto;
+  margin: auto;
+}
+
+.loader-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }

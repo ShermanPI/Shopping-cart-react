@@ -1,12 +1,11 @@
 import ShoppingList from './components/ShoppingList/ShoppingList'
 import './App.css'
 import Footer from './components/Footer/Footer'
-import Filters from './components/Filters/Filters'
 import { useEffect, useState } from 'react'
 import getAllTheProducts from './services/getAllTheProducts'
 import getAllCategories from './services/getAllCategories'
 import CategoriesCarrousel from './components/CategoriesCarrousel/CategoriesCarrousel'
-
+import Loader from './components/Loader/Loader.jsx'
 function App () {
   const [filters, setFilters] = useState({ category: 'All' })
   const [products, setProducts] = useState([])
@@ -31,17 +30,19 @@ function App () {
     <>
 
       <div className='shop-main-container'>
-        <Filters setFilters={setFilters} filters={filters} />
         <main className='products-main-container'>
           <CategoriesCarrousel
             categoriesArray={categories}
             setProducts={setProducts}
             setLoading={setLoading}
           />
-          <h1 className='shop-title'>SHOPPING CART 🛒</h1>
           {
             loading
-              ? 'loading'
+              ? (
+                <div className='loader-container'>
+                  <Loader />
+                </div>
+                )
               : <ShoppingList products={filteredProducts} />
           }
         </main>
