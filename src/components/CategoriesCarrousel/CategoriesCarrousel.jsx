@@ -13,6 +13,7 @@ function CategoriesCarrousel ({ categoriesArray = [], setProducts, setLoading })
   const [selectedCategory, setSelectedCategory] = useState(defaultCategory)
   const [leftBtnVisible, setLeftBtnVisible] = useState(false)
   const [rightBtnVisible, setRightBtnVisible] = useState(true)
+  const [carrouselPosition, setCarrouselPosition] = useState(0)
 
   const categoriesAndAllOption = [defaultCategory, ...categoriesArray]
 
@@ -34,34 +35,22 @@ function CategoriesCarrousel ({ categoriesArray = [], setProducts, setLoading })
     setLoading(false)
   }
 
-  const checkBtnsVisibility = () => {
-    const carrouselContainerScrollLeft = carrouselBtnsContainerRef.current.scrollLeft
-    const carrouselClientWidth = carrouselBtnsContainerRef.current.clientWidth
-
-    if (carrouselContainerScrollLeft === 0) {
-      setLeftBtnVisible(false)
-    } else {
-      setLeftBtnVisible(true)
-    }
-
-    if (carrouselContainerScrollLeft + carrouselClientWidth === carrouselBtnsContainerRef.current.scrollWidth) {
-      setRightBtnVisible(false)
-    } else {
-      setRightBtnVisible(true)
-    }
+  const updateVisibility = (position, scrollableWidth) => {
+    setLeftBtnVisible(position > 0)
+    setRightBtnVisible(position < scrollableWidth)
   }
 
-  const rightClick = () => {
-    const carrouselContainerWidth = carrouselBtnsContainerRef.current.offsetWidth
-    carrouselBtnsContainerRef.current.scrollLeft += Math.ceil(carrouselContainerWidth / 4)
-    checkBtnsVisibility()
+  const handleClick = (direction) => {
+    const scrollableWidth = carrouselBtnsContainerRef.current.scrollWidth - carrouselBtnsContainerRef.current.clientWidth
+    const translateAmount = scrollableWidth / 3
+    const newPosition = Math.max(0, Math.min(carrouselPosition + direction * translateAmount, scrollableWidth))
+
+    setCarrouselPosition(newPosition)
+    updateVisibility(newPosition, scrollableWidth)
   }
 
-  const leftClick = () => {
-    const carrouselContainerWidth = carrouselBtnsContainerRef.current.offsetWidth
-    carrouselBtnsContainerRef.current.scrollLeft -= Math.ceil(carrouselContainerWidth / 4)
-    checkBtnsVisibility()
-  }
+  const rightClick = () => handleClick(1)
+  const leftClick = () => handleClick(-1)
 
   return (
     <div className='carrousel-container'>
@@ -72,7 +61,10 @@ function CategoriesCarrousel ({ categoriesArray = [], setProducts, setLoading })
       >
         {'<'}
       </button>
-      <div ref={carrouselBtnsContainerRef} className='carrousel-btns-container'>
+      <div
+        ref={carrouselBtnsContainerRef} className='carrousel-btns-container'
+        style={{ transform: `translate(-${carrouselPosition}px)` }}
+      >
         {categoriesAndAllOption?.map((category, index) =>
           <CarrouselBtn
             active={selectedCategory.slug === category.slug}
