@@ -3,6 +3,7 @@ import getProductsByCategory from '../../services/getProductsByCategory'
 import './categoriesCarrousel.css'
 import CarrouselBtn from './components/CarrouselBtn'
 import getAllTheProducts from '../../services/getAllTheProducts'
+import ArrowRight from '../../assets/Icons/ArrowRight'
 
 function CategoriesCarrousel ({ categoriesArray = [], setProducts, setLoading }) {
   const defaultCategory = { name: 'All', slug: '', id: 0 }
@@ -42,8 +43,8 @@ function CategoriesCarrousel ({ categoriesArray = [], setProducts, setLoading })
 
   const handleClick = (direction) => {
     const scrollableWidth = carrouselBtnsContainerRef.current.scrollWidth - carrouselBtnsContainerRef.current.clientWidth
-    const translateAmount = scrollableWidth / 3
-    const newPosition = Math.max(0, Math.min(carrouselPosition + direction * translateAmount, scrollableWidth))
+    const translateAmount = carrouselBtnsContainerRef.current.clientWidth / 3
+    const newPosition = Math.max(0, Math.min(carrouselPosition + (direction * translateAmount), scrollableWidth))
 
     setCarrouselPosition(newPosition)
     updateVisibility(newPosition, scrollableWidth)
@@ -54,13 +55,14 @@ function CategoriesCarrousel ({ categoriesArray = [], setProducts, setLoading })
 
   return (
     <div className='carrousel-container'>
-      <button
-        className={`carrousel-move-btn left-btn ${leftBtnVisible ? '' : 'invisible-category-button'}`}
+      <div
+        className={`carrousel-move-btn left-btn 
+        ${leftBtnVisible ? '' : 'invisible-category-button'}`}
         ref={leftBtnRef}
         onClick={leftClick}
       >
-        {'<'}
-      </button>
+        <ArrowRight className='carrouse-arrow-icon left-arrow-icon' />
+      </div>
       <div
         ref={carrouselBtnsContainerRef} className='carrousel-btns-container'
         style={{ transform: `translate(-${carrouselPosition}px)` }}
@@ -73,11 +75,12 @@ function CategoriesCarrousel ({ categoriesArray = [], setProducts, setLoading })
           />)}
       </div>
       <div
-        className={`carrousel-move-btn right-btn ${rightBtnVisible ? '' : 'invisible-category-button'}`}
+        className={`carrousel-move-btn right-btn 
+        ${rightBtnVisible ? '' : 'invisible-category-button'}`}
         ref={rightBtnRef}
         onClick={rightClick}
       >
-        {'>'}
+        <ArrowRight className='carrouse-arrow-icon' />
       </div>
     </div>
   )

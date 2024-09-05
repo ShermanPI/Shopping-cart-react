@@ -9,35 +9,79 @@
     overflow: hidden;
 }
 
-.carrousel-btns-container{
+.carrousel-btns-container {
     display: flex;
+    align-items: center;
     width: 100%;
     gap: 1rem;
     padding-block: 1rem;
     transition: all 1s ease;
 }
 
-.carrousel-move-btn{
-    font-size: 5rem;
+.carrousel-move-btn {
     cursor: pointer;
     position: absolute;
     z-index: 1;
     user-select: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
-.carrousel-move-btn.left-btn{
+.carrousel-move-btn.left-btn {
     left: 0px;
-    background-color: red;
+    justify-content: flex-start;
+    background-color: var(--background-color);
+    color: var(--secondary-color);
 }
 
 
-.carrousel-move-btn.right-btn{
+.carrousel-move-btn.right-btn {
     right: 0px;
-    background-color: green;
+    justify-content: flex-end;
+    background-color: var(--background-color);
+    color: var(--secondary-color);
 }
 
 
-.invisible-category-button{
+.invisible-category-button {
     opacity: 0;
     pointer-events: none;
+}
+
+.left-btn::after {
+    content: '';
+    background-color: blue;
+    width: 20px;
+    height: 100%;
+    left: 100%;
+    position: absolute;
+
+    background: var(--background-color);
+    background: linear-gradient(90deg,
+            var(--background-color) 0%,
+            var(--background-color) 20%,
+            rgba(198, 183, 190, 0) 100%);
+}
+
+.right-btn::before {
+    content: '';
+    background: var(--background-color);
+    background: linear-gradient(90deg,
+            rgba(198, 183, 190, 0) 0%,
+            var(--background-color) 80%,
+            var(--background-color) 100%);
+    width: 50px;
+    height: 100%;
+    position: absolute;
+    right: 100%;
+}
+
+.carrouse-arrow-icon {
+    height: 2.6rem;
+    width: 2.6rem;
+}
+
+.left-arrow-icon {
+    transform: rotate(180deg);
 }
