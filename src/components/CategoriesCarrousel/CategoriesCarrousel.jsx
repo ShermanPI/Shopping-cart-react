@@ -55,13 +55,16 @@ function CategoriesCarrousel ({ categoriesArray = [], setProducts, setLoading })
 
   return (
     <div className='carrousel-container'>
-      <div
-        className={`carrousel-move-btn left-btn 
+      <div className={`carrousel-btn-container left-btn
         ${leftBtnVisible ? '' : 'invisible-category-button'}`}
-        ref={leftBtnRef}
-        onClick={leftClick}
       >
-        <ArrowRight className='carrouse-arrow-icon left-arrow-icon' />
+        <button
+          className='carrousel-move-btn'
+          ref={leftBtnRef}
+          onClick={leftClick}
+        >
+          <ArrowRight className='carrouse-arrow-icon left-arrow-icon' />
+        </button>
       </div>
       <div
         ref={carrouselBtnsContainerRef} className='carrousel-btns-container'
@@ -74,13 +77,16 @@ function CategoriesCarrousel ({ categoriesArray = [], setProducts, setLoading })
             name={category.name} key={index}
           />)}
       </div>
-      <div
-        className={`carrousel-move-btn right-btn 
+      <div className={`carrousel-btn-container right-btn
         ${rightBtnVisible ? '' : 'invisible-category-button'}`}
-        ref={rightBtnRef}
-        onClick={rightClick}
       >
-        <ArrowRight className='carrouse-arrow-icon' />
+        <button
+          className='carrousel-move-btn'
+          ref={rightBtnRef}
+          onClick={rightClick}
+        >
+          <ArrowRight className='carrouse-arrow-icon' />
+        </button>
       </div>
     </div>
   )
