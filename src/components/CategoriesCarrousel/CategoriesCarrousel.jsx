@@ -1,47 +1,31 @@
-import { useRef, useState } from 'react'
-import getProductsByCategory from '../../services/getProductsByCategory'
+import { useContext, useEffect, useRef, useState } from 'react'
 import './categoriesCarrousel.css'
 import CarrouselBtn from './components/CarrouselBtn'
-import getAllTheProducts from '../../services/getAllTheProducts'
 import ArrowRight from '../../assets/Icons/ArrowRight'
+import { FiltersContext } from '../../contexts/FiltersContext'
+import getAllCategories from '../../services/getAllCategories'
 
-function CategoriesCarrousel ({ categoriesArray = [], setProducts, setLoading }) {
-  const defaultCategory = { name: 'All', slug: '', id: 0 }
+function CategoriesCarrousel () {
+  const { filters, setCategorySlug } = useContext(FiltersContext)
+
   const carrouselBtnsContainerRef = useRef()
   const leftBtnRef = useRef()
   const rightBtnRef = useRef()
 
-  const [selectedCategory, setSelectedCategory] = useState(defaultCategory)
+  const [categories, setCategories] = useState([])
   const [leftBtnVisible, setLeftBtnVisible] = useState(false)
   const [rightBtnVisible, setRightBtnVisible] = useState(true)
   const [carrouselPosition, setCarrouselPosition] = useState(0)
 
-  const categoriesAndAllOption = [defaultCategory, ...categoriesArray]
-
-  const handleCategoryClick = async (category) => {
-    setLoading(true)
-    setSelectedCategory(category)
-
-    if (category.name === 'All') {
-      const result = await getAllTheProducts()
-
-      setProducts(result.products)
-      setLoading(false)
-      return
-    }
-
-    const data = await getProductsByCategory(category.slug)
-
-    setProducts(data.products)
-    setLoading(false)
-  }
+  const defaultCategory = { name: 'All', slug: 'All', id: 0 }
+  const categoriesAndAllOption = [defaultCategory, ...categories]
 
   const updateVisibility = (position, scrollableWidth) => {
     setLeftBtnVisible(position > 0)
     setRightBtnVisible(position < scrollableWidth)
   }
 
-  const handleClick = (direction) => {
+  const handleMoveClick = (direction) => {
     const scrollableWidth = carrouselBtnsContainerRef.current.scrollWidth - carrouselBtnsContainerRef.current.clientWidth
     const translateAmount = carrouselBtnsContainerRef.current.clientWidth / 3
     const newPosition = Math.max(0, Math.min(carrouselPosition + (direction * translateAmount), scrollableWidth))
@@ -50,8 +34,15 @@ function CategoriesCarrousel ({ categoriesArray = [], setProducts, setLoading })
     updateVisibility(newPosition, scrollableWidth)
   }
 
-  const rightClick = () => handleClick(1)
-  const leftClick = () => handleClick(-1)
+  const rightClick = () => handleMoveClick(1)
+  const leftClick = () => handleMoveClick(-1)
+
+  useEffect(() => {
+    (async () => {
+      const categoriesResult = await getAllCategories()
+      setCategories(categoriesResult)
+    })()
+  }, [])
 
   return (
     <div className='carrousel-container'>
@@ -72,8 +63,8 @@ function CategoriesCarrousel ({ categoriesArray = [], setProducts, setLoading })
       >
         {categoriesAndAllOption?.map((category, index) =>
           <CarrouselBtn
-            active={selectedCategory.slug === category.slug}
-            onClick={() => handleCategoryClick(category)}
+            active={filters.categorySlug === category.slug}
+            onClick={() => setCategorySlug(category.slug)}
             name={category.name} key={index}
           />)}
       </div>

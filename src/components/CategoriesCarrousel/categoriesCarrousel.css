@@ -93,6 +93,7 @@
             var(--background-color) 20%,
             rgba(198, 183, 190, 0) 100%);
     z-index: -1;
+    pointer-events: none;
 }
 
 .right-btn::after {
@@ -107,5 +108,5 @@
     position: absolute;
     right: 0px;
     z-index: -1;
-
+    pointer-events: none;
 }

@@ -1,49 +1,27 @@
 import ShoppingList from './components/ShoppingList/ShoppingList'
 import './App.css'
 import Footer from './components/Footer/Footer'
-import { useEffect, useState } from 'react'
-import getAllTheProducts from './services/getAllTheProducts'
-import getAllCategories from './services/getAllCategories'
-import CategoriesCarrousel from './components/CategoriesCarrousel/CategoriesCarrousel'
 import Loader from './components/Loader/Loader.jsx'
+import Filters from './components/Filters/Filters.jsx'
+import { useContext } from 'react'
+import { FiltersContext } from './contexts/FiltersContext.jsx'
+
 function App () {
-  const [filters, setFilters] = useState({ category: 'All' })
-  const [products, setProducts] = useState([])
-  const [categories, setCategories] = useState([])
-  const [loading, setLoading] = useState(false)
-
-  const filteredProducts = products?.filter(el => {
-    return filters.category === 'All' || (el.category === filters.category)
-  })
-
-  useEffect(() => {
-    (async () => {
-      const result = await getAllTheProducts()
-      const categoriesResult = await getAllCategories()
-
-      setProducts(result.products)
-      setCategories(categoriesResult)
-    })()
-  }, [])
+  const { productsLoading } = useContext(FiltersContext)
 
   return (
     <>
-
       <div className='shop-main-container'>
         <main className='products-main-container'>
-          <CategoriesCarrousel
-            categoriesArray={categories}
-            setProducts={setProducts}
-            setLoading={setLoading}
-          />
+          <Filters />
           {
-            loading
+            productsLoading
               ? (
                 <div className='loader-container'>
                   <Loader />
                 </div>
                 )
-              : <ShoppingList products={filteredProducts} />
+              : <ShoppingList />
           }
         </main>
       </div>

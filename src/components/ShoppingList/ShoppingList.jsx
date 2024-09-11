@@ -1,12 +1,17 @@
 import './shoppingList.css'
 import ProductCard from '../ProductCard/ProductCard'
-import { Fragment } from 'react'
+import { Fragment, useContext } from 'react'
 
-function ShoppingList ({ products }) {
+import { FiltersContext } from '../../contexts/FiltersContext'
+
+function ShoppingList () {
+  const { filteredProducts } = useContext(FiltersContext)
+
+  console.log(filteredProducts, '🟪🟪🟪')
   return (
     <>
       <section className='products-container'>
-        {products.map(product => {
+        {filteredProducts.map(product => {
           return (
             <Fragment key={product.id}>
               <ProductCard images={product.images} img={product.img} title={product.title} price={product.price} description={product.description} />
