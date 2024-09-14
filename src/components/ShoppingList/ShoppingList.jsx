@@ -7,7 +7,6 @@ import { FiltersContext } from '../../contexts/FiltersContext'
 function ShoppingList () {
   const { filteredProducts } = useContext(FiltersContext)
 
-  console.log(filteredProducts, '🟪🟪🟪')
   return (
     <>
       <section className='products-container'>

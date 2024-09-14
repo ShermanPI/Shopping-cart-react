@@ -9,12 +9,14 @@
 }
 
 :root{
-  --secondary-color: #b0dc41;
+  --secondary-color: green;
   --background-color: #e5e5e5;
+  scrollbar-gutter: stable;
+
 }
 
 html { 
-  font-size: 62.5%
+  font-size: 62.5%;
 }
 
 img{
@@ -29,6 +31,7 @@ img{
 
 body{
   background-color: #e5e5e5;
+  scrollbar-gutter: stable;
 }
 
 .shop-main-container {

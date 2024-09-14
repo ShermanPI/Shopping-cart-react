@@ -1,12 +1,15 @@
+import './filters.css'
+
+import AdvancedFilterPanel from '../AdvancedFilterPanel/AdvancedFilterPanel'
 import CategoriesCarrousel from '../CategoriesCarrousel/CategoriesCarrousel'
 
-export default function Filters ({ categories, setLoading }) {
+export default function Filters () {
   return (
-    <div>
-
+    <div className='filters-container'>
       <CategoriesCarrousel
-        categoriesArray={categories}
+        categoriesArray
       />
+      <AdvancedFilterPanel />
     </div>
   )
 }

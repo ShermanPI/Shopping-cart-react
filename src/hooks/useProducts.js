@@ -13,8 +13,6 @@ function useProducts () {
     return products
   })
 
-  console.log(products, '🤯🤯🤯🤯')
-
   const setCategorySlug = (categorySlug) => {
     setFilters({ ...filters, categorySlug })
   }
