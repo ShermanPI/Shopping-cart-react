@@ -1,17 +1,24 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import getAllTheProducts from '../services/getAllTheProducts'
 import getAllCategories from '../services/getAllCategories'
 import getProductsByCategory from '../services/getProductsByCategory'
 
 function useProducts () {
-  const [filters, setFilters] = useState({ categorySlug: 'All' })
+  const [filters, setFilters] = useState({ categorySlug: 'All', minPrice: 0 })
   const [products, setProducts] = useState([])
   const [categories, setCategories] = useState([])
   const [productsLoading, setProductsLoading] = useState(false)
 
-  const filteredProducts = products?.filter(el => {
-    return products
+  const minProductsPrice = useMemo(() => Math.min(...products.map((product) => product.price)), [products])
+  const maxProductsPrice = useMemo(() => Math.max(...products.map((product) => product.price)), [products])
+
+  const filteredProducts = products?.filter(product => {
+    return product.price >= filters.minPrice
   })
+
+  const setMinPrice = (minPrice = 0) => {
+    setFilters({ ...filters, minPrice })
+  }
 
   const setCategorySlug = (categorySlug) => {
     setFilters({ ...filters, categorySlug })
@@ -41,6 +48,7 @@ function useProducts () {
         } else {
           const data = await getProductsByCategory(filters.categorySlug)
           console.log(data.products, 'data.products')
+          setFilters({ ...filters, minPrice: 0 })
           setProducts(data.products)
           setProductsLoading(false)
         }
@@ -54,7 +62,10 @@ function useProducts () {
     filteredProducts,
     setProducts,
     setCategorySlug,
-    filters
+    filters,
+    minProductsPrice,
+    maxProductsPrice,
+    setMinPrice
   }
 }
 

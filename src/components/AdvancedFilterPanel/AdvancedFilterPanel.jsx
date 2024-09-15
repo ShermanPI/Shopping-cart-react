@@ -1,10 +1,11 @@
 import './AdvancedFilterPanel.css'
 import FilterIcon from '../../assets/Icons/FilterIcon'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { FiltersContext } from '../../contexts/FiltersContext'
 
 const AdvancedFilterPanel = () => {
   const [panelOpen, setPanelOpen] = useState(false)
-  const [priceMinRange, setPriceMinRange] = useState(0)
+  const { maxProductsPrice, setMinPrice, filters } = useContext(FiltersContext)
 
   return (
     <div className='all-filters-container'>
@@ -24,13 +25,13 @@ const AdvancedFilterPanel = () => {
                 type='range'
                 id='volume'
                 name='volume'
-                min='0'
-                max='100'
-                value={priceMinRange}
-                onChange={(value) => { setPriceMinRange(value.target.value) }}
+                step='1'
+                max={Math.floor(maxProductsPrice)}
+                value={filters.minPrice}
+                onChange={(value) => { setMinPrice(value.target.value) }}
               />
               <p className='price-range-number'>
-                $ {priceMinRange}
+                $ {filters.minPrice}
               </p>
             </span>
 
