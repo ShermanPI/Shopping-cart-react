@@ -1,0 +1,30 @@
+/* *{
+    fill: red
+} */
+
+
+.flap-one-path{
+    fill: red;
+    transition: all 2s ease;
+    animation: animateFlapOne 1s linear infinite;
+    transform-origin: left bottom;
+}
+
+.flap-one-path:hover{
+}
+
+@keyframes animateFlapOne {
+    50%{
+      transform: rotateY(50deg) scale(1.5);
+    }
+  }
+
+.right-flap{
+    fill: green;
+    transition: 1s all ease;
+    transform: rotate3d(1, 0, 0, 100deg)
+}
+
+/* .right-flap.open{
+
+} */

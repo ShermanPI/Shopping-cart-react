@@ -5,6 +5,7 @@ import Loader from './components/Loader/Loader.jsx'
 import Filters from './components/Filters/Filters.jsx'
 import { useContext } from 'react'
 import { FiltersContext } from './contexts/FiltersContext.jsx'
+import Header from './components/Header/Header.jsx'
 
 function App () {
   const { productsLoading } = useContext(FiltersContext)
@@ -12,6 +13,7 @@ function App () {
   return (
     <>
       <div className='shop-main-container'>
+        <Header />
         <main className='products-main-container'>
           <Filters />
           {

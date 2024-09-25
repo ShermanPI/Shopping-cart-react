@@ -1,0 +1,5 @@
+.main-header-container {
+    display: flex;
+    width: 100%;
+    padding: 10rem;
+}
