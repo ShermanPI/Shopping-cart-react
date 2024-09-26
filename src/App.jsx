@@ -6,6 +6,7 @@ import Filters from './components/Filters/Filters.jsx'
 import { useContext } from 'react'
 import { FiltersContext } from './contexts/FiltersContext.jsx'
 import Header from './components/Header/Header.jsx'
+import { ShootingStarProvider } from './components/Header/contexts/ShootingStarContext.jsx'
 
 function App () {
   const { productsLoading } = useContext(FiltersContext)
@@ -13,10 +14,11 @@ function App () {
   return (
     <>
       <div className='shop-main-container'>
-        <Header />
-        <main className='products-main-container'>
-          <Filters />
-          {
+        <ShootingStarProvider>
+          <Header />
+          <main className='products-main-container'>
+            <Filters />
+            {
             productsLoading
               ? (
                 <div className='loader-container'>
@@ -25,7 +27,8 @@ function App () {
                 )
               : <ShoppingList />
           }
-        </main>
+          </main>
+        </ShootingStarProvider>
       </div>
 
       <Footer

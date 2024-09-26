@@ -3,9 +3,15 @@ import ProductCard from '../ProductCard/ProductCard'
 import { Fragment, useContext } from 'react'
 
 import { FiltersContext } from '../../contexts/FiltersContext'
+import { shootingStarContext } from '../Header/contexts/ShootingStarContext'
 
 function ShoppingList () {
   const { filteredProducts } = useContext(FiltersContext)
+  const { addShootingStar } = useContext(shootingStarContext)
+
+  const saveIntoCartHandler = () => {
+    addShootingStar()
+  }
 
   return (
     <>
@@ -13,7 +19,7 @@ function ShoppingList () {
         {filteredProducts.map(product => {
           return (
             <Fragment key={product.id}>
-              <ProductCard images={product.images} img={product.img} title={product.title} price={product.price} description={product.description} />
+              <ProductCard onClick={saveIntoCartHandler} images={product.images} img={product.img} title={product.title} price={product.price} description={product.description} />
             </Fragment>
           )
         }

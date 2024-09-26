@@ -3,7 +3,7 @@ import Button from '../Button/Button'
 import ImagesCarousel from '../ImagesCarousel/ImagesCarousel'
 import './ProductCard.css'
 
-function ProductCard ({ title, price, images, description }) {
+function ProductCard ({ title, price, images, description, onClick }) {
   return (
     <div className='card'>
       <div className='images-and-name'>
@@ -23,7 +23,7 @@ function ProductCard ({ title, price, images, description }) {
         </div>
       </div>
 
-      <div className='cart-btn-container'>
+      <div className='cart-btn-container' onClick={onClick}>
         <Button>
           <ShoppingCart width={18} height={18} />
           Add to cart
