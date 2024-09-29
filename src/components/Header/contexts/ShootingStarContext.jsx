@@ -10,7 +10,7 @@ export const ShootingStarProvider = ({ children }) => {
       if (shootingStarsArray.length !== 0) {
         setShootingStarArray([])
       }
-    }, 3000)
+    }, 4000)
 
     return () => {
       clearTimeout(timeoutID)

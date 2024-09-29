@@ -1,15 +1,29 @@
 import DiscountStar from './assets/DiscountStar'
 import './animatedLogo.css'
-import { useContext } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import { shootingStarContext } from '../Header/contexts/ShootingStarContext'
 
 function AnimatedLogo () {
   const { shootingStarsArray } = useContext(shootingStarContext)
+  const boxIconRef = useRef()
+
+  useEffect(() => {
+    if (shootingStarsArray.length) {
+      console.log('animate')
+      setTimeout(() => {
+        boxIconRef.current.classList.add('box-drop')
+        setTimeout(() => {
+          boxIconRef.current.classList.remove('box-drop')
+        }, 300)
+      }, parseFloat(shootingStarsArray[shootingStarsArray.length - 1].animationDuration) * 1000)
+    }
+  }, [shootingStarsArray])
 
   return (
     <>
       <div
         className='icon-container'
+        ref={boxIconRef}
       >
         <div className='star-box-item'>
           <DiscountStar />
