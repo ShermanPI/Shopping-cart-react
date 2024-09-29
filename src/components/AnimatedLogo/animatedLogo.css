@@ -16,6 +16,7 @@
     transition: all 0.3s ease;
 }
 
+/* Dont use this class to animate the box-drop */
 .box-drop {
     animation: boxWithDroppedItem 0.3s linear forwards;
 }
