@@ -5,6 +5,7 @@ const Header = () => {
   return (
     <header className='main-header-container'>
       <AnimatedLogo />
+      <h1>24h shopping cart</h1>
     </header>
   )
 }

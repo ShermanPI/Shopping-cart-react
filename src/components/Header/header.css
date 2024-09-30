@@ -1,5 +1,9 @@
 .main-header-container {
     display: flex;
-    width: 100%;
-    padding: 10rem;
+    width: 90%;
+    align-items: center;
+    gap: 1.4rem;
+    margin: auto;
+    margin-top: 4rem;
+    padding-inline: 2rem;
 }

@@ -6,11 +6,13 @@
 
 .icon-container {
     --icon-z-index: 9;
-    width: 200px;
+    --icon-width: 54px;
+    width: var(--icon-width);
     aspect-ratio: 1.2 / 1;
     display: flex;
     gap: var(--gap);
     position: relative;
+    margin-top: calc(var(--icon-width) / 3);
 
     transform: scale(1, 1);
     transition: all 0.3s ease;

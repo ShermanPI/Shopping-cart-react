@@ -1,10 +1,14 @@
+@font-face {
+  font-family: sfPro;
+  src: url(fonts/sf-pro-display/SFPRODISPLAYBLACKITALIC.OTF);
+}
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
+  font-family: sfPro;
   font-style: normal;
 }
 
@@ -12,7 +16,6 @@
   --secondary-color: green;
   --background-color: #e5e5e5;
   scrollbar-gutter: stable;
-
 }
 
 html { 
