@@ -23,6 +23,7 @@
 .cart-product {
     display: flex;
     height: fit-content;
+    justify-content: space-between;
     gap: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.253);
@@ -35,7 +36,7 @@
 .product-name-price {
     display: flex;
     font-size: 1.6rem;
-
+    justify-content: space-between;
 }
 
 .cart-product-name {
@@ -49,9 +50,8 @@
 
 .cart-product-info {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: end;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .product-counter{
@@ -61,4 +61,5 @@
 
 .close-cart-button{
     font-size: 2rem;
+    cursor: pointer;
 }
