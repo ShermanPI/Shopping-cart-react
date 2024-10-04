@@ -1,20 +1,18 @@
-@font-face {
-  font-family: sfPro;
-  src: url(fonts/sf-pro-display/SFPRODISPLAYBLACKITALIC.OTF);
-}
-
 *{
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
-
   font-family: sfPro;
   font-style: normal;
 }
 
+
+@font-face {
+  font-family: sfPro;
+  src: url(fonts/sf-pro-display/SFPRODISPLAYREGULAR.OTF);
+}
+
 :root{
   --secondary-color: green;
-  --background-color: #e5e5e5;
+  --background-color: #e3e6e6;
   scrollbar-gutter: stable;
 }
 
@@ -24,12 +22,6 @@ html {
 
 img{
   max-width: 100%;
-}
-
-.shop-title{
-  margin-block: 4rem;
-  font-weight: 700;
-  user-select: none;
 }
 
 body{
@@ -63,3 +55,4 @@ body{
   align-items: center;
   height: 100vh;
 }
+

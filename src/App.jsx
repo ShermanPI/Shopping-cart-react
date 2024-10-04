@@ -7,6 +7,7 @@ import { useContext } from 'react'
 import { FiltersContext } from './contexts/FiltersContext.jsx'
 import Header from './components/Header/Header.jsx'
 import { ShootingStarProvider } from './components/Header/contexts/ShootingStarContext.jsx'
+import Cart from './components/Cart/Cart.jsx'
 
 function App () {
   const { productsLoading } = useContext(FiltersContext)
@@ -27,8 +28,10 @@ function App () {
                 )
               : <ShoppingList />
           }
+            <Cart />
           </main>
         </ShootingStarProvider>
+
       </div>
 
       <Footer

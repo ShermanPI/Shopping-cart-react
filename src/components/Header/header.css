@@ -2,8 +2,30 @@
     display: flex;
     width: 90%;
     align-items: center;
-    gap: 1.4rem;
     margin: auto;
-    margin-top: 4rem;
-    padding-inline: 2rem;
+    margin-top: 2rem;
+    padding-inline: 1rem;
+    justify-content: space-between;
+}
+
+.shop-title{
+    font-size: 3rem;
+}
+
+.logo-name{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.shopping-logo-container{
+    padding: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    width: fit-content;
+    display: flex;
+}
+
+.shopping-logo-container:hover{
+    background-color: rgba(0, 0, 0, 0.164);
 }

@@ -6,7 +6,7 @@
 
 .icon-container {
     --icon-z-index: 9;
-    --icon-width: 54px;
+    --icon-width: 62px;
     width: var(--icon-width);
     aspect-ratio: 1.2 / 1;
     display: flex;

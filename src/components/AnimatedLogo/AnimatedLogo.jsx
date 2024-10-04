@@ -34,7 +34,7 @@ function AnimatedLogo () {
     if (shootingStarsArray.length) {
       console.log('animate')
       setTimeout(() => {
-        boxIconRef.current.style.transform = 'scale(1, 1.12)'
+        boxIconRef.current.style.transform = 'scale(1, 1.14)'
         setTimeout(() => {
           boxIconRef.current.style.transform = 'scale(1, 1)'
         }, 300)

@@ -1,9 +1,10 @@
 # Ecommerce
 
-- Display a list of products coming from a JSON
-- Add a category filter
-- Add a price filter
-- Use `useContext` to avoid passing unnecessary props.
+✅ - Display a list of products coming from a JSON
+✅ - Add a category filter
+✅ - Add a price filter
+✅ - Use `useContext` to avoid passing unnecessary props.
+- use `useId` at leat once, and say why to use it, and which use cases does this have
 
 ## Cart
 
