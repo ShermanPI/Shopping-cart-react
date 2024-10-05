@@ -7,8 +7,6 @@ import { CartContext } from '../../contexts/CartContext'
 const Header = () => {
   const { cartOpen, setCartOpen } = useContext(CartContext)
 
-  console.log('hey')
-
   return (
     <header className='main-header-container'>
       <div className='logo-name'>

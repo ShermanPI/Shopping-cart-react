@@ -22,5 +22,39 @@ export const CartContextProvider = ({ children }) => {
     setCartItems(newItems)
   }
 
-  return <CartContext.Provider value={{ cartOpen, setCartOpen, cartItems, addCartItem }}> {children}</CartContext.Provider>
+  const addOneToCartItemQuantity = (index) => {
+    const newItems = [...cartItems]
+
+    newItems[index].quantity += 1
+    setCartItems(newItems)
+  }
+
+  const substractOneToCartItemQuantity = (index) => {
+    const newItems = [...cartItems]
+
+    newItems[index].quantity -= 1
+    setCartItems(newItems)
+  }
+
+  const deleteProductFromCart = (index) => {
+    const newItems = [...cartItems]
+    newItems.splice(index, 1)
+
+    setCartItems(newItems)
+  }
+
+  return (
+    <CartContext.Provider value={{
+      cartOpen,
+      setCartOpen,
+      cartItems,
+      addCartItem,
+      addOneToCartItemQuantity,
+      substractOneToCartItemQuantity,
+      deleteProductFromCart
+    }}
+    >
+      {children}
+    </CartContext.Provider>
+  )
 }
