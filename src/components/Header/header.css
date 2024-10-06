@@ -24,8 +24,23 @@
     cursor: pointer;
     width: fit-content;
     display: flex;
+    position: relative;
 }
 
 .shopping-logo-container:hover{
     background-color: rgba(0, 0, 0, 0.164);
+}
+
+.shopping-logo-quantity{
+    position: absolute;
+    background-color: red;
+    z-index: 1;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    display: flex;
+    color: white;
 }
