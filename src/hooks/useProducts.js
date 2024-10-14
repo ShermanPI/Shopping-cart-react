@@ -37,7 +37,6 @@ function useProducts () {
   useEffect(
     () => {
       (async () => {
-        console.log('fetch de datos')
         setProductsLoading(true)
 
         if (filters.categorySlug === 'All') {
@@ -47,7 +46,6 @@ function useProducts () {
           setProductsLoading(false)
         } else {
           const data = await getProductsByCategory(filters.categorySlug)
-          console.log(data.products, 'data.products')
           setFilters({ ...filters, minPrice: 0 })
           setProducts(data.products)
           setProductsLoading(false)

@@ -32,7 +32,6 @@ function AnimatedLogo () {
 
   useEffect(() => {
     if (shootingStarsArray.length) {
-      console.log('animate')
       setTimeout(() => {
         boxIconRef.current.style.transform = 'scale(1, 1.14)'
         setTimeout(() => {
