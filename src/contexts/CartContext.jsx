@@ -31,14 +31,16 @@ const reducer = (state, action) => {
 
       const newItems = [...state]
 
-      newItems[index].quantity -= 1
-
       if (newItems[index].quantity === 0) {
         newItems.splice(index, 1)
         return (newItems)
       }
 
-      return (newItems)
+      return [
+        ...newItems.slice(0, index),
+        { ...newItems[index], quantity: newItems[index].quantity - 1 },
+        ...newItems.slice(index + 1)
+      ]
     }
     case 'DELETED_ITEM': {
       const { index } = action.payload
