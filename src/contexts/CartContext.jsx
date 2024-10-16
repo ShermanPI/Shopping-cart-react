@@ -20,8 +20,11 @@ const reducer = (state, action) => {
         return newItems
       }
 
-      newItems[cartItemIndex].quantity += 1
-      return newItems
+      return [
+        ...newItems.slice(0, cartItemIndex),
+        { ...newItems[cartItemIndex], quantity: newItems[cartItemIndex].quantity + 1 },
+        ...newItems.slice(cartItemIndex + 1)
+      ]
     }
     case 'SUBSTRACTED_ITEM': {
       const { index } = action.payload
