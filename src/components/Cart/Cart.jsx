@@ -1,6 +1,10 @@
 import { useContext } from 'react'
 import './cart.css'
 import { CartContext } from '../../contexts/CartContext'
+import AddIcon from '../../assets/Icons/AddIcon'
+import RemoveIcon from '../../assets/Icons/RemoveIcon'
+import CloseIcon from '../../assets/Icons/CloseIcon'
+import TrashIcon from '../../assets/Icons/TrashIcon'
 
 const Cart = () => {
   const {
@@ -14,9 +18,15 @@ const Cart = () => {
 
   return (
     <div className={`cart-items-container ${cartOpen ? 'open' : ''}`}>
-      <button className='close-cart-button' onClick={() => setCartOpen(false)}>
-        X
-      </button>
+      <div className='close-cart-container'>
+        <h2>Cart</h2>
+        <button className='close-cart-button' onClick={() => setCartOpen(false)}>
+          <CloseIcon />
+        </button>
+      </div>
+
+      <hr />
+
       {/* you can use the list rendering like this with <ul><li></li></ul> */}
       {
         cartItems.length
@@ -27,26 +37,33 @@ const Cart = () => {
               </div>
 
               <div className='cart-product-info'>
-
                 <div className='product-name-price'>
                   <b className='cart-product-name'>{item.product.title}</b>
+                  <p className='cart-product-price'>${(item.product.price * item.quantity).toFixed(2)}</p>
                 </div>
 
-                <div className='product-counter'>
-                  <p className='cart-product-price'>${item.product.price}</p>
+                <div className='item-qty-manager'>
+                  <div className='product-counter'>
+                    <button onClick={() => {
+                      if (item.quantity === 1) {
+                        deleteProductFromCart(index)
+                        return
+                      }
+                      substractCartItem(index)
+                    }}
+                    >
+                      <RemoveIcon />
+                    </button>
+                    <span>{item.quantity}</span>
+                    <button onClick={() => addCartItem(item.product)}>
+                      <AddIcon />
+                    </button>
+                  </div>
 
-                  <button onClick={() => {
-                    if (item.quantity === 1) {
-                      deleteProductFromCart(index)
-                      return
-                    }
-                    substractCartItem(index)
-                  }}
-                  >{item.quantity === 1 ? 'delete' : '-'}
+                  <button className='delete-item-button' onClick={() => deleteProductFromCart(index)}>
+                    <TrashIcon />
+                    Delete
                   </button>
-                  <span>{item.quantity}</span>
-                  <button onClick={() => addCartItem(item.product)}>+</button>
-                  <button onClick={() => deleteProductFromCart(index)}>delete</button>
                 </div>
               </div>
             </div>)

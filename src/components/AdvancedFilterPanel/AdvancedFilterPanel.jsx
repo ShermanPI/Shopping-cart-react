@@ -38,11 +38,6 @@ const AdvancedFilterPanel = () => {
 
           </div>
 
-          <div className='form-field'>
-            <label>
-              Rating:
-            </label>
-          </div>
         </div>}
     </div>
 
