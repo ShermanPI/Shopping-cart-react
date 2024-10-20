@@ -9,8 +9,6 @@ const useCart = () => {
     initializer = cartReducerInitializer
   }
 
-  console.log('render por aqui ↙️↙️💻💻🎶🎃🎃🎃')
-
   const [cart, dispatchCartEvent] = useReducer(cartReducer, initializer)
 
   const addCartItem = (cartItem) => {
