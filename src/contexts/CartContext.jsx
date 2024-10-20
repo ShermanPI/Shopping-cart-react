@@ -1,76 +1,11 @@
-import { useReducer, useState, createContext } from 'react'
+import { useState, createContext } from 'react'
+import useCart from '../hooks/useCart'
 
 export const CartContext = createContext()
 
-const initialState = []
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'ADDED_ITEM': {
-      const { cartItem } = action.payload
-
-      const cartItemIndex = state.findIndex(item => {
-        return item.product.id === cartItem.id
-      })
-
-      let newItems = [...state]
-
-      if (cartItemIndex === -1) {
-        newItems = [...newItems, { product: cartItem, quantity: 1 }]
-        return newItems
-      }
-
-      return [
-        ...newItems.slice(0, cartItemIndex),
-        { ...newItems[cartItemIndex], quantity: newItems[cartItemIndex].quantity + 1 },
-        ...newItems.slice(cartItemIndex + 1)
-      ]
-    }
-    case 'SUBSTRACTED_ITEM': {
-      const { index } = action.payload
-
-      const newItems = [...state]
-
-      if (newItems[index].quantity === 0) {
-        newItems.splice(index, 1)
-        return (newItems)
-      }
-
-      return [
-        ...newItems.slice(0, index),
-        { ...newItems[index], quantity: newItems[index].quantity - 1 },
-        ...newItems.slice(index + 1)
-      ]
-    }
-    case 'DELETED_ITEM': {
-      const { index } = action.payload
-
-      const newItems = [...state]
-      newItems.splice(index, 1)
-
-      return (newItems)
-    }
-    default: {
-      throw Error('No actions named ', action.type)
-    }
-  }
-}
-
 export const CartContextProvider = ({ children }) => {
   const [cartOpen, setCartOpen] = useState(false)
-  const [cart, dispatchCartEvent] = useReducer(reducer, initialState)
-
-  const addCartItem = (cartItem) => {
-    dispatchCartEvent({ type: 'ADDED_ITEM', payload: { cartItem } })
-  }
-
-  const substractCartItem = (index) => {
-    dispatchCartEvent({ type: 'SUBSTRACTED_ITEM', payload: { index } })
-  }
-
-  const deleteProductFromCart = (index) => {
-    dispatchCartEvent({ type: 'DELETED_ITEM', payload: { index } })
-  }
+  const { cart, addCartItem, substractCartItem, deleteProductFromCart } = useCart()
 
   return (
     <CartContext.Provider value={{

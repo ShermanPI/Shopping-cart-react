@@ -11,9 +11,9 @@
 
 #what is useID? useId is a React Hook for generating unique IDs that can be passed to *accessibility attributes*
 
-- make a customHook to use the cart context, but rememeber to put a validator to check if the contento of the context is undefined because, it is a good practive to validate it when the place the hook is using is not the indended to be at first place, so throw an error if the context is === undefined
+✅ - make a customHook to use the cart context, but rememeber to put a validator to check if the contento of the context is undefined because, it is a good practive to validate it when the place the hook is using is not the indended to be at first place, so throw an error if the context is === undefined
 
-- if a product is in the cart, make the product card is showed different to the user
+✅ - if a product is in the cart, make the product card is showed different to the user
 
 - try passing a function to the setState functions to be able to manage the previous state inside the function (try do it with deleting a product from the cart and when the product is not in the cart already). Take in account that sometimes you want and is a good practice to use this updater function when the new state depends of the prev state. Here some cases where the updater function is better than using a copy of the previous state:
 
