@@ -1,10 +1,6 @@
 export const cartReducerInitializer = []
 
 const cartReducer = (state, action) => {
-  if (window.localStorage.getItem('cart')?.length > 0) {
-    state = JSON.parse(window.localStorage.getItem('cart'))
-  }
-
   switch (action.type) {
     case 'ADDED_ITEM': {
       const { cartItem } = action.payload

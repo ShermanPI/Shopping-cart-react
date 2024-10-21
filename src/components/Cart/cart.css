@@ -46,6 +46,10 @@
 }
 
 .cart-product-price {
+    font-size: 1.6rem;
+}
+
+.single-product-price {
     color: rgba(0, 0, 0, 0.548);
     font-size: 1.6rem;
 }
