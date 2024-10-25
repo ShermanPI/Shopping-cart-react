@@ -36,7 +36,7 @@ function App () {
 
       <Footer
         projectName='Shopping Cart 🛒'
-        motive='Practice useContext and useReducer'
+        motive='Practice useContext and useReducer, and animation'
       />
     </>
   )

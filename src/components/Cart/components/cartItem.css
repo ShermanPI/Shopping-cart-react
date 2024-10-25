@@ -1,0 +1,22 @@
+.cart-product-stock{
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.product-in-stock{
+    color: green;
+}
+
+.product-out-stock{
+    color: red;
+}
+
+.disabled-btn{
+    opacity:  0.5;
+    cursor: not-allowed;
+}
+
+.disabled-btn > *{
+    cursor: not-allowed;
+}

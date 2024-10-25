@@ -12,20 +12,24 @@ const CartItem = ({ item, index }) => {
     deleteProductFromCart
   } = useContext(CartContext)
 
-  console.log(item)
+  const isStockEnough = item.product.stock > 0 && item.quantity <= item.product.stock
+  const hasReachedStock = item.product.stock <= item.quantity
 
   return (
     <div className='cart-product' key={item.product.id}>
+      {item.product.stock}
       <div className='cart-product-image'>
         <img src={item.product.thumbnail} alt='' />
       </div>
 
       <div className='cart-product-info'>
         <div className='product-name-price'>
-          <div className=''>
+
+          <div className='cart-product-stock'>
             <b className='cart-product-name'>{item.product.title}</b>
-            <p className='single-product-price'>${(item.product.price)}</p>
+            <p className='single-product-price'>${(item.product.price)} | <span className={`${isStockEnough ? 'product-in-stock' : 'product-out-stock'}`}>{item.quantity <= item.product.stock ? 'In stock' : 'Out in stock'}</span></p>
           </div>
+
           <p className='cart-product-price'>${(item.product.price * item.quantity).toFixed(2)}</p>
         </div>
 
@@ -42,7 +46,7 @@ const CartItem = ({ item, index }) => {
               <RemoveIcon />
             </button>
             <span>{item.quantity}</span>
-            <button onClick={() => addCartItem(item.product)}>
+            <button className={`${hasReachedStock ? 'disabled-btn' : ''}`} onClick={() => !hasReachedStock && addCartItem(item.product)}>
               <AddIcon />
             </button>
           </div>

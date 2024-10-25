@@ -1,8 +1,8 @@
 import { useContext } from 'react'
 import { CartContext } from '../../contexts/CartContext'
 import CloseIcon from '../../assets/Icons/CloseIcon'
-import CartItem from './components/CartItem'
 import './cart.css'
+import CartItem from './components/CartItem'
 
 const Cart = () => {
   const {

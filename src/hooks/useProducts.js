@@ -13,7 +13,7 @@ function useProducts () {
   const maxProductsPrice = useMemo(() => Math.max(...products.map((product) => product.price)), [products])
 
   const filteredProducts = products?.filter(product => {
-    return product.price >= filters.minPrice
+    return product.price >= filters.minPrice && product.stock > 0
   })
 
   const setMinPrice = (minPrice = 0) => {

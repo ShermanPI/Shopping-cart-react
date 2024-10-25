@@ -22,7 +22,7 @@ function ShoppingList () {
         {filteredProducts.map(product => {
           return (
             <Fragment key={product.id}>
-              <ProductCard onClick={() => saveIntoCartHandler(product)} images={product.images} img={product.img} title={product.title} price={product.price} description={product.description} />
+              <ProductCard onClick={() => saveIntoCartHandler(product)} product={product} />
             </Fragment>
           )
         }
