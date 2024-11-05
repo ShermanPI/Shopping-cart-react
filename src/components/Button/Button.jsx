@@ -10,8 +10,9 @@ function Button ({ children }) {
     const buttonClientRect = buttonRef.current.getBoundingClientRect()
     plusOneDiv.classList.add('plus-one-div')
 
+    console.log(buttonClientRect)
     plusOneDiv.style.left = `${(buttonClientRect.left + window.scrollX) + (buttonClientRect.width / 2) - 9}px`
-    plusOneDiv.style.top = `${(buttonClientRect.y + window.scrollY) - 14}px`
+    plusOneDiv.style.top = `${(buttonClientRect.y) - 14}px`
     plusOneDiv.innerText = '+1'
 
     document.body.appendChild(plusOneDiv)

@@ -1,40 +1,14 @@
-import { useRef, useState } from 'react'
+import ImagesCarousel from '../ImagesCarousel/ImagesCarousel'
+import { useRef } from 'react'
 import ShoppingCart from '../../assets/Icons/ShoppingCart'
 import Button from '../Button/Button'
-import ImagesCarousel from '../ImagesCarousel/ImagesCarousel'
 import './ProductCard.css'
-import ProductCardPreview from './ProductCardPreview/ProductCardPreview'
+import ProductCardPreview from './components/ProductCardPreview/ProductCardPreview'
+import useProductCard from '../../hooks/useProductCard'
 
 function ProductCard ({ product, onClick }) {
   const cardRef = useRef()
-  const [cardPreview, setCardPreview] = useState({
-    initialSize:
-      { width: 0, height: 0 },
-    initialPosition: {
-      x: 0,
-      y: 0
-    },
-    active: false
-  })
-
-  const openProductCard = (e) => {
-    const cardImage = cardRef.current.querySelector('img')
-    const cardImageRectValue = cardImage.getBoundingClientRect()
-    console.log(cardImageRectValue)
-    console.log({
-      initialSize: { width: cardImageRectValue.width, height: cardImageRectValue.height },
-      initialPosition: { x: cardImageRectValue.x, y: window.scrollY + cardImageRectValue.y },
-      active: false
-    })
-
-    console.log('window.scrollY', window.scrollY + cardImageRectValue.y, '💻💻💻')
-
-    setCardPreview({
-      initialSize: { width: cardImageRectValue.width, height: cardImageRectValue.height },
-      initialPosition: { x: cardImageRectValue.x, y: cardImageRectValue.y },
-      active: true
-    })
-  }
+  const { cardPreview, openProductCard, closeProductCard } = useProductCard(cardRef)
 
   const addToCart = (e) => {
     e.stopPropagation()
@@ -43,9 +17,9 @@ function ProductCard ({ product, onClick }) {
 
   return (
     <>
-      <div className='card' onClick={openProductCard} ref={cardRef}>
+
+      <div className={`card ${cardPreview.shouldRender ? 'hidden-card' : ''}`} onClick={openProductCard} ref={cardRef}>
         <div className='images-and-name'>
-          {/* <ImagesCarousel imagesArray={product.images} /> */}
 
           <div>
             <div className='thumbnail-container'>
@@ -75,8 +49,8 @@ function ProductCard ({ product, onClick }) {
         </div>
       </div>
 
-      {cardPreview.active &&
-        <ProductCardPreview cardPreviewInfo={cardPreview} />}
+      {cardPreview.shouldRender &&
+        <ProductCardPreview closeProductCard={closeProductCard} cardPreviewInfo={cardPreview} product={product} />}
     </>
   )
 }

@@ -87,3 +87,25 @@ You can even useState and useReducer in the same component. -->
 - Save the cart in `localStorage` so that it is recovered when the page is reloaded. (bonus points)
 
 - make two mini practices appart to use reducers
+
+
+- what causes repaint and reflows: https://csstriggers.com/
+
+- https://www.stubbornella.org/2009/03/27/reflows-repaints-css-performance-making-your-javascript-slow/: "Let’s start with a little background information. A repaint occurs when changes are made to an elements skin that changes visibility, but do not affect its layout. Examples of this include outline, visibility, or background color. According to Opera, repaint is expensive because the browser must verify the visibility of all other nodes in the DOM tree. A reflow is even more critical to performance because it involves changes that affect the layout of a portion of the page (or the whole page). Reflow of an element causes the subsequent reflow of all child and ancestor elements as well as any elements following it in the DOM."
+
+- proccess of rendering something in the browser: https://chatgpt.com/share/67218ceb-3634-8003-9277-43bfe7539242
+
+- Absolute/Fixed Elements Cause Isolated Reflows: Local Reflow (Isolated Calculation)  https://chatgpt.com/share/67219855-4db4-8003-a91e-21bef3a7bf6f
+
+- Transforms and opacity only affect the compositing layer of the browser, not the layout engine, which avoids triggering reflows and repaints entirely  # https://chatgpt.com/share/67219855-4db4-8003-a91e-21bef3a7bf6f
+
+- Not All Elements are Layered in the last step of the renderin pipeline of the browser: The browser creates layers only for elements that benefit from being rendered separately. Common cases include:
+    - Elements with CSS properties that trigger layer creation (like transform, opacity, and filter).
+    
+    - Elements that need to be positioned independently (e.g., position: fixed, fixed or absolute).
+
+    - Certain complex elements like <video>, <canvas>, and iframe.
+
+- Creating a layer (making it isolated from the flow or using some of the properties of css like trasnalte and opacity) for animations enhances performance by isolating the animated elements, enabling GPU acceleration, and minimizing the need for expensive repaint and reflow operations. This leads to smoother animations, reduced CPU load, and improved visual quality, all of which contribute to a better user experience.
+
+- animation article: https://web.dev/articles/animations-overview

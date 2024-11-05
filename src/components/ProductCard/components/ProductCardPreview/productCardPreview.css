@@ -1,0 +1,45 @@
+.card-preview-container {
+    width: var(--initial-width);
+    height: var(--initial-height);
+    left: var(--initial-x);
+    top: var(--initial-y);
+    position: fixed;
+    background-color: white;
+    transform: translate(0%, 0%);
+    transition: all 0.4s ease-in-out;
+    border-radius: 2rem;
+
+    display: flex;
+    overflow: hidden;
+}
+
+.card-preview-container.open {
+    height: 60vh;
+    width: 60%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.behind-shadow{
+    background-color: rgba(0, 0, 0, 0.411);
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+
+    transition: all 0.4s ease;
+}
+
+.behind-shadow.close{
+    background-color: transparent;
+    pointer-events: none;
+}
+
+.preview-carrousel-container{
+    display: flex;
+    align-items: center;
+    width: 50%;
+}

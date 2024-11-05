@@ -1,7 +1,10 @@
 .carousel-container{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
+    width: 100%;
     gap: 0.8rem;
 }
 
@@ -18,7 +21,7 @@
 
 .carousel-image{
     width: 100%;
-    aspect-ratio: 12/6;
+    aspect-ratio: 12/10;
     display: flex;
     justify-content: center;
     flex-shrink: 0;
@@ -46,4 +49,8 @@
 
 .carousel-point.selected{
     background-color: black;
+}
+
+.jidse{
+    display: none;
 }

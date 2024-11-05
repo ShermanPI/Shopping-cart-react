@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './imagesCarousel.css'
 
-function ImagesCarousel ({ imagesArray }) {
+function ImagesCarousel ({ imagesArray, aksdnkajshdsa }) {
   const imagesArrayLength = imagesArray.length
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
 

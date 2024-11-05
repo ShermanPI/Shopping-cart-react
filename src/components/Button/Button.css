@@ -32,7 +32,7 @@
 }
 
 .plus-one-div {
-    position: absolute;
+    position: fixed;
     user-select: none;
     pointer-events: none;
     color: var(--secondary-color);

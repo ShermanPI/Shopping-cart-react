@@ -73,9 +73,12 @@
     position: relative;
 }
 
-
 .thumbnail-container{
     aspect-ratio: 12/6;
     display: flex;
     justify-content: center;
+}
+
+.hidden-card{
+    opacity: 0;
 }
