@@ -43,16 +43,18 @@ const ProductCardPreview = ({ cardPreviewInfo, product, closeProductCard }) => {
               </div>
               <div className='product-detail-info'>
 
-                <h1>{product.title}</h1>
-                <h2>$ {product.price}</h2>
-                <h2>Rating: {product.rating}</h2>
+                <div className='product-buying-info black-scroll-bar'>
+                  <h1>{product.title}</h1>
+                  <h2>$ {product.price}</h2>
+                  <h2>Rating: {product.rating}</h2>
 
-                <hr />
+                  <hr />
 
-                <h2>Dimensions:</h2>
-                <p>{product.dimensions.depth} x {product.dimensions.height} x {product.dimensions.width} cm</p>
+                  <h2>Dimensions:</h2>
+                  <p>{product.dimensions.depth} x {product.dimensions.height} x {product.dimensions.width} cm</p>
 
-                <p>{product.description}</p>
+                  <p>{product.description}</p>
+                </div>
 
                 <div className='product-card-preview-btn'>
                   <Button>
