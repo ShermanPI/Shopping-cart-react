@@ -1,0 +1,88 @@
+.carrousel-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    gap: 0.8rem;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.carrousel-images-container {
+    display: flex;
+    max-height: 100%;
+    transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.carrousel-images-container::-webkit-scrollbar {
+    display: none;
+}
+
+.carrousel-image{
+    width: 100%;
+    aspect-ratio: 12/10;
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+
+}
+
+.carrousel-points-container{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.carrousel-point{
+    height: 8px;
+    width: 8px;
+    cursor: pointer;
+    background-color: #e1e1e1;
+    border-radius: 100%;
+}
+
+.carrousel-points-container.no-items{
+    margin-bottom: 8px;
+}
+
+.carrousel-point.selected{
+    background-color: black;
+}
+
+.carrousel-btns{
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.carrousel-btns button{
+    background-color: transparent;
+    border: none;
+    display: flex;
+    cursor: pointer;
+}
+
+.carrousel-btns button:active{
+    color: var(--secondary-color);
+}
+
+.carrousel-btns button:hover{
+    background-color: rgba(0, 0, 0, 0.137);
+    border-radius: 4rem;
+}
+
+.carrousel-btns button:nth-child(1){
+    transform: rotate(180deg);
+}
+
+.carrousel-btns button svg{
+    width: 3.8rem;
+    height: 3.8rem;
+}

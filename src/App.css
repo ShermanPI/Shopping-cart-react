@@ -96,5 +96,5 @@ body {
 
 /* Handle on hover */
 .black-scroll-bar::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.87); 
+  background: rgba(0, 0, 0, 0.753); 
 }

@@ -6,7 +6,7 @@
     position: fixed;
     background-color: white;
     transform: translate(0%, 0%);
-    transition: all 0.4s ease-in-out;
+    transition: all 0.3s ease-in-out;
     border-radius: 2rem;
     padding-inline: 6rem;
     padding-block: 4rem;
@@ -32,7 +32,7 @@
     bottom: 0;
     z-index: 10;
 
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
 }
 
 .behind-shadow.close {
@@ -40,15 +40,12 @@
     pointer-events: none;
 }
 
-
-
 .preview-carrousel-container {
     display: flex;
     align-items: center;
     width: 100%;
     opacity: 0;
-    animation: open 1s linear forwards;
-
+    animation: open 0.4s linear forwards;
 }
 
 .product-detail-info {
@@ -65,7 +62,7 @@
     height: 100%;
     position: relative;
     overflow: auto;
-    animation: open 1s linear forwards;
+    animation: open 0.4s linear forwards;
     padding-right: 1rem;
 
     display: flex;

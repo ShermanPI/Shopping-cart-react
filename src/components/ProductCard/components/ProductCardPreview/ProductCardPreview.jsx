@@ -1,8 +1,8 @@
 import { Fragment, useEffect, useState } from 'react'
 import './productCardPreview.css'
-import ImagesCarousel from '../../../ImagesCarousel/ImagesCarousel'
 import Button from '../../../Button/Button'
 import ShoppingCart from '../../../../assets/Icons/ShoppingCart'
+import Imagescarrousel from '../../../ImagesCarousel/ImagesCarrousel'
 
 const ProductCardPreview = ({ cardPreviewInfo, product, closeProductCard }) => {
   const [open, setOpen] = useState(false)
@@ -36,10 +36,10 @@ const ProductCardPreview = ({ cardPreviewInfo, product, closeProductCard }) => {
         onClick={(e) => e.stopPropagation()}
       >
         {
-          animationFinished &&
+          (animationFinished && open) &&
             <>
               <div className='preview-carrousel-container'>
-                <ImagesCarousel imagesArray={product.images} />
+                <Imagescarrousel imagesArray={product.images} />
               </div>
               <div className='product-detail-info'>
 
