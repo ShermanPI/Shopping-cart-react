@@ -1,4 +1,3 @@
-import ImagesCarousel from '../ImagesCarousel/ImagesCarousel'
 import { useRef } from 'react'
 import ShoppingCart from '../../assets/Icons/ShoppingCart'
 import Button from '../Button/Button'

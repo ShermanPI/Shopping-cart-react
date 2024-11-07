@@ -1,30 +1,51 @@
-*{
+/* START OF CSS RESET */
+
+html {
+  font-size: 62.5%;
+}
+
+* {
   box-sizing: border-box;
   font-family: sfPro;
   font-style: normal;
+  padding: 0px;
+  margin: 0px;
 }
 
+h1 {
+  font-size: 2.4rem;
+  font-size: clamp(2.4rem, 1.1179487179487175rem + 5.470085470085471vw, 4.4rem);
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-size: clamp(1.75rem, 1.5897435897435896rem + 0.6837606837606838vw, 2rem);
+}
+
+p {
+  font-size: 1.375rem;
+  font-size: clamp(1.375rem, 1.325rem + 0.25vw, 1.625rem);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* END OF CSS RESET */
+
+:root {
+  --secondary-color: rgb(0, 94, 235);
+  --background-color: #e3e6e6;
+}
 
 @font-face {
   font-family: sfPro;
   src: url(fonts/sf-pro-display/SFPRODISPLAYREGULAR.OTF);
 }
 
-:root{
-  --secondary-color: rgb(0, 94, 235);
-  --background-color: #e3e6e6;
 
-}
-
-html { 
-  font-size: 62.5%;
-}
-
-img{
-  max-width: 100%;
-}
-
-body{
+body {
   background-color: #e5e5e5;
 
 }
@@ -34,7 +55,7 @@ body{
   flex-direction: column;
 }
 
-.filters-main-container{
+.filters-main-container {
   display: flex;
   width: 20%;
   max-width: 200px;
@@ -42,17 +63,16 @@ body{
   background-color: red;
 }
 
-.products-main-container{
+.products-main-container {
   width: 90%;
   overflow: auto;
   margin: auto;
 }
 
-.loader-container{
+.loader-container {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
-
