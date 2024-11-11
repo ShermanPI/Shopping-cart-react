@@ -44,7 +44,6 @@ img {
   src: url(fonts/sf-pro-display/SFPRODISPLAYREGULAR.OTF);
 }
 
-
 body {
   background-color: #e5e5e5;
   overflow: hidden;
@@ -68,7 +67,7 @@ body {
 
 .products-main-container {
   width: 90%;
-  margin: auto;
+  margin-inline: auto;
 }
 
 .loader-container {

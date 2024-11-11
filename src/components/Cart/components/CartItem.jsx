@@ -17,7 +17,6 @@ const CartItem = ({ item, index }) => {
 
   return (
     <div className='cart-product' key={item.product.id}>
-      {item.product.stock}
       <div className='cart-product-image'>
         <img src={item.product.thumbnail} alt='' />
       </div>
