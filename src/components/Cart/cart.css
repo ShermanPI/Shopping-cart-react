@@ -14,7 +14,6 @@
     transform: translateX(100%);
     transition: all ease 0.3s;
     box-shadow: -3px 0px 7px 0px rgba(0, 0, 0, 0.253);
-    overflow-y: auto;
 }
 
 .cart-items-container.open {

@@ -23,7 +23,7 @@ function Imagescarrousel ({ imagesArray }) {
   }
 
   return (
-    <div className='carrousel-container'>
+    <div className='images-carrousel-container'>
       {
         !areControlsVisible &&
           <div className='carrousel-btns'>

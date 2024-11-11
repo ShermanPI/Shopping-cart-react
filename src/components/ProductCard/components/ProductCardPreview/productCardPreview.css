@@ -26,18 +26,19 @@
 .behind-shadow {
     background-color: rgba(0, 0, 0, 0.411);
     position: fixed;
-    left: 0;
+    display: flex;
     top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 10;
+    left: 0;
+    width: 100%;
+    height: 100%;
 
+    z-index: 10;
     transition: all 0.3s ease;
+
 }
 
 .behind-shadow.close {
     background-color: transparent;
-    pointer-events: none;
 }
 
 .preview-carrousel-container {
