@@ -11,18 +11,18 @@ const Header = () => {
 
   return (
     <header className='main-header-container'>
-      <div className='logo-name'>
-        <AnimatedLogo />
-        <h1 className='shop-title'>24h Shopping Cart</h1>
-      </div>
-      {/* you can use a checkbox and the pseudoclass :check to show the cart items */}
-      <div className='shopping-logo-container' onClick={() => setCartOpen(!cartOpen)}>
-        {
-          Boolean(productsQuantity) &&
-            <div className='shopping-logo-quantity'>
-              {productsQuantity}
-            </div>
-        }
+      <AnimatedLogo />
+      <div
+        className='shopping-logo-container'
+        onClick={() => setCartOpen(!cartOpen)}
+        role='button'
+        tabIndex={0}
+        aria-label='Toggle Cart'
+        onKeyDown={(e) => e.key === 'Enter' && setCartOpen(!cartOpen)}
+      >
+        {Boolean(productsQuantity) && (
+          <div className='shopping-logo-quantity'>{productsQuantity}</div>
+        )}
         <ShoppingCart width={32} height={32} />
       </div>
     </header>
