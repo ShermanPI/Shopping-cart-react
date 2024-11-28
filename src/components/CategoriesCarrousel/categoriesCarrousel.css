@@ -27,16 +27,14 @@
     justify-content: center;
     height: 100%;
     aspect-ratio: 1 / 1;
-    border-radius: 100%;
-    border: 0;
+    border: 1px solid var(--border-color);
+    border-radius: var(--button-border-radius);
     padding: 0;
-    color: var(--secondary-color);
     background-color: var(--background-color);
 }
 
 .carrousel-move-btn:hover {
-    background-color: #b2b2b276;
-    color: #c8f94c;
+    background-color: var(--button-hover-background);
 }
 
 

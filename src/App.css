@@ -35,8 +35,12 @@ img {
 /* END OF CSS RESET */
 
 :root {
-  --secondary-color: rgb(0, 94, 235);
-  --background-color: #e3e6e6;
+  --secondary-color: rgb(219, 235, 0);
+  --background-color: #f9fafb;
+  --border-color: #e5e7eb;
+  --button-border-radius: 0.4rem;
+  --button-background-color: rgba(24, 24, 27, 0.953);
+  --button-hover-background: #f0f0f3;
 }
 
 @font-face {
@@ -45,7 +49,7 @@ img {
 }
 
 body {
-  background-color: #e5e5e5;
+  background-color: var(--background-color);
   overflow: hidden;
 }
 

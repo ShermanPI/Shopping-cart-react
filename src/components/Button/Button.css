@@ -1,16 +1,16 @@
 .regular-btn {
-    background-color: black;
+    background-color: rgba(24, 24, 27, 0.953);
     color: white;
     border: solid 1px transparent;
-    border-radius: 2rem;
+    border-radius: 0.4rem;
     -webkit-box-shadow:
         0px 1px 0px 0px white,
         0px 3px 0px 0px #b9b9b9;
     -moz-box-shadow: 0px 1px 0px 0px white,
         0px 3px 0px 0px #b9b9b9;
     box-shadow:
-        0px 1px 0px 0px white,
-        0px 3px 0px 0px #b9b9b9;
+        1px 1px 0px 0px white,
+        2px 2px 0px 0px #b9b9b9;
     padding-inline: 4rem;
     padding-block: 0.6rem;
     width: 100%;
@@ -19,15 +19,18 @@
     justify-content: center;
     gap: 0.6rem;
     user-select: none;
+    transition: 0.2s all ease;
+}
+
+
+.regular-btn:hover{
+    background-color: #18181be6;
+    border: 1px solid var(--button-background-color);
 }
 
 .regular-btn:active  {
-    /* background-color: white; */
-    /* color: black; */
-    border: 1px solid black;
-    border-radius: 2rem;
 
-    transform: translateY(3px);
+    transform: translate(2px, 2px);
     box-shadow: 0px 0px 0px 0px #b9b9b9;
 }
 

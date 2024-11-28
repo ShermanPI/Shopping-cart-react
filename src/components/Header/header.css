@@ -1,40 +1,45 @@
 .main-header-container {
     display: flex;
-    width: 90%;
+    width: 100%;
     align-items: center;
     margin-inline: auto;
-    padding-top: 4rem;
-    padding-inline: 1.4rem;
+    padding-block: 2rem;
+    padding-inline: 5%;
     justify-content: space-between;
     position: sticky;
     top: 0;
-    background-color: var(--background-color);
+    background-color: #fdfdfd;
+    border-bottom: 1px solid;
+    border-color: var(--border-color);
     z-index: 5;
 }
 
 .shopping-logo-container{
     padding: 1rem;
-    border-radius: 50%;
     cursor: pointer;
+    border-radius: var(--button-border-radius);
+    border: 1px solid var(--border-color);
     width: fit-content;
     display: flex;
     position: relative;
 }
 
 .shopping-logo-container:hover{
-    background-color: rgba(0, 0, 0, 0.164);
+    background-color: var(--button-hover-background);
 }
 
 .shopping-logo-quantity{
     position: absolute;
-    background-color: red;
+    background-color: var(--button-background-color);
     z-index: 1;
-    right: 10px;
-    width: 15px;
-    height: 15px;
+    right: -0.8rem;
+    top: -0.8rem;
+    width: 2rem;
+    height: 2rem;
     justify-content: center;
     align-items: center;
     border-radius: 100%;
     display: flex;
     color: white;
+    font-size: 1.2rem;
 }

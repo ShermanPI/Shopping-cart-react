@@ -49,13 +49,15 @@ function AnimatedLogo () {
     $logoText.replaceChildren(...mappedTextFragment)
   }, [])
 
+  useEffect(() => {
+
+  }, [])
+
   const handleMouseOver = () => {
-    console.log('hey')
     setMouseOnIcon(true)
   }
 
   const handleMouseLeave = () => {
-    console.log('hey')
     setMouseOnIcon(false)
   }
 

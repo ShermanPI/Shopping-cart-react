@@ -6,12 +6,10 @@
 
 .filters-panel-btn{
     height: 100%;
-    padding-left: 2.2rem;
-    padding-right: 1.4rem;
+    padding-inline: 1rem;
     font-size: 1.4rem;
     padding-block: 0.5rem;
-    background-color: #b2b2b276;
-    border-radius: 5rem;
+    border-radius: 0.4rem;
     cursor: pointer;
     color: black;
     display: flex;
@@ -19,10 +17,11 @@
     gap: 0.4rem;
     border: 1px solid transparent;
     position: relative;
+    border-color: var(--border-color);
 }
 
 .filters-panel-btn:hover{
-    color: black;
+    color: white;
     background-color: var(--secondary-color);
     border: 1px solid var(--secondary-color);
     user-select: none;

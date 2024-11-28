@@ -11,7 +11,6 @@ const AdvancedFilterPanel = () => {
   return (
     <div className='all-filters-container'>
       <div onClick={() => setPanelOpen(!panelOpen)} className='filters-panel-btn'>
-        Filters
         <FilterIcon width={18} />
       </div>
       {panelOpen &&

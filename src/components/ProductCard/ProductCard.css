@@ -2,8 +2,7 @@
     background-color: white;
     height: 315px;
     width: 100%;
-    max-width: 250px;
-    border-radius: 2rem;
+    border-radius: 1rem;
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -11,8 +10,8 @@
     margin: auto;
     user-select: none;
     cursor: pointer;
+    border: 1px solid var(--border-color) ;
 
-    box-shadow: 0px 0px 30px -3px rgba(0, 0, 0, 0.1);
 }
 
 .name-price-container {
