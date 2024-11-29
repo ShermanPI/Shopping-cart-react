@@ -1,20 +1,20 @@
 .cart-items-container {
     display: flex;
     flex-direction: column;
-    position: fixed;
+    position: absolute;
 
     z-index: 9;
-    top: 0;
     right: 0;
     width: 100%;
     padding: 2.4rem;
     padding-right: 1rem;
     background-color: white;
-    height: 100vh;
+    height: 96vh;
     max-width: 375px;
     transform: translateX(100%);
     transition: all ease 0.3s;
-    box-shadow: -3px 0px 7px 0px rgba(0, 0, 0, 0.253);
+    border: solid 1px var(--border-color);
+    border-radius: var(--button-border-radius);
 }
 
 .cart-products-container{
@@ -26,7 +26,7 @@
 }
 
 .cart-items-container.open {
-    transform: translateX(0);
+    transform: translateX(-16px);
 }
 
 .cart-product {
@@ -127,4 +127,22 @@
 .delete-item-button svg{
     width: 1.8rem;
     height: 1.8rem;
+}
+
+.cart-shadow{
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transition: all ease 0.3s;
+}
+
+.cart-shadow.close{
+    pointer-events: none;
+    background-color: transparent;
 }

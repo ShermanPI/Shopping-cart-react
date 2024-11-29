@@ -34,11 +34,11 @@
 
     z-index: 10;
     transition: all 0.3s ease;
-
 }
 
 .behind-shadow.close {
     background-color: transparent;
+    pointer-events: none;
 }
 
 .preview-carrousel-container {

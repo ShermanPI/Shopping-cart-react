@@ -7,23 +7,26 @@ function Button ({ children }) {
   const clickHandler = (e) => {
     const plusOneDiv = document.createElement('div')
 
-    const buttonClientRect = buttonRef.current.getBoundingClientRect()
     plusOneDiv.classList.add('plus-one-div')
 
-    plusOneDiv.style.left = `${(buttonClientRect.left + window.scrollX) + (buttonClientRect.width / 2) - 9}px`
-    plusOneDiv.style.top = `${(buttonClientRect.y) - 14}px`
+    plusOneDiv.style.left = `${e.clientX - 10}px`
+    plusOneDiv.style.top = `${e.clientY - 20}px`
+
+    // const buttonClientRect = buttonRef.current.getBoundingClientRect()
+    // plusOneDiv.style.left = `${(buttonClientRect.left + window.scrollX) + (buttonClientRect.width / 2) - 9}px`
+    // plusOneDiv.style.top = `${(buttonClientRect.y) - 14}px`
     plusOneDiv.innerText = '+1'
 
     document.body.appendChild(plusOneDiv)
 
     setTimeout(() => {
       document.body.removeChild(plusOneDiv)
-    }, 1500)
+    }, 15000)
   }
 
   return (
     <button
-      className='regular-btn '
+      className='regular-button '
       onClick={clickHandler}
       ref={buttonRef}
     >

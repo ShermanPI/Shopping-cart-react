@@ -1,6 +1,6 @@
 .loader {
   --path: #2f3545;
-  --dot: var(--secondary-color);
+  --dot: var(--button-background-color);
   --duration: 3s;
   width: 44px;
   height: 44px;

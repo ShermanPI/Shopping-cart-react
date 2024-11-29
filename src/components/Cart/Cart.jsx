@@ -11,20 +11,25 @@ const Cart = () => {
     cartItems
   } = useContext(CartContext)
 
+  const closeCart = () => {
+    setCartOpen(false)
+  }
+
   return (
-    <div className={`cart-items-container ${cartOpen ? 'open' : ''} `}>
-      <div className='close-cart-container'>
-        <h2>Cart</h2>
-        <button className='close-cart-button' onClick={() => setCartOpen(false)}>
-          <CloseIcon />
-        </button>
-      </div>
-      <div className='cart-products-container black-scroll-bar'>
+    <div className={`cart-shadow ${cartOpen ? '' : 'close'} `} onClick={closeCart}>
+      <div className={`cart-items-container ${cartOpen ? 'open' : ''} `}>
+        <div className='close-cart-container'>
+          <h2>Cart</h2>
+          <button className='close-cart-button' onClick={closeCart}>
+            <CloseIcon />
+          </button>
+        </div>
+        <div className='cart-products-container black-scroll-bar'>
 
-        <hr />
+          <hr />
 
-        {/* you can use the list rendering like this with <ul><li></li></ul> */}
-        {
+          {/* you can use the list rendering like this with <ul><li></li></ul> */}
+          {
         cartItems.length
           ? cartItems.map((item, index) =>
             <CartItem key={item.product.id} item={item} index={index} />)
@@ -34,6 +39,7 @@ const Cart = () => {
             </div>
             )
       }
+        </div>
       </div>
     </div>
   )

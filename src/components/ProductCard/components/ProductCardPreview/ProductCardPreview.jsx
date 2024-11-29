@@ -24,7 +24,6 @@ const ProductCardPreview = ({ cardPreviewInfo, product, closeProductCard }) => {
 
   return (
     <div className={`behind-shadow ${open ? '' : 'close'}`} onClick={handleClosePreview}>
-
       <div
         style={{
           '--initial-width': `${cardPreviewInfo.initialSize.width}px`,
