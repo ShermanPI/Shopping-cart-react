@@ -65,7 +65,7 @@ const ProductCardPreview = ({ cardPreviewInfo, product, closeProductCard }) => {
                 </div>
 
                 <div className='product-card-preview-btn'>
-                  <Button onClick={saveIntoCartHandler}>
+                  <Button onClick={() => saveIntoCartHandler(product)}>
                     <ShoppingCart width={18} height={18} />
                     Add to cart
                   </Button>
