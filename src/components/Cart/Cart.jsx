@@ -3,6 +3,7 @@ import { CartContext } from '../../contexts/CartContext'
 import CloseIcon from '../../assets/Icons/CloseIcon'
 import './cart.css'
 import CartItem from './components/CartItem'
+import Button from '../Button/Button'
 
 const Cart = () => {
   const {
@@ -15,6 +16,11 @@ const Cart = () => {
     setCartOpen(false)
   }
 
+  const checkoutHandle = (event) => {
+    console.log('hey')
+    event.stopPropagation()
+  }
+
   return (
     <div className={`cart-shadow ${cartOpen ? '' : 'close'} `} onClick={closeCart}>
       <div className={`cart-items-container ${cartOpen ? 'open' : ''} `}>
@@ -25,20 +31,20 @@ const Cart = () => {
           </button>
         </div>
         <div className='cart-products-container black-scroll-bar'>
-
-          <hr />
-
-          {/* you can use the list rendering like this with <ul><li></li></ul> */}
           {
-        cartItems.length
-          ? cartItems.map((item, index) =>
-            <CartItem key={item.product.id} item={item} index={index} />)
-          : (
-            <div>
-              <h2>no items added yet!</h2>
-            </div>
-            )
-      }
+            cartItems.length
+              ? cartItems.map((item, index) =>
+                <CartItem key={item.product.id} item={item} index={index} />)
+              : (
+                <div>
+                  <h2>no items added yet!</h2>
+                </div>)
+          }
+        </div>
+        <div>
+          <Button onClick={checkoutHandle}>
+            Checkout
+          </Button>
         </div>
       </div>
     </div>

@@ -89,17 +89,17 @@ body {
 
 /* Track */
 .black-scroll-bar::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 2px grey;
-  border-radius: 0.6rem;
+  /* box-shadow: inset 0 0 2px grey;
+  border-radius: 0.6rem; */
 }
 
 /* Handle */
 .black-scroll-bar::-webkit-scrollbar-thumb {
-  background: black;
+  background: #cccccc;
   border-radius: 0.6rem;
 }
 
 /* Handle on hover */
 .black-scroll-bar::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.753);
+  background: rgba(0, 0, 0, 0.8);
 }

@@ -6,9 +6,9 @@
     z-index: 9;
     right: 0;
     width: 100%;
-    padding: 2.4rem;
-    padding-right: 1rem;
     background-color: white;
+    padding-inline: 2rem;
+    padding-block: 3rem;
     height: 96vh;
     max-width: 375px;
     transform: translateX(100%);
@@ -17,7 +17,7 @@
     border-radius: var(--button-border-radius);
 }
 
-.cart-products-container{
+.cart-products-container {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -70,7 +70,7 @@
     width: 100%;
 }
 
-.product-counter{
+.product-counter {
     font-size: 1.6rem;
     display: flex;
     align-items: center;
@@ -81,7 +81,7 @@
     padding-inline: 0.5rem;
 }
 
-.product-counter button{
+.product-counter button {
     width: 2rem;
     cursor: pointer;
     background-color: transparent;
@@ -91,12 +91,12 @@
     color: rgba(0, 0, 0, 0.479);
 }
 
-.item-qty-manager{
+.item-qty-manager {
     display: flex;
     justify-content: space-between;
 }
 
-.close-cart-container{
+.close-cart-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -107,14 +107,14 @@
     font-size: 2rem;
 }
 
-.close-cart-button{
+.close-cart-button {
     font-size: 2rem;
     cursor: pointer;
     border: none;
     background-color: transparent;
 }
 
-.delete-item-button{
+.delete-item-button {
     background-color: transparent;
     border: none;
     display: flex;
@@ -124,12 +124,12 @@
     cursor: pointer;
 }
 
-.delete-item-button svg{
+.delete-item-button svg {
     width: 1.8rem;
     height: 1.8rem;
 }
 
-.cart-shadow{
+.cart-shadow {
     display: flex;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.8);
@@ -142,7 +142,7 @@
     transition: all ease 0.3s;
 }
 
-.cart-shadow.close{
+.cart-shadow.close {
     pointer-events: none;
     background-color: transparent;
 }

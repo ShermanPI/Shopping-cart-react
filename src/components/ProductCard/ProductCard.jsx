@@ -40,8 +40,8 @@ function ProductCard ({ product, onClick }) {
           </div>
         </div>
 
-        <div className='cart-btn-container' onClick={addToCart}>
-          <Button>
+        <div className='cart-btn-container'>
+          <Button onClick={addToCart}>
             <ShoppingCart width={18} height={18} />
             Add to cart
           </Button>

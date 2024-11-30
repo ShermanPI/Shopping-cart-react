@@ -34,7 +34,8 @@ const CartItem = ({ item, index }) => {
 
         <div className='item-qty-manager'>
           <div className='product-counter'>
-            <button onClick={() => {
+            <button onClick={(e) => {
+              e.stopPropagation()
               if (item.quantity === 1) {
                 deleteProductFromCart(index)
                 return
@@ -50,7 +51,12 @@ const CartItem = ({ item, index }) => {
             </button>
           </div>
 
-          <button className='delete-item-button' onClick={() => deleteProductFromCart(index)}>
+          <button
+            className='delete-item-button' onClick={(e) => {
+              e.stopPropagation()
+              deleteProductFromCart(index)
+            }}
+          >
             <TrashIcon />
             Delete
           </button>

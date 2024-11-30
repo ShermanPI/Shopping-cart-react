@@ -1,7 +1,7 @@
 import { useRef } from 'react'
-import './Button.css'
+import './button.css'
 
-function Button ({ children }) {
+function Button ({ children, onClick }) {
   const buttonRef = useRef(null)
 
   const clickHandler = (e) => {
@@ -22,6 +22,8 @@ function Button ({ children }) {
     setTimeout(() => {
       document.body.removeChild(plusOneDiv)
     }, 15000)
+
+    if (onClick) onClick(e)
   }
 
   return (

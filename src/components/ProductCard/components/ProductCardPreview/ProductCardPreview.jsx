@@ -1,12 +1,21 @@
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, useContext, useEffect, useState } from 'react'
 import './productCardPreview.css'
 import Button from '../../../Button/Button'
 import ShoppingCart from '../../../../assets/Icons/ShoppingCart'
 import Imagescarrousel from '../../../ImagesCarousel/ImagesCarrousel'
+import { shootingStarContext } from '../../../Header/contexts/ShootingStarContext'
+import { CartContext } from '../../../../contexts/CartContext'
 
 const ProductCardPreview = ({ cardPreviewInfo, product, closeProductCard }) => {
   const [open, setOpen] = useState(false)
   const [animationFinished, setAnimationFinished] = useState(false)
+  const { addShootingStar } = useContext(shootingStarContext)
+  const { addCartItem } = useContext(CartContext)
+
+  const saveIntoCartHandler = (cartItem) => {
+    addShootingStar()
+    addCartItem(cartItem)
+  }
 
   const handleClosePreview = (e) => {
     e.stopPropagation()
@@ -56,7 +65,7 @@ const ProductCardPreview = ({ cardPreviewInfo, product, closeProductCard }) => {
                 </div>
 
                 <div className='product-card-preview-btn'>
-                  <Button>
+                  <Button onClick={saveIntoCartHandler}>
                     <ShoppingCart width={18} height={18} />
                     Add to cart
                   </Button>
