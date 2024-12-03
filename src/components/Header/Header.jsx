@@ -23,7 +23,7 @@ const Header = () => {
         {Boolean(productsQuantity) && (
           <div className='shopping-logo-quantity'>{productsQuantity}</div>
         )}
-        <ShoppingCart width={28} height={28} />
+        <ShoppingCart width={24} height={24} />
       </div>
     </header>
   )

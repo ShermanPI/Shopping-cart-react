@@ -25,40 +25,40 @@ const CartItem = ({ item, index }) => {
         <div className='product-name-price'>
 
           <div className='cart-product-stock'>
-            <b className='cart-product-name'>{item.product.title}</b>
-            <p className='single-product-price'>${(item.product.price)} | <span className={`${isStockEnough ? 'product-in-stock' : 'product-out-stock'}`}>{item.quantity <= item.product.stock ? 'In stock' : 'Out in stock'}</span></p>
+            <p className='cart-product-name'>{item.product.title}</p>
+            <p className='single-product-price'>${(item.product.price)} <span className={`${isStockEnough ? 'product-in-stock' : 'product-out-stock'}`}>{item.quantity <= item.product.stock ? 'In stock' : 'Out in stock'}</span></p>
           </div>
 
           <p className='cart-product-price'>${(item.product.price * item.quantity).toFixed(2)}</p>
         </div>
 
-        <div className='item-qty-manager'>
+        <div className='item-quantity-manager'>
           <div className='product-counter'>
-            <button onClick={(e) => {
-              e.stopPropagation()
-              if (item.quantity === 1) {
-                deleteProductFromCart(index)
-                return
-              }
-              substractCartItem(index)
-            }}
+            <button
+              className='product-counter-button' onClick={(e) => {
+                e.stopPropagation()
+                if (item.quantity === 1) {
+                  deleteProductFromCart(index)
+                  return
+                }
+                substractCartItem(index)
+              }}
             >
-              <RemoveIcon />
+              <RemoveIcon width={16} height={16} />
             </button>
-            <span>{item.quantity}</span>
-            <button className={`${hasReachedStock ? 'disabled-btn' : ''}`} onClick={() => !hasReachedStock && addCartItem(item.product)}>
-              <AddIcon />
+            <span className='item-quantity'>{item.quantity}</span>
+            <button className={`${hasReachedStock ? 'disabled-btn' : ''} product-counter-button`} onClick={() => !hasReachedStock && addCartItem(item.product)}>
+              <AddIcon width={16} height={16} />
             </button>
           </div>
 
           <button
-            className='delete-item-button' onClick={(e) => {
+            className='delete-item-button ' onClick={(e) => {
               e.stopPropagation()
               deleteProductFromCart(index)
             }}
           >
-            <TrashIcon />
-            Delete
+            <TrashIcon height={16} width={16} />
           </button>
         </div>
       </div>

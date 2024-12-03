@@ -4,6 +4,7 @@ import CloseIcon from '../../assets/Icons/CloseIcon'
 import './cart.css'
 import CartItem from './components/CartItem'
 import Button from '../Button/Button'
+import animateFireworks from '../../helpers/animateFireworks'
 
 const Cart = () => {
   const {
@@ -17,15 +18,19 @@ const Cart = () => {
   }
 
   const checkoutHandle = (event) => {
-    console.log('hey')
+    animateFireworks({ duration: 5000 })
     event.stopPropagation()
   }
 
+  const totalPrice = cartItems.reduce((totalPrice, currentItem) => {
+    return totalPrice + (currentItem.product.price * currentItem.quantity)
+  }, 0).toFixed(2)
+
   return (
     <div className={`cart-shadow ${cartOpen ? '' : 'close'} `} onClick={closeCart}>
-      <div className={`cart-items-container ${cartOpen ? 'open' : ''} `}>
+      <div className={`cart-items-container ${cartOpen ? 'open' : ''} `} onClick={(e) => e.stopPropagation()}>
         <div className='close-cart-container'>
-          <h2>Cart</h2>
+          <p>Cart</p>
           <button className='close-cart-button' onClick={closeCart}>
             <CloseIcon />
           </button>
@@ -41,7 +46,19 @@ const Cart = () => {
                 </div>)
           }
         </div>
-        <div>
+        <div className='checkout-button-container'>
+          <div className='checkout-button-line' />
+
+          <div className='total-price'>
+            <p>
+              <b>
+                Total:
+              </b>
+            </p>
+            <p>
+              ${totalPrice}
+            </p>
+          </div>
           <Button onClick={checkoutHandle}>
             Checkout
           </Button>
