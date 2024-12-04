@@ -10,7 +10,8 @@ const Cart = () => {
   const {
     cartOpen,
     setCartOpen,
-    cartItems
+    cartItems,
+    clearCart
   } = useContext(CartContext)
 
   const closeCart = () => {
@@ -18,8 +19,11 @@ const Cart = () => {
   }
 
   const checkoutHandle = (event) => {
-    animateFireworks({ duration: 5000 })
-    event.stopPropagation()
+    if (cartItems.length) {
+      clearCart()
+      animateFireworks({ duration: 5000 })
+      event.stopPropagation()
+    }
   }
 
   const totalPrice = cartItems.reduce((totalPrice, currentItem) => {
@@ -41,8 +45,12 @@ const Cart = () => {
               ? cartItems.map((item, index) =>
                 <CartItem key={item.product.id} item={item} index={index} />)
               : (
-                <div>
-                  <h2>no items added yet!</h2>
+                <div className='no-items-cart-container'>
+                  <h2>No items added yet!</h2>
+                  <h2>
+
+                    ¯\_(ツ)_/¯
+                  </h2>
                 </div>)
           }
         </div>

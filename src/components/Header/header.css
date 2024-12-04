@@ -22,6 +22,7 @@
     width: fit-content;
     display: flex;
     position: relative;
+    transition: all 0.3s linear;
 }
 
 .shopping-logo-container:hover{

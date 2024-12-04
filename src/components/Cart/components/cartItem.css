@@ -5,11 +5,26 @@
 }
 
 .product-in-stock{
-    color: green;
+    color: #0000008c;
+    border: 1px solid var(--border-color);
+    border-radius: 2rem;
+    padding-right: 1rem;
+    font-size: 1.2rem;
+    display: flex;
+    padding-inline: 1rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .product-out-stock{
-    color: red;
+    color: white;
+    border-radius: 2rem;
+    padding-inline: 0.8rem;
+    font-size: 1.2rem;
+    background-color: #ef4444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .disabled-btn{
@@ -52,6 +67,8 @@
 .single-product-price {
     color: rgba(0, 0, 0, 0.548);
     font-size: 1.6rem;
+    display: flex;
+    gap: 1rem;
 }
 
 .cart-product-info {
@@ -72,4 +89,30 @@
 
 .product-counter-button:hover {
     background-color: var(--button-hover-background);
+}
+
+.delete-item-button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    color: rgba(0, 0, 0, 0.63);
+    cursor: pointer;
+    width: 3.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--button-border-radius);
+    transition: all 0.3s linear;
+
+}
+
+.delete-item-button:hover{
+    background-color: var(--button-hover-background);
+}
+
+.delete-item-button svg {
+    width: 1.8rem;
+    height: 1.8rem;
 }

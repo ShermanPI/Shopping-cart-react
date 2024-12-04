@@ -60,6 +60,13 @@ const cartReducer = (state, action) => {
 
       return (newItems)
     }
+    case 'CLEAR_CART': {
+      const newItems = []
+
+      window.localStorage.setItem('cart', newItems)
+
+      return newItems
+    }
     default: {
       throw Error('No actions named ', action.type)
     }

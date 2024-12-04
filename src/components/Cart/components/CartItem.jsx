@@ -26,7 +26,10 @@ const CartItem = ({ item, index }) => {
 
           <div className='cart-product-stock'>
             <p className='cart-product-name'>{item.product.title}</p>
-            <p className='single-product-price'>${(item.product.price)} <span className={`${isStockEnough ? 'product-in-stock' : 'product-out-stock'}`}>{item.quantity <= item.product.stock ? 'In stock' : 'Out in stock'}</span></p>
+            <div className='single-product-price'>
+              ${(item.product.price)}
+              <div className={`${isStockEnough ? 'product-in-stock' : 'product-out-stock'}`}>{item.quantity <= item.product.stock ? 'In stock' : 'Out of stock'}</div>
+            </div>
           </div>
 
           <p className='cart-product-price'>${(item.product.price * item.quantity).toFixed(2)}</p>
@@ -53,7 +56,7 @@ const CartItem = ({ item, index }) => {
           </div>
 
           <button
-            className='delete-item-button ' onClick={(e) => {
+            className='delete-item-button' onClick={(e) => {
               e.stopPropagation()
               deleteProductFromCart(index)
             }}

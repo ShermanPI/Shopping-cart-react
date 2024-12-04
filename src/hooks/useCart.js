@@ -23,7 +23,11 @@ const useCart = () => {
     dispatchCartEvent({ type: 'DELETED_ITEM', payload: { index } })
   }
 
-  return { cart, addCartItem, substractCartItem, deleteProductFromCart }
+  const clearCart = () => {
+    dispatchCartEvent({ type: 'CLEAR_CART' })
+  }
+
+  return { cart, addCartItem, substractCartItem, deleteProductFromCart, clearCart }
 }
 
 export default useCart

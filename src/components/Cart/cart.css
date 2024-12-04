@@ -24,6 +24,15 @@
     gap: 1rem;
     overflow: auto;
     padding-right: 1.6rem;
+    height: 100%;
+}
+
+.no-items-cart-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
 }
 
 .cart-items-container.open {
@@ -78,28 +87,13 @@
     border: none;
     background-color: transparent;
     border-radius: var(--button-border-radius);
+    transition: all 0.3s linear;
     padding: 0.8rem;
     display: flex;
 }
 
 .close-cart-button:hover{
     background-color: var(--button-hover-background);
-}
-
-
-.delete-item-button {
-    background-color: transparent;
-    border: none;
-    display: flex;
-    align-items: center;
-    font-size: 1.6rem;
-    color: rgba(0, 0, 0, 0.63);
-    cursor: pointer;
-}
-
-.delete-item-button svg {
-    width: 1.8rem;
-    height: 1.8rem;
 }
 
 .cart-shadow {
