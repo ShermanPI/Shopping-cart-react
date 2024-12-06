@@ -1,7 +1,8 @@
 .card {
     background-color: white;
-    height: 315px;
+    height: 100%;
     width: 100%;
+    /* overflow: hidden; */
     border-radius: 1rem;
     padding: 2rem;
     display: flex;
@@ -59,10 +60,10 @@
 .product-description p {
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
     line-clamp: 3;
-    -webkit-box-orient: vertical;
     color: #8f8f8f;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 .cart-btn-container {
@@ -78,4 +79,16 @@
 
 .hidden-card{
     opacity: 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .product-description p {
+        overflow: hidden;
+        display: -webkit-box;
+        line-clamp: 2;
+        color: #8f8f8f;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
 }

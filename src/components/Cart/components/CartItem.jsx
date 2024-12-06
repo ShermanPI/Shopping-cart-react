@@ -28,7 +28,9 @@ const CartItem = ({ item, index }) => {
             <p className='cart-product-name'>{item.product.title}</p>
             <div className='single-product-price'>
               ${(item.product.price)}
-              <div className={`${isStockEnough ? 'product-in-stock' : 'product-out-stock'}`}>{item.quantity <= item.product.stock ? 'In stock' : 'Out of stock'}</div>
+              <div className={`${isStockEnough ? 'product-in-stock' : 'product-out-stock'}`}>
+                {item.quantity <= item.product.stock ? 'In stock' : 'Out of stock'}
+              </div>
             </div>
           </div>
 

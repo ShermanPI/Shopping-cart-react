@@ -20,6 +20,11 @@
     gap: 0.6rem;
     user-select: none;
     transition: 0.2s all ease;
+    white-space: nowrap;
+}
+
+.regular-button svg{
+    flex-shrink: 0;
 }
 
 

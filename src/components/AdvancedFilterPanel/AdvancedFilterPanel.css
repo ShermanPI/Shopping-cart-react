@@ -2,6 +2,7 @@
 .all-filters-container{
     display: flex;
     position: relative;
+    height: 100%;
 }
 
 .filters-panel-btn{
@@ -13,17 +14,13 @@
     cursor: pointer;
     color: black;
     display: flex;
-    align-items: center;
-    gap: 0.4rem;
     border: 1px solid transparent;
     position: relative;
     border-color: var(--border-color);
 }
 
 .filters-panel-btn:hover{
-    color: white;
-    background-color: var(--secondary-color);
-    border: 1px solid var(--secondary-color);
+    background-color: var(--button-hover-background);
     user-select: none;
 }
 

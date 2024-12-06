@@ -14,6 +14,8 @@
     padding-inline: 1rem;
     justify-content: center;
     align-items: center;
+
+    white-space: nowrap;
 }
 
 .product-out-stock{
@@ -25,6 +27,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    white-space: nowrap;
+
 }
 
 .disabled-btn{
