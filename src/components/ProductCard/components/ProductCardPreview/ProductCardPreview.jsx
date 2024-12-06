@@ -61,12 +61,18 @@ const ProductCardPreview = ({ cardPreviewInfo, product, closeProductCard }) => {
 
                 <div className='product-detail-info'>
 
-                  <div className='product-buying-info black-scroll-bar'>
-                    <h2>$ {product.price}</h2>
-                    <h2>Rating: {product.rating}</h2>
+                  <section className='product-buying-info black-scroll-bar'>
+                    <div className='price-rating'>
+                      <h2>${product.price}</h2>
+                      <h2>Rating: {product.rating}</h2>
+                    </div>
 
-                    <h2>Dimensions:</h2>
-                    <p>{product.dimensions.depth} x {product.dimensions.height} x {product.dimensions.width} cm</p>
+                    <h3>Dimensions:</h3>
+                    <div className='dimensions-container'>
+                      <p>{product.dimensions.depth} x {product.dimensions.height} x {product.dimensions.width} cm</p>
+                    </div>
+
+                    <h3>Description:</h3>
 
                     <p>{product.description} Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, assumenda ex! Voluptatem officia exercitationem placeat quos quas, eaque error mollitia, deserunt voluptate nesciunt corporis necessitatibus! Quas voluptatem ut aliquam eligendi!
                       Nobis aliquid totam cupiditate ipsam numquam quam consequuntur minus ex vitae explicabo fugit, nulla officia earum quasi, repellendus vero dolor? Nulla doloribus dolor vero eius nisi ut aspernatur porro quasi?
@@ -89,7 +95,7 @@ const ProductCardPreview = ({ cardPreviewInfo, product, closeProductCard }) => {
                       Deleniti quibusdam earum maiores magni impedit, dolore laboriosam exercitationem quidem saepe officia veritatis eligendi similique commodi iusto sed ab, libero eos nemo, natus soluta veniam magnam aliquid. Repellendus, incidunt nesciunt.
                       Fugit possimus, exercitationem nisi cum harum ex ullam officiis at obcaecati quasi, incidunt amet sapiente? Sint laboriosam velit praesentium dolorum, aliquam perferendis et libero id delectus consequatur culpa repellat natus!
                     </p>
-                  </div>
+                  </section>
 
                   <div className='product-card-preview-btn'>
                     <Button onClick={() => saveIntoCartHandler(product)}>
