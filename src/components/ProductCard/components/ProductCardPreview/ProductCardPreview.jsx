@@ -1,4 +1,4 @@
-import { Fragment, useContext, useEffect, useMemo, useState } from 'react'
+import { Fragment, useContext, useEffect, useState } from 'react'
 import './productCardPreview.css'
 import Button from '../../../Button/Button'
 import ShoppingCart from '../../../../assets/Icons/ShoppingCart'
@@ -39,9 +39,9 @@ const ProductCardPreview = ({ cardPreviewInfo, product, closeProductCard }) => {
     }, 400)
   }, [])
 
-  const cartItemIndex = useMemo(() => cartItems.findIndex((item) => {
+  const cartItemIndex = cartItems.findIndex((item) => {
     return item.product.id === product.id
-  }), [product])
+  })
 
   const cartItem = cartItems[cartItemIndex]
 
@@ -100,9 +100,9 @@ const ProductCardPreview = ({ cardPreviewInfo, product, closeProductCard }) => {
                   </section>
 
                   <div className='product-card-preview-button'>
-                    <div className='product-counter'>
+                    <div className='product-preview-counter'>
                       <button
-                        className='product-counter-button' onClick={(e) => {
+                        className='product-preview-counter-button' onClick={(e) => {
                           e.stopPropagation()
                           if (cartItem) {
                             if (cartItem.quantity === 1) {
@@ -117,9 +117,8 @@ const ProductCardPreview = ({ cardPreviewInfo, product, closeProductCard }) => {
                       </button>
                       <span className='item-quantity'>{cartItem ? cartItem.quantity : 0}</span>
                       <button
-                        className={`${hasReachedStock ? 'disabled-btn' : ''} product-counter-button`}
+                        className={`${hasReachedStock ? 'disabled-btn' : ''} product-preview-counter-button`}
                         onClick={() => {
-                          console.log(cartItemIndex)
                           if (cartItemIndex === -1) {
                             saveIntoCartHandler(product)
                           }
@@ -137,6 +136,26 @@ const ProductCardPreview = ({ cardPreviewInfo, product, closeProductCard }) => {
                       <ShoppingCart width={18} height={18} />
                       Add to cart
                     </Button>
+                  </div>
+
+                  <div className='availability-shipping-container'>
+                    <div className='availability-shipping-item'>
+                      <h1>
+                        Availability
+                      </h1>
+                      <p>
+                        Availability
+                      </p>
+                    </div>
+
+                    <div className='availability-shipping-item'>
+                      <h1>
+                        Shipping
+                      </h1>
+                      <p>
+                        Shipping
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

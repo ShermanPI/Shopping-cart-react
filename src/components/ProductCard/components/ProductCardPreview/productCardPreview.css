@@ -159,3 +159,54 @@
     font-size: 1.4rem;
     font-weight: bold;
 }
+
+.availability-shipping-container{
+    background-color: #f4f4f5;
+    padding: 1.6rem;
+    border-radius: 0.8rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 1.6rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.availability-shipping-item{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.availability-shipping-item h1 {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #71717a;
+}
+
+.product-preview-counter{
+    align-items: center;
+    font-size: 1.6rem;
+    border: 1px solid rgba(0, 0, 0, 0.274);
+    color: rgba(0, 0, 0, 0.747);
+    border-radius: 0.6rem;
+    gap: 0.2rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-preview-counter-button{
+    display: flex;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0.7rem;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+}
+
+.product-preview-counter-button:hover {
+    background-color: var(--button-hover-background);
+}
