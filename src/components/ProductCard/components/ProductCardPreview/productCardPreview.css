@@ -210,3 +210,9 @@
 .product-preview-counter-button:hover {
     background-color: var(--button-hover-background);
 }
+
+
+.rating{
+    display: flex;
+    align-items: center;
+}

@@ -8,6 +8,7 @@ import { CartContext } from '../../../../contexts/CartContext'
 import CloseIcon from '../../../../assets/Icons/CloseIcon'
 import AddIcon from '../../../../assets/Icons/AddIcon'
 import RemoveIcon from '../../../../assets/Icons/RemoveIcon'
+import RatingStars from '../../../RatingStars/RatingStars'
 
 const ProductCardPreview = ({ cardPreviewInfo, product, closeProductCard }) => {
   const [open, setOpen] = useState(false)
@@ -79,7 +80,10 @@ const ProductCardPreview = ({ cardPreviewInfo, product, closeProductCard }) => {
                   <section className='product-buying-info black-scroll-bar'>
                     <div className='price-rating'>
                       <h2>${product.price}</h2>
-                      <h2>Rating: {product.rating}</h2>
+                      <div className='rating'>
+
+                        <RatingStars rating={product.rating} />({product.rating})
+                      </div>
                     </div>
 
                     <div className='product-info-container'>
