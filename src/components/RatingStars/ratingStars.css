@@ -1,5 +1,6 @@
 .stars-container{
-    width: 100px;
+    width: 120px;
     display: flex;
-    
+    align-items: center;
+    gap: 0.4rem;
 }

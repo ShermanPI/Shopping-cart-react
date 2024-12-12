@@ -81,8 +81,10 @@ const ProductCardPreview = ({ cardPreviewInfo, product, closeProductCard }) => {
                     <div className='price-rating'>
                       <h2>${product.price}</h2>
                       <div className='rating'>
-
-                        <RatingStars rating={product.rating} />({product.rating})
+                        <RatingStars rating={product.rating} />
+                        <p>
+                          ({product.rating})
+                        </p>
                       </div>
                     </div>
 

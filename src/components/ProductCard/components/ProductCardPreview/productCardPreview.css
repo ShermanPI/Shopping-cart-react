@@ -132,6 +132,10 @@
     justify-content: space-between;
 }
 
+.price-rating h2{
+    font-size: 2.4rem;
+}
+
 .dimensions-container{
     background-color: #f4f4f5;
     padding-inline: 1.2rem;
@@ -215,4 +219,10 @@
 .rating{
     display: flex;
     align-items: center;
+    gap: 0.6rem;
+}
+
+.rating p{
+    color: #71717a;
+    font-size: 1.8rem;
 }
