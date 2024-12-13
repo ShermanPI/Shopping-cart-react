@@ -1,14 +1,14 @@
-import { Fragment, useContext, useEffect, useState } from 'react'
 import './productCardPreview.css'
-import Button from '../../../Button/Button'
-import ShoppingCart from '../../../../assets/Icons/ShoppingCart'
-import Imagescarrousel from '../../../ImagesCarousel/ImagesCarrousel'
-import { shootingStarContext } from '../../../Header/contexts/ShootingStarContext'
-import { CartContext } from '../../../../contexts/CartContext'
-import CloseIcon from '../../../../assets/Icons/CloseIcon'
-import AddIcon from '../../../../assets/Icons/AddIcon'
-import RemoveIcon from '../../../../assets/Icons/RemoveIcon'
-import RatingStars from '../../../RatingStars/RatingStars'
+import { useContext, useEffect, useState } from 'react'
+import AddIcon from 'src/assets/Icons/AddIcon'
+import CloseIcon from 'src/assets/Icons/CloseIcon'
+import RemoveIcon from 'src/assets/Icons/RemoveIcon'
+import ShoppingCart from 'src/assets/Icons/ShoppingCart'
+import Button from 'src/components/Button/Button'
+import { shootingStarContext } from 'src/components/Header/contexts/ShootingStarContext'
+import Imagescarrousel from 'src/components/ImagesCarousel/ImagesCarrousel'
+import RatingStars from 'src/components/RatingStars/RatingStars'
+import { CartContext } from 'src/contexts/CartContext'
 
 const ProductCardPreview = ({ cardPreviewInfo, product, closeProductCard }) => {
   const [open, setOpen] = useState(false)
@@ -77,32 +77,27 @@ const ProductCardPreview = ({ cardPreviewInfo, product, closeProductCard }) => {
 
                 <div className='product-detail-info'>
 
-                  <section className='product-buying-info black-scroll-bar'>
-                    <div className='price-rating'>
-                      <h2>${product.price}</h2>
-                      <div className='rating'>
-                        <RatingStars rating={product.rating} />
-                        <p>
-                          ({product.rating})
-                        </p>
-                      </div>
+                  <div className='price-rating'>
+                    <h2>${product.price}</h2>
+                    <div className='rating'>
+                      <RatingStars rating={product.rating} />
+                      <p>
+                        ({product.rating})
+                      </p>
                     </div>
+                  </div>
 
-                    <div className='product-info-container'>
-                      <h3>Dimensions:</h3>
+                  <section className='product-buying-info black-scroll-bar'>
+                    <div className='product-dimensions-container'>
+                      <h3 className='product-preview-subtitle'>Dimensions:</h3>
                       <div className='dimensions-container'>
                         <p>{product.dimensions.depth} x {product.dimensions.height} x {product.dimensions.width} cm</p>
                       </div>
                     </div>
-
-                    <div className='product-info-container'>
-                      <h3>Description:</h3>
-
-                      <p>
-                        {product.description}
-                      </p>
-                    </div>
-
+                    <h3 className='product-preview-subtitle'>Description:</h3>
+                    <p>
+                      {product.description}
+                    </p>
                   </section>
 
                   <div className='product-card-preview-button'>
