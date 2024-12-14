@@ -145,7 +145,7 @@ const ProductCardPreview = ({ cardPreviewInfo, product, closeProductCard }) => {
                         Availability
                       </h1>
                       <p>
-                        Availability
+                        {(cartItem ? cartItem.quantity : 0) <= product.stock ? 'In stock' : 'Out of stock'}
                       </p>
                     </div>
 
@@ -154,7 +154,7 @@ const ProductCardPreview = ({ cardPreviewInfo, product, closeProductCard }) => {
                         Shipping
                       </h1>
                       <p>
-                        Shipping
+                        {product.shippingInformation}
                       </p>
                     </div>
                   </div>
