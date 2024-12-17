@@ -37,7 +37,7 @@ const ProductCardPreview = ({ cardPreviewInfo, product, closeProductCard }) => {
 
     setTimeout(() => {
       setAnimationFinished(true)
-    }, 400)
+    }, 420)
   }, [])
 
   const cartItemIndex = cartItems.findIndex((item) => {

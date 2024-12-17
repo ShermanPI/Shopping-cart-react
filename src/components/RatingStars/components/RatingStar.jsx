@@ -6,7 +6,7 @@ const RatingStar = ({ fillingPercentage }) => {
   const validPercentage = Math.max(0, Math.min(100, fillingPercentage))
 
   return (
-    <svg width='48' height='auto' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'>
+    <svg width='48' height='48' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'>
       <defs>
         <linearGradient id={`gradient-${validPercentage}`} x1='0%' y1='0%' x2='100%' y2='0%'>
           <stop offset={`${validPercentage}%`} stopColor='#18181be6' />
