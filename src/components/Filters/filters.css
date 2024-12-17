@@ -1,6 +1,6 @@
 .filters-container{
     display: flex;
     width: 100%;
-    align-items: center;
+    padding-block: 3rem;
     gap: 1rem;
 }
