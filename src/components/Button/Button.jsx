@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import 'src/components/Button/button.css'
+import './button.css'
 
 function Button ({ children, onClick }) {
   const buttonRef = useRef(null)
