@@ -36,7 +36,6 @@ const AdvancedFilterPanel = () => {
             </span>
 
           </div>
-
         </div>}
     </div>
 
