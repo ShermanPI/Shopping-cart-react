@@ -13,7 +13,7 @@
     height: 96vh;
     max-width: 375px;
     transform: translateX(100%);
-    transition: all ease 0.3s;
+    transition: all ease-in-out 0.2s;
     border: solid 1px var(--border-color);
     border-radius: var(--button-border-radius);
 }
