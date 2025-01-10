@@ -68,7 +68,7 @@ const Cart = () => {
             </p>
           </div>
           <Button onClick={checkoutHandle}>
-            Checkout
+            Go to checkout
           </Button>
         </div>
       </div>
