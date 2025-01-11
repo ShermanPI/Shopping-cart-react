@@ -5,8 +5,6 @@ import Loader from './components/Loader/Loader.jsx'
 import Filters from './components/Filters/Filters.jsx'
 import { useContext } from 'react'
 import { FiltersContext } from './contexts/FiltersContext.jsx'
-import Header from './components/Header/Header.jsx'
-import { ShootingStarProvider } from './components/Header/contexts/ShootingStarContext.jsx'
 import Cart from './components/Cart/Cart.jsx'
 
 function App () {
@@ -15,11 +13,9 @@ function App () {
   return (
     <>
       <div className='shop-main-container'>
-        <ShootingStarProvider>
-          <Header />
-          <main className='products-main-container'>
-            <Filters />
-            {
+        <main className='products-main-container'>
+          <Filters />
+          {
             productsLoading
               ? (
                 <div className='loader-container'>
@@ -28,9 +24,8 @@ function App () {
                 )
               : <ShoppingList />
           }
-            <Cart />
-          </main>
-        </ShootingStarProvider>
+          <Cart />
+        </main>
 
       </div>
 

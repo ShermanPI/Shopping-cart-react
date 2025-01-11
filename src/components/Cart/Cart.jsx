@@ -4,26 +4,29 @@ import CloseIcon from '../../assets/Icons/CloseIcon'
 import './cart.css'
 import CartItem from './components/CartItem'
 import Button from '../Button/Button'
-import animateFireworks from '../../helpers/animateFireworks'
+// import animateFireworks from '../../helpers/animateFireworks'
+import { useNavigate } from 'react-router'
 
 const Cart = () => {
   const {
     cartOpen,
     setCartOpen,
-    cartItems,
-    clearCart
+    cartItems
   } = useContext(CartContext)
+
+  const navigate = useNavigate()
 
   const closeCart = () => {
     setCartOpen(false)
   }
 
   const checkoutHandle = (event) => {
-    if (cartItems.length) {
-      clearCart()
-      animateFireworks({ duration: 5000 })
-      event.stopPropagation()
-    }
+    navigate('/checkout')
+    // if (cartItems.length) {
+    //   clearCart()
+    //   animateFireworks({ duration: 5000 })
+    //   event.stopPropagation()
+    // }
   }
 
   const totalPrice = cartItems.reduce((totalPrice, currentItem) => {
