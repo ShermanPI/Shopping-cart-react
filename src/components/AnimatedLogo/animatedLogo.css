@@ -3,6 +3,7 @@
     align-items: center;
     user-select: none;
     gap: 2rem;
+    cursor: pointer;
 }
 
 .animated-logo-container {

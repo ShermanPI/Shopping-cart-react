@@ -1,6 +1,6 @@
 import './AdvancedFilterPanel.css'
 import FilterIcon from '../../assets/Icons/FilterIcon'
-import { useContext, useEffect, useId, useRef, useState } from 'react'
+import { useContext, useId, useRef, useState } from 'react'
 import { FiltersContext } from '../../contexts/FiltersContext'
 
 const AdvancedFilterPanel = () => {
@@ -8,12 +8,6 @@ const AdvancedFilterPanel = () => {
   const { maxProductsPrice, setMinPrice, filters } = useContext(FiltersContext)
   const minPriceID = useId()
   const panelOptionContainerRef = useRef()
-
-  useEffect(() => {
-    document.addEventListener('click', (e) => {
-      console.log(panelOpen)
-    })
-  }, [])
 
   return (
     <div className='all-filters-container'>
@@ -40,9 +34,7 @@ const AdvancedFilterPanel = () => {
               $ {filters.minPrice}
             </p>
           </span>
-
         </div>
-
       </div>
     </div>
 

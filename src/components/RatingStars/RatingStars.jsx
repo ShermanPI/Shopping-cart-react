@@ -19,8 +19,6 @@ const RatingStars = ({ rating = 0 }) => {
     }
   }
 
-  console.log(stars)
-
   return (
     <>
       <div className='stars-container'>

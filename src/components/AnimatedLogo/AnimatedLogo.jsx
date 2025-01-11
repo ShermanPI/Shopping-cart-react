@@ -2,10 +2,12 @@ import DiscountStar from './assets/DiscountStar'
 import './animatedLogo.css'
 import { useContext, useEffect, useRef, useState } from 'react'
 import { shootingStarContext } from '../Header/contexts/ShootingStarContext'
+import { useNavigate } from 'react-router'
 
 function AnimatedLogo () {
   const { shootingStarsArray } = useContext(shootingStarContext)
   const [mouseOnIcon, setMouseOnIcon] = useState()
+  const navigate = useNavigate()
   const boxIconRef = useRef()
 
   // Animate the icon container based on shooting stars
@@ -49,10 +51,6 @@ function AnimatedLogo () {
     $logoText.replaceChildren(...mappedTextFragment)
   }, [])
 
-  useEffect(() => {
-
-  }, [])
-
   const handleMouseOver = () => {
     setMouseOnIcon(true)
   }
@@ -61,8 +59,17 @@ function AnimatedLogo () {
     setMouseOnIcon(false)
   }
 
+  const handleMouseClick = () => {
+    navigate('/')
+  }
+
   return (
-    <div className='logo-name' onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
+    <div
+      className='logo-name'
+      onMouseOver={handleMouseOver}
+      onMouseLeave={handleMouseLeave}
+      onClick={handleMouseClick}
+    >
 
       <div className='animated-logo-container'>
         <div className={`logo-letter ${mouseOnIcon ? 'active' : ''}`} />
@@ -115,7 +122,6 @@ export default AnimatedLogo
 
 // useEffect(() => {
 //   if (shootingStarsArray.length) {
-//     console.log('animate')
 //     setTimeout(() => {
 //       boxIconRef.current.classList.add('box-drop')
 //       setTimeout(() => {
