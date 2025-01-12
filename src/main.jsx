@@ -9,6 +9,7 @@ import { PageNotFound } from './components/PageNotFound/PageNotFound.jsx'
 import { CheckoutPage } from './components/CheckoutPage/CheckoutPage.jsx'
 import { MainLayout } from './components/MainLayout/MainLayout.jsx'
 import { ShootingStarProvider } from './components/Header/contexts/ShootingStarContext.jsx'
+import { ProductView } from './components/ProductView/ProductView.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <FiltersContextProvider>
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path='/' element={<MainLayout />}>
               <Route index element={<App />} />
               <Route path='/checkout' element={<CheckoutPage />} />
+              <Route path='/product/:id' element={<ProductView />} />
             </Route>
 
             <Route path='*' element={<PageNotFound />} />

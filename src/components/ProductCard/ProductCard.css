@@ -69,6 +69,21 @@
 .cart-btn-container {
     display: flex;
     position: relative;
+    gap: 1rem;
+}
+
+.cart-btn-container button{
+    padding: 0px;
+    padding-block: 0.6rem;
+}
+
+.cart-btn-container button:nth-child(1){
+    padding-inline: 3rem;
+}
+
+
+.cart-btn-container button:nth-child(2){
+    padding-inline: 1rem;
 }
 
 .thumbnail-container{

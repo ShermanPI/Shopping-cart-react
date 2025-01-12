@@ -16,7 +16,6 @@ function ProductCard ({ product, onClick }) {
 
   return (
     <>
-
       <div className={`card ${cardPreview.shouldRender ? 'hidden-card' : ''}`} onClick={openProductCard} ref={cardRef}>
         <div className='images-and-name'>
 
@@ -44,6 +43,9 @@ function ProductCard ({ product, onClick }) {
           <Button onClick={addToCart}>
             <ShoppingCart width={18} height={18} />
             Add to cart
+          </Button>
+          <Button onClick={addToCart}>
+            IR
           </Button>
         </div>
       </div>
