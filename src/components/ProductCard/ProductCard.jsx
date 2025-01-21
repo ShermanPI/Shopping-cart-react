@@ -4,6 +4,7 @@ import Button from '../Button/Button'
 import './ProductCard.css'
 import ProductCardPreview from './components/ProductCardPreview/ProductCardPreview'
 import useProductCard from '../../hooks/useProductCard'
+import ArrowRight from 'src/assets/Icons/ArrowRight'
 
 function ProductCard ({ product, onClick }) {
   const cardRef = useRef()
@@ -45,7 +46,7 @@ function ProductCard ({ product, onClick }) {
             Add to cart
           </Button>
           <Button onClick={addToCart}>
-            IR
+            <ArrowRight />
           </Button>
         </div>
       </div>

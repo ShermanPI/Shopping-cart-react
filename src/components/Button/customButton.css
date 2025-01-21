@@ -17,6 +17,7 @@
     cursor: pointer;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 0.6rem;
     user-select: none;
     transition: 0.2s all ease;
