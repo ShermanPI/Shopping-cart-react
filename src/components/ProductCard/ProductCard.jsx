@@ -5,9 +5,11 @@ import './ProductCard.css'
 import ProductCardPreview from './components/ProductCardPreview/ProductCardPreview'
 import useProductCard from '../../hooks/useProductCard'
 import ArrowRight from 'src/assets/Icons/ArrowRight'
+import { useNavigate } from 'react-router'
 
 function ProductCard ({ product, onClick }) {
   const cardRef = useRef()
+  const navigate = useNavigate()
   const { cardPreview, openProductCard, closeProductCard } = useProductCard(cardRef)
 
   const addToCart = (e) => {
@@ -45,7 +47,7 @@ function ProductCard ({ product, onClick }) {
             <ShoppingCart width={18} height={18} />
             Add to cart
           </Button>
-          <Button onClick={addToCart}>
+          <Button onClick={() => navigate(`/product/${product.id}`)}>
             <ArrowRight />
           </Button>
         </div>

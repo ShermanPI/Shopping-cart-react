@@ -1,0 +1,28 @@
+.product-view-container{
+    padding: 4rem;
+    padding-inline: 8rem;
+}
+
+.product-preview-info{
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.product-preview-column{
+    height: 100px;
+}
+
+.product-preview-images{
+}
+
+.product-preview-details{
+}
+
+.product-preview-details h2{
+    font-size: 2.6rem;
+}`
+
+.product-specifications{
+    border: 2px;
+}

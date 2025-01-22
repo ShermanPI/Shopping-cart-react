@@ -54,6 +54,7 @@ function useProducts () {
     }, [filters.categorySlug])
 
   return {
+    products,
     categories,
     productsLoading,
     setProductsLoading,
