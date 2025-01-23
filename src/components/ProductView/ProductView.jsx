@@ -9,6 +9,7 @@ import Button from '../Button/Button'
 export const ProductView = () => {
   const { id: paramId } = useParams()
   const [product, setProduct] = useState()
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0)
   const { products } = useProducts()
 
   useEffect(() => {
@@ -21,6 +22,8 @@ export const ProductView = () => {
     })()
   }, [products])
 
+  console.log(product)
+
   return (
     <>
 
@@ -29,7 +32,19 @@ export const ProductView = () => {
           <section className='product-view-container'>
             <div className='product-preview-info'>
               <div className='product-preview-images product-preview-column'>
-                <img src={product.thumbnail} alt={`Image of the product: ${product.title}`} />
+                <img
+                  src={product.images[selectedImageIndex]}
+                  className='product-preview-main-image'
+                  alt={`Image of the product: ${product.title}`}
+                />
+
+                {product.images.length > 0 &&
+                  <div className='product-preview-images-carousel'>
+                    {product.images.map((image, index) => (
+                      <div key={index} className='product-preview-image-container'>
+                        <img src={image} alt={`Image of the product: ${product.title}`} />
+                      </div>))}
+                  </div>}
               </div>
 
               <div className='product-preview-details product-preview-column'>
@@ -49,7 +64,22 @@ export const ProductView = () => {
                   <h3>
                     Product Specifications
                   </h3>
-                  <div className='product-specifications-info' />
+                  <div className='product-specifications-info'>
+                    <div className='product-specifications-info-column'>
+                      <ul>
+                        <li>Brand</li>
+                        <li>Model</li>
+                        <li>Dimensions</li>
+                      </ul>
+                    </div>
+                    <div className='product-specifications-info-column'>
+                      <ul>
+                        <li>{product?.brand || ' '}</li>
+                        <li>{product?.model || 'N/A'}</li>
+                        <li>{product.dimensions.depth} x {product.dimensions.height} x {product.dimensions.width}</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
