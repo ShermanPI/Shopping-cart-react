@@ -60,9 +60,24 @@
 .product-preview-images-carousel{
     display: flex;
     position: relative;
-    gap: 1rem;
+    gap: 2rem;
     height: 8.6rem;
     width: 100%;
+}
+
+.selected-square{
+    content: '';
+    background-color: black;
+    width: auto;
+    height: calc(100% + 0.6rem);
+    transform: translate(0, 0);
+    aspect-ratio: 1/1;
+    border-radius: 0.4rem;
+    padding: 0.6rem;
+    cursor: pointer;
+    position: absolute;
+    z-index: -1;
+    transition: all 0.3s ease;
 }
 
 .product-preview-image-container{
@@ -72,5 +87,7 @@
     aspect-ratio: 1/1;
     border-radius: 0.4rem;
     background-color: #eaeaea;
+    padding: 0.6rem;
     cursor: pointer;
 }
+

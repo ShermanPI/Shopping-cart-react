@@ -40,8 +40,10 @@ export const ProductView = () => {
 
                 {product.images.length > 0 &&
                   <div className='product-preview-images-carousel'>
+                    <div className='selected-square' style={{ transform: `translate(calc((${selectedImageIndex * 100}% - 0.3rem) + ${selectedImageIndex * 1.4}rem), -0.3rem)` }} />
+
                     {product.images.map((image, index) => (
-                      <div key={index} className='product-preview-image-container'>
+                      <div key={index} className='product-preview-image-container' onClick={() => setSelectedImageIndex(index)}>
                         <img src={image} alt={`Image of the product: ${product.title}`} />
                       </div>))}
                   </div>}
