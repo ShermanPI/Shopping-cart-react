@@ -1,14 +1,19 @@
 import { useParams } from 'react-router'
 import './productView.css'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import useProducts from 'src/hooks/useProducts'
 import RatingStars from '../RatingStars/RatingStars'
+import { shootingStarContext } from '../Header/contexts/ShootingStarContext'
+import { CartContext } from 'src/contexts/CartContext'
 
 export const ProductView = () => {
   const { id: paramId } = useParams()
   const [product, setProduct] = useState()
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
   const { products } = useProducts()
+
+  const { addShootingStar } = useContext(shootingStarContext)
+  const { addCartItem } = useContext(CartContext)
 
   useEffect(() => {
     (async () => {
@@ -20,7 +25,10 @@ export const ProductView = () => {
     })()
   }, [products])
 
-  console.log(product)
+  const saveIntoCartHandler = (cartItem) => {
+    addShootingStar()
+    addCartItem(cartItem)
+  }
 
   return (
     <>
@@ -64,6 +72,7 @@ export const ProductView = () => {
 
                 <button
                   className='product-preview-button'
+                  onClick={() => saveIntoCartHandler(product)}
                 >
                   Add to cart
                 </button>

@@ -4,7 +4,6 @@ import Loader from './components/Loader/Loader.jsx'
 import Filters from './components/Filters/Filters.jsx'
 import { useContext } from 'react'
 import { FiltersContext } from './contexts/FiltersContext.jsx'
-import Cart from './components/Cart/Cart.jsx'
 
 function App () {
   const { productsLoading } = useContext(FiltersContext)
@@ -23,7 +22,7 @@ function App () {
                 )
               : <ShoppingList />
           }
-          <Cart />
+
         </main>
 
       </div>

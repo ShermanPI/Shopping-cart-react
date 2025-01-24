@@ -18,7 +18,6 @@ const Header = () => {
         role='button'
         tabIndex={0}
         aria-label='Toggle Cart'
-        onKeyDown={(e) => e.key === 'Enter' && setCartOpen(!cartOpen)}
       >
         {Boolean(productsQuantity) && (
           <div className='shopping-logo-quantity'>{productsQuantity}</div>
