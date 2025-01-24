@@ -58,7 +58,8 @@ body {
   flex-direction: column;
   overflow-y: scroll;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 8.7rem);
+  padding-bottom: 6rem;
 }
 
 .filters-main-container {

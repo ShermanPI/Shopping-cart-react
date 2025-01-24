@@ -3,8 +3,6 @@ import './productView.css'
 import { useEffect, useState } from 'react'
 import useProducts from 'src/hooks/useProducts'
 import RatingStars from '../RatingStars/RatingStars'
-import ShoppingCart from 'src/assets/Icons/ShoppingCart'
-import Button from '../Button/Button'
 
 export const ProductView = () => {
   const { id: paramId } = useParams()
@@ -50,21 +48,31 @@ export const ProductView = () => {
               </div>
 
               <div className='product-preview-details product-preview-column'>
-                <h2>{product?.title}</h2>
-                <RatingStars rating={product?.rating} />
+                <div className='product-title-and-rating'>
+                  <h2>{product?.title}</h2>
+                  <div className='product-rating-stars'>
+                    <RatingStars rating={product?.rating} />
+                    <p className='rating-number'>
+                      ({product.rating})
+                    </p>
+                  </div>
+                </div>
                 <h2>${product?.price}</h2>
 
                 <h3>About this item</h3>
                 <p>{product?.description}</p>
 
-                <Button>
-                  <ShoppingCart width={18} height={18} />
+                <button
+                  className='product-preview-button'
+                >
                   Add to cart
-                </Button>
-                <Button>
-                  <ShoppingCart width={18} height={18} />
+                </button>
+
+                <button
+                  className='product-preview-button buy-now'
+                >
                   Buy Now
-                </Button>
+                </button>
 
                 <div className='product-specifications'>
                   <h3>
