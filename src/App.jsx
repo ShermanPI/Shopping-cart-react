@@ -1,6 +1,5 @@
 import ShoppingList from './components/ShoppingList/ShoppingList'
 import './App.css'
-import Footer from './components/Footer/Footer'
 import Loader from './components/Loader/Loader.jsx'
 import Filters from './components/Filters/Filters.jsx'
 import { useContext } from 'react'
@@ -29,10 +28,6 @@ function App () {
 
       </div>
 
-      <Footer
-        projectName='Shopping Cart 🛒'
-        motive='Practice useContext and useReducer, and animation'
-      />
     </>
   )
 }
