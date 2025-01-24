@@ -27,6 +27,14 @@
     font-size: 2.6rem;
 }
 
+.product-preview-details h3{
+    font-size: 2rem;
+}
+
+.product-preview-details p{
+    color: #71717A;
+}
+
 .product-specifications{
     border: 2px;
 }
@@ -67,7 +75,7 @@
 
 .selected-square{
     content: '';
-    background-color: black;
+    background-color: #414040;
     width: auto;
     height: calc(100% + 0.6rem);
     transform: translate(0, 0);
@@ -81,7 +89,6 @@
 }
 
 .product-preview-image-container{
-    background-color: beige;
     width: auto;
     height: 100%;
     aspect-ratio: 1/1;
