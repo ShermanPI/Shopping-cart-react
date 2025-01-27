@@ -108,6 +108,13 @@
     background-color: #eaeaea;
     padding: 0.6rem;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-preview-image-container img{
+    max-height: 100%;
 }
 
 .product-preview-button{
@@ -119,11 +126,26 @@
     background-color: #18181b;
     color: white;
     transition: all 0.2s ease;
+
+    -webkit-box-shadow:
+    0px 1px 0px 0px white,
+    0px 3px 0px 0px #b9b9b9;
+    -moz-box-shadow: 0px 1px 0px 0px white,
+        0px 3px 0px 0px #b9b9b9;
+    box-shadow:
+    1px 1px 0px 0px white,
+    2px 2px 0px 0px #b9b9b9;
 }
 
 .product-preview-button:hover{
     background-color: #2f2f31;
 }
+
+.product-preview-button:active  {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px 0px #b9b9b9;
+}
+
 
 .product-preview-button.buy-now{
     background-color: #ececec;
