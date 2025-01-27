@@ -4,9 +4,11 @@ import CarrouselBtn from './components/CarrouselBtn'
 import ArrowRight from '../../assets/Icons/ArrowRight'
 import { FiltersContext } from '../../contexts/FiltersContext'
 import getAllCategories from '../../services/getAllCategories'
+import { useSearchParams } from 'react-router'
 
 function CategoriesCarrousel () {
   const { filters, setCategorySlug } = useContext(FiltersContext)
+  const [searchParams, setSearchParams] = useSearchParams()
 
   const carrouselBtnsContainerRef = useRef()
   const leftBtnRef = useRef()
@@ -41,8 +43,12 @@ function CategoriesCarrousel () {
     (async () => {
       const categoriesResult = await getAllCategories()
       setCategories(categoriesResult)
+
+      setCategorySlug(searchParams.get('category') || 'All')
     })()
   }, [])
+
+  console.log('render', Math.random())
 
   return (
     <div className='carrousel-container'>
@@ -64,7 +70,10 @@ function CategoriesCarrousel () {
         {categoriesAndAllOption?.map((category, index) =>
           <CarrouselBtn
             active={filters.categorySlug === category.slug}
-            onClick={() => setCategorySlug(category.slug)}
+            onClick={() => {
+              setSearchParams({ category: category.slug })
+              setCategorySlug(category.slug)
+            }}
             name={category.name} key={index}
           />)}
       </div>
