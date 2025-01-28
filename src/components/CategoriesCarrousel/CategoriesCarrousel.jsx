@@ -3,18 +3,18 @@ import './categoriesCarrousel.css'
 import CarrouselBtn from './components/CarrouselBtn'
 import ArrowRight from '../../assets/Icons/ArrowRight'
 import { FiltersContext } from '../../contexts/FiltersContext'
-import getAllCategories from '../../services/getAllCategories'
 import { useSearchParams } from 'react-router'
+import getAllCategories from 'src/services/getAllCategories'
 
 function CategoriesCarrousel () {
   const { filters, setCategorySlug } = useContext(FiltersContext)
+  const [categories, setCategories] = useState([])
   const [searchParams, setSearchParams] = useSearchParams()
 
   const carrouselBtnsContainerRef = useRef()
   const leftBtnRef = useRef()
   const rightBtnRef = useRef()
 
-  const [categories, setCategories] = useState([])
   const [leftBtnVisible, setLeftBtnVisible] = useState(false)
   const [rightBtnVisible, setRightBtnVisible] = useState(true)
   const [carrouselPosition, setCarrouselPosition] = useState(0)
@@ -43,7 +43,6 @@ function CategoriesCarrousel () {
     (async () => {
       const categoriesResult = await getAllCategories()
       setCategories(categoriesResult)
-
       setCategorySlug(searchParams.get('category') || 'All')
     })()
   }, [])
