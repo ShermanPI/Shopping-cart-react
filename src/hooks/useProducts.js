@@ -1,7 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
-import getAllTheProducts from '../services/getAllTheProducts'
-// import getProductsByCategory from '../services/getProductsByCategory'
-
+import { useMemo, useState } from 'react'
 function useProducts () {
   const [filters, setFilters] = useState({ categorySlug: 'All', minPrice: 0 })
   const [products, setProducts] = useState([])
@@ -21,14 +18,6 @@ function useProducts () {
   const setCategorySlug = (categorySlug) => {
     setFilters({ ...filters, categorySlug })
   }
-
-  useEffect(() => {
-    (async () => {
-      const result = await getAllTheProducts()
-
-      setProducts(result.products)
-    })()
-  }, [])
 
   return {
     products,

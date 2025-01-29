@@ -1,7 +1,7 @@
 import DiscountStar from './assets/DiscountStar'
 import './animatedLogo.css'
 import { useContext, useEffect, useRef, useState } from 'react'
-import { shootingStarContext } from '../Header/contexts/ShootingStarContext'
+import { shootingStarContext } from '../../contexts/ShootingStarContext'
 import { useNavigate } from 'react-router'
 
 function AnimatedLogo () {

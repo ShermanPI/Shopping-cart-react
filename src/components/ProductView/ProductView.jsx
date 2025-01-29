@@ -1,29 +1,27 @@
 import { useParams } from 'react-router'
 import './productView.css'
 import { useContext, useEffect, useState } from 'react'
-import useProducts from 'src/hooks/useProducts'
 import RatingStars from '../RatingStars/RatingStars'
-import { shootingStarContext } from '../Header/contexts/ShootingStarContext'
+import { shootingStarContext } from '../../contexts/ShootingStarContext'
 import { CartContext } from 'src/contexts/CartContext'
+import getProductById from 'src/services/getProductById'
 
 export const ProductView = () => {
   const { id: paramId } = useParams()
-  const [product, setProduct] = useState()
+  const [product, setProduct] = useState(null)
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
-  const { products } = useProducts()
 
   const { addShootingStar } = useContext(shootingStarContext)
   const { addCartItem } = useContext(CartContext)
 
   useEffect(() => {
-    (async () => {
-      const productInfo = products.filter(el => {
-        return el.id === parseInt(paramId)
-      })[0]
+    const getProduct = async () => {
+      const response = getProductById(paramId)
+      setProduct(response)
+    }
 
-      setProduct(productInfo)
-    })()
-  }, [products])
+    getProduct()
+  }, [])
 
   const saveIntoCartHandler = (cartItem) => {
     addShootingStar()

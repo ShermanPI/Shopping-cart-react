@@ -47,8 +47,6 @@ function CategoriesCarrousel () {
     })()
   }, [])
 
-  console.log('render', Math.random())
-
   return (
     <div className='carrousel-container'>
       <div className={`carrousel-btn-container left-btn
