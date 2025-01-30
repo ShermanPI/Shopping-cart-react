@@ -31,7 +31,7 @@ function App () {
     loadProducts()
   }, [searchParams])
 
-  console.log('render')
+  console.log('render App')
 
   return (
     <>

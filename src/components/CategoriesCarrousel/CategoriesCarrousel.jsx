@@ -1,13 +1,11 @@
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './categoriesCarrousel.css'
 import CarrouselBtn from './components/CarrouselBtn'
 import ArrowRight from '../../assets/Icons/ArrowRight'
-import { FiltersContext } from '../../contexts/FiltersContext'
 import { useSearchParams } from 'react-router'
 import getAllCategories from 'src/services/getAllCategories'
 
 function CategoriesCarrousel () {
-  const { filters, setCategorySlug } = useContext(FiltersContext)
   const [categories, setCategories] = useState([])
   const [searchParams, setSearchParams] = useSearchParams()
 
@@ -21,6 +19,8 @@ function CategoriesCarrousel () {
 
   const defaultCategory = { name: 'All', slug: 'All', id: 0 }
   const categoriesAndAllOption = [defaultCategory, ...categories]
+
+  const categorySearchParam = searchParams.get('category') || ''
 
   const updateVisibility = (position, scrollableWidth) => {
     setLeftBtnVisible(position > 0)
@@ -43,7 +43,6 @@ function CategoriesCarrousel () {
     (async () => {
       const categoriesResult = await getAllCategories()
       setCategories(categoriesResult)
-      setCategorySlug(searchParams.get('category') || 'All')
     })()
   }, [])
 
@@ -66,10 +65,13 @@ function CategoriesCarrousel () {
       >
         {categoriesAndAllOption?.map((category, index) =>
           <CarrouselBtn
-            active={filters.categorySlug === category.slug}
+            active={categorySearchParam === category.slug || (categorySearchParam === '' && category.slug === 'All')}
             onClick={() => {
+              if (category.slug === 'All') {
+                setSearchParams({})
+                return
+              }
               setSearchParams({ category: category.slug })
-              setCategorySlug(category.slug)
             }}
             name={category.name} key={index}
           />)}
