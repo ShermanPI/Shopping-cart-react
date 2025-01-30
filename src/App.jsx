@@ -31,8 +31,6 @@ function App () {
     loadProducts()
   }, [searchParams])
 
-  console.log('render App')
-
   return (
     <>
       <div className='shop-main-container'>

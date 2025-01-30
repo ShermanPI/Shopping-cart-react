@@ -16,7 +16,7 @@ export const ProductView = () => {
 
   useEffect(() => {
     const getProduct = async () => {
-      const response = getProductById(paramId)
+      const response = await getProductById(paramId)
       setProduct(response)
     }
 
@@ -28,9 +28,10 @@ export const ProductView = () => {
     addCartItem(cartItem)
   }
 
+  console.log(product, 'product')
+
   return (
     <>
-
       {
         product &&
           <section className='product-view-container'>
