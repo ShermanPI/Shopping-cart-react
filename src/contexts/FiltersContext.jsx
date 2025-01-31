@@ -1,12 +1,13 @@
-import { createContext } from 'react'
-import useProducts from '../hooks/useProducts.js'
+import { createContext, useState } from 'react'
 
 export const FiltersContext = createContext()
 
 export const FiltersContextProvider = ({ children }) => {
+  const [loadingSearch, setLoadingSearch] = useState(true)
+
   return (
     <FiltersContext.Provider
-      value={useProducts()}
+      value={{ loadingSearch, setLoadingSearch }}
     >
       {children}
     </FiltersContext.Provider>

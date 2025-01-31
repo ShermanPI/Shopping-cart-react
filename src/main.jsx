@@ -7,6 +7,7 @@ import { PageNotFound } from './components/PageNotFound/PageNotFound.jsx'
 import { CheckoutPage } from './components/CheckoutPage/CheckoutPage.jsx'
 import { MainLayout } from './components/MainLayout/MainLayout.jsx'
 import { ProductView } from './components/ProductView/ProductView.jsx'
+import { SearchedProducts } from './components/SearchedProducts/SearchedProducts.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route index element={<App />} />
         <Route path='/checkout' element={<CheckoutPage />} />
         <Route path='/product/:id' element={<ProductView />} />
+        <Route path='/search' element={<SearchedProducts />} />
       </Route>
 
       <Route path='*' element={<PageNotFound />} />
