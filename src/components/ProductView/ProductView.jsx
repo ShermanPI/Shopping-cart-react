@@ -28,8 +28,6 @@ export const ProductView = () => {
     addCartItem(cartItem)
   }
 
-  console.log(product, 'product')
-
   return (
     <>
       {

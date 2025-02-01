@@ -1,24 +1,34 @@
 import { useLocation, useNavigate, useSearchParams } from 'react-router'
 import './searchBar.css'
-import { useContext } from 'react'
+import { useContext, useRef } from 'react'
 import { FiltersContext } from 'src/contexts/FiltersContext'
 
 export const SearchBar = () => {
-  const { setLoadingSearch } = useContext(FiltersContext)
+  const { setLoadingSearch, loading } = useContext(FiltersContext)
+
   const location = useLocation()
   const navigate = useNavigate()
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [, setSearchParams] = useSearchParams()
+
+  const intervalId = useRef(null)
 
   const handleSearch = (e) => {
-    setLoadingSearch(true)
+    if (!loading) setLoadingSearch(true)
 
-    console.log(location.pathname, '❌❌❌❌')
     if (location.pathname !== '/search') {
       navigate('/search')
     }
 
-    // todo: make throttle for this
-    // setSearchParams({ q: e.target.value })
+    intervalId.current && clearInterval(intervalId.current)
+
+    intervalId.current = setTimeout(() => {
+      if (e.target.value === '') {
+        setSearchParams({})
+        navigate('/')
+      } else {
+        setSearchParams({ q: e.target.value })
+      }
+    }, 500)
   }
 
   return (

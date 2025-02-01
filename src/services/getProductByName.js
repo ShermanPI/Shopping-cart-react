@@ -1,4 +1,4 @@
-export const getProductByName = async (name) => {
-  const response = await fetch(`https://api.example.com/products?name=${name}`)
+export const getProductByName = async (query) => {
+  const response = await fetch(import.meta.env.VITE_API_URL + `/products/search?q=${query}`)
   return response.json()
 }
