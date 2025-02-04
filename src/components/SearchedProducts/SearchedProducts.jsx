@@ -1,11 +1,12 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { FiltersContext } from 'src/contexts/FiltersContext'
-import Loader from '../Loader/Loader'
 import { useSearchParams } from 'react-router'
 import { getProductByName } from 'src/services/getProductByName'
+import ShoppingList from '../ShoppingList/ShoppingList'
 
 export const SearchedProducts = () => {
   const { loadingSearch, setLoadingSearch } = useContext(FiltersContext)
+  const [searchedProducts, setSearchedProducts] = useState([])
   const [searchParams] = useSearchParams()
 
   useEffect(() => {
@@ -14,6 +15,7 @@ export const SearchedProducts = () => {
     if (searchQuery) {
       const fetchSearchResults = async () => {
         const result = await getProductByName(searchQuery)
+        setSearchedProducts(result.products)
         setLoadingSearch(false)
       }
 
@@ -23,17 +25,10 @@ export const SearchedProducts = () => {
 
   return (
     <div>
-      {loadingSearch
-        ? (
-          <div className='loader-container'>
-            <Loader />
-          </div>
-          )
-        : (
-          <div>
-            <h2>Results for: {searchParams.get('q')} </h2>
-          </div>
-          )}
+
+      <h2>Results for: "{searchParams.get('q')}" </h2>
+      <ShoppingList products={searchedProducts} productsLoading={loadingSearch} />
+
     </div>
   )
 }

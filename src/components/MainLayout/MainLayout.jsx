@@ -6,6 +6,7 @@ import Cart from '../Cart/Cart'
 import { ShootingStarProvider } from 'src/contexts/ShootingStarContext'
 import { CartContextProvider } from 'src/contexts/CartContext'
 import { FiltersContextProvider } from 'src/contexts/FiltersContext'
+import Filters from '../Filters/Filters'
 
 export const MainLayout = () => {
   return (
@@ -14,6 +15,9 @@ export const MainLayout = () => {
         <ShootingStarProvider>
 
           <Header />
+          <div className='products-main-container'>
+            <Filters />
+          </div>
           <Outlet />
           <Cart />
 

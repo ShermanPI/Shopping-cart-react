@@ -14,6 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Routes>
 
       <Route path='/' element={<MainLayout />}>
+
         <Route index element={<App />} />
         <Route path='/checkout' element={<CheckoutPage />} />
         <Route path='/product/:id' element={<ProductView />} />

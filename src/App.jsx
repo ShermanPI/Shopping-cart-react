@@ -1,6 +1,5 @@
 import ShoppingList from './components/ShoppingList/ShoppingList'
 import './App.css'
-import Filters from './components/Filters/Filters.jsx'
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router'
 import getProductsByCategory from './services/getProductsByCategory'
@@ -35,7 +34,6 @@ function App () {
     <>
       <div className='shop-main-container'>
         <main className='products-main-container'>
-          <Filters />
           <ShoppingList products={products} productsLoading={productsLoading} />
         </main>
       </div>
