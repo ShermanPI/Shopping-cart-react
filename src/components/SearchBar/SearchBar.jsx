@@ -40,6 +40,7 @@ export const SearchBar = () => {
           placeholder='Search for products'
           className='search-input'
           id='search-bar-input'
+          autoComplete='off'
           name='search-bar-input'
           value={inputValue}
         />
