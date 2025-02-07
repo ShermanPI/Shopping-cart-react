@@ -2,12 +2,14 @@ import { useEffect, useRef, useState } from 'react'
 import './categoriesCarrousel.css'
 import CarrouselBtn from './components/CarrouselBtn'
 import ArrowRight from '../../assets/Icons/ArrowRight'
-import { useSearchParams } from 'react-router'
+import { useLocation, useNavigate, useSearchParams } from 'react-router'
 import getAllCategories from 'src/services/getAllCategories'
 
 function CategoriesCarrousel () {
   const [categories, setCategories] = useState([])
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams] = useSearchParams()
+  const navigate = useNavigate()
+  const location = useLocation()
 
   const carrouselBtnsContainerRef = useRef()
   const leftBtnRef = useRef()
@@ -65,13 +67,13 @@ function CategoriesCarrousel () {
       >
         {categoriesAndAllOption?.map((category, index) =>
           <CarrouselBtn
-            active={categorySearchParam === category.slug || (categorySearchParam === '' && category.slug === 'All')}
+            active={(categorySearchParam === category.slug || (categorySearchParam === '' && location.pathname === '/' && index === 0))}
             onClick={() => {
               if (category.slug === 'All') {
-                setSearchParams({})
+                navigate('/')
                 return
               }
-              setSearchParams({ category: category.slug })
+              navigate(`/?category=${category.slug}`)
             }}
             name={category.name} key={index}
           />)}
