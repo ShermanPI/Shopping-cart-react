@@ -1,13 +1,12 @@
 import { useLocation, useNavigate } from 'react-router'
 import './searchBar.css'
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import { FiltersContext } from 'src/contexts/FiltersContext'
 import SearchIcon from 'src/assets/Icons/Search'
 import CloseIcon from 'src/assets/Icons/CloseIcon'
 
 export const SearchBar = () => {
-  const { setLoadingSearch, loading } = useContext(FiltersContext)
-  const [inputValue, setInputValue] = useState('')
+  const { setLoadingSearch, loading, searchValue, setSearchValue } = useContext(FiltersContext)
 
   const navigate = useNavigate()
   const location = useLocation()
@@ -16,7 +15,7 @@ export const SearchBar = () => {
 
   const handleSearch = (e) => {
     if (!loading) setLoadingSearch(true)
-    setInputValue(e.target.value)
+    setSearchValue(e.target.value)
 
     intervalId.current && clearInterval(intervalId.current)
 
@@ -30,7 +29,7 @@ export const SearchBar = () => {
   }
 
   useEffect(() => {
-    setInputValue(location.search.split('=')[1])
+    setSearchValue(location.search.split('=')[1])
   }, [])
 
   return (
@@ -47,13 +46,13 @@ export const SearchBar = () => {
           id='search-bar-input'
           autoComplete='off'
           name='search-bar-input'
-          value={inputValue}
+          value={searchValue}
         />
-        {inputValue && (
+        {searchValue && (
           <button
             className='clear-search-button' type='button'
             onClick={() => {
-              setInputValue('')
+              setSearchValue('')
               navigate('/')
             }}
           >

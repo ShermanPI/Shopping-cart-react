@@ -13,19 +13,16 @@ export const MainLayout = () => {
     <FiltersContextProvider>
       <CartContextProvider>
         <ShootingStarProvider>
-
           <Header />
           <div className='products-main-container'>
             <Filters />
           </div>
           <Outlet />
           <Cart />
-
           <Footer
             projectName='Shopping Cart 🛒'
             motive='Practice useContext and useReducer, React Router, and animation'
           />
-
         </ShootingStarProvider>
       </CartContextProvider>
     </FiltersContextProvider>

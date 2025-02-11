@@ -3,9 +3,11 @@ import './animatedLogo.css'
 import { useContext, useEffect, useRef, useState } from 'react'
 import { shootingStarContext } from '../../contexts/ShootingStarContext'
 import { useNavigate } from 'react-router'
+import { FiltersContext } from 'src/contexts/FiltersContext'
 
-function AnimatedLogo () {
+function AnimatedLogo ({ onClick }) {
   const { shootingStarsArray } = useContext(shootingStarContext)
+  const { setSearchValue } = useContext(FiltersContext)
   const [mouseOnIcon, setMouseOnIcon] = useState()
   const navigate = useNavigate()
   const boxIconRef = useRef()
@@ -60,6 +62,7 @@ function AnimatedLogo () {
   }
 
   const handleMouseClick = () => {
+    setSearchValue('')
     navigate('/')
   }
 
