@@ -50,16 +50,12 @@ img {
 
 body {
   background-color: var(--background-color);
-  overflow: hidden;
 }
 
 .shop-main-container {
   display: flex;
-  flex-direction: column;
-  overflow-y: scroll;
   width: 100%;
-  height: calc(100vh - 8.7rem);
-  padding-bottom: 6rem;
+  padding-bottom: 4.8rem;
 }
 
 .filters-main-container {

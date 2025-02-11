@@ -24,11 +24,9 @@ export const SearchedProducts = () => {
   }, [searchParams])
 
   return (
-    <div>
-
+    <div className='products-main-container'>
       <h2>Results for: "{searchParams.get('q')}" </h2>
       <ShoppingList products={searchedProducts} productsLoading={loadingSearch} />
-
     </div>
   )
 }

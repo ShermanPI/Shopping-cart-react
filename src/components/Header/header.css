@@ -2,7 +2,7 @@
     display: flex;
     width: 100%;
     align-items: center;
-    margin-inline: auto;
+    /* margin-inline: auto; */
     padding-block: 2rem;
     padding-inline: 5%;
     justify-content: space-between;
