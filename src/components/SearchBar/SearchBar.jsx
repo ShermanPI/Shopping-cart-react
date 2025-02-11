@@ -1,6 +1,6 @@
-import { useNavigate } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 import './searchBar.css'
-import { useContext, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { FiltersContext } from 'src/contexts/FiltersContext'
 import SearchIcon from 'src/assets/Icons/Search'
 import CloseIcon from 'src/assets/Icons/CloseIcon'
@@ -10,6 +10,7 @@ export const SearchBar = () => {
   const [inputValue, setInputValue] = useState('')
 
   const navigate = useNavigate()
+  const location = useLocation()
 
   const intervalId = useRef(null)
 
@@ -27,6 +28,10 @@ export const SearchBar = () => {
       }
     }, 500)
   }
+
+  useEffect(() => {
+    setInputValue(location.search.split('=')[1])
+  }, [])
 
   return (
     <>
