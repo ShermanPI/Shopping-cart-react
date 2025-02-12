@@ -21,12 +21,8 @@ const Cart = () => {
   }
 
   const checkoutHandle = (event) => {
+    setCartOpen(false)
     navigate('/checkout')
-    // if (cartItems.length) {
-    //   clearCart()
-    //   animateFireworks({ duration: 5000 })
-    //   event.stopPropagation()
-    // }
   }
 
   const totalPrice = cartItems.reduce((totalPrice, currentItem) => {
