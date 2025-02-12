@@ -1,4 +1,38 @@
-.checkout-page-container{
+.checkout-page-container {
     width: 90%;
     margin-inline: auto;
+}
+
+.checkout-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+    gap: 3.2rem;
+}
+
+.white-checkout-container {
+    border: 1px solid var(--border-color);
+    background-color: white;
+    border-radius: 0.5rem;
+}
+
+.checkout-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+}
+
+.checkout-total-price-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+}
+
+.checkout-product{
+    margin-bottom: 1rem;
+}
+
+.checkout-product:not(:last-child){
+    border-bottom: 1px solid var(--border-color);
 }
