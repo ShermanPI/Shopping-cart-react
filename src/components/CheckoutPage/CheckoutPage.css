@@ -10,6 +10,11 @@
     gap: 3.2rem;
 }
 
+.checkout-container-padding {
+    padding: 2.4rem;
+}
+
+
 .white-checkout-container {
     border: 1px solid var(--border-color);
     background-color: white;
@@ -29,10 +34,31 @@
     border-top: 1px solid var(--border-color);
 }
 
-.checkout-product{
-    margin-bottom: 1rem;
+.checkout-products-container {
+    padding-inline: 2.4rem;
+    padding-bottom: 3.6rem;
+    max-height: 75vh;
 }
 
-.checkout-product:not(:last-child){
+.checkout-product {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    padding-block: 0.5rem;
     border-bottom: 1px solid var(--border-color);
+}
+
+.checkout-products-container .checkout-product:last-child {
+    border: none;
+}
+
+.checkout-container-subtitle {
+    font-size: 2.4rem;
+}
+
+.checkout-product-image-container {
+    width: 60px;
+    height: 60px;
+    background-color: #eaeaea;
+    border-radius: 0.5rem;
 }
