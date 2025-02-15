@@ -1,7 +1,17 @@
+import { useContext } from 'react'
 import Button from '../Button/Button'
 import './checkoutPage.css'
+import { CartContext } from 'src/contexts/CartContext'
 
 export const CheckoutPage = () => {
+  const {
+    cartOpen,
+    setCartOpen,
+    cartItems
+  } = useContext(CartContext)
+
+  console.log(cartItems, '💗💗💗')
+
   return (
     <section className='checkout-page-container'>
       <h1 className='results-title'>Checkout</h1>

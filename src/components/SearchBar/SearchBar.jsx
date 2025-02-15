@@ -29,7 +29,7 @@ export const SearchBar = () => {
   }
 
   useEffect(() => {
-    setSearchValue(location.search.split('=')[1])
+    setSearchValue(location.search.split('=')[1] || '')
   }, [])
 
   return (
@@ -40,13 +40,13 @@ export const SearchBar = () => {
         </div>
         <input
           onInput={handleSearch}
+          value={searchValue}
           type='text'
           placeholder='Search for products'
           className='search-input'
           id='search-bar-input'
           autoComplete='off'
           name='search-bar-input'
-          value={searchValue}
         />
         {searchValue && (
           <button

@@ -36,7 +36,7 @@
 
 .checkout-products-container {
     padding-inline: 2.4rem;
-    padding-bottom: 3.6rem;
+    padding-bottom: 2.4rem;
     max-height: 75vh;
 }
 
@@ -44,7 +44,7 @@
     display: flex;
     align-items: center;
     gap: 1.6rem;
-    padding-block: 0.5rem;
+    padding-block: 0.8rem;
     border-bottom: 1px solid var(--border-color);
 }
 
