@@ -5,12 +5,9 @@ import { CartContext } from 'src/contexts/CartContext'
 
 export const CheckoutPage = () => {
   const {
-    cartOpen,
-    setCartOpen,
-    cartItems
+    cartItems,
+    totalPrice
   } = useContext(CartContext)
-
-  console.log(cartItems, '💗💗💗')
 
   return (
     <section className='checkout-page-container'>
@@ -19,33 +16,26 @@ export const CheckoutPage = () => {
         <div className='checkout-products white-checkout-container'>
           <h2 className='checkout-container-subtitle checkout-container-padding'>Order Summary</h2>
 
-          <div className='checkout-products-container'>
-            <div className='checkout-product'>
-              <div className='checkout-product-image-container'>
-                <img src='' alt='' />
-              </div>
+          <div className='checkout-products-container black-scroll-bar'>
+            {cartItems.map(({ product }) => (
+              <div className='checkout-product' key={product.key}>
+                <div className='checkout-product-image-container'>
+                  <img src={product.thumbnail} alt={`image of product: ${product.title}`} />
+                </div>
 
-              <div>
-                <p>name</p>
-                <p>$price</p>
+                <div className='checkout-product-info'>
+                  <p className='checkout-product-name'>{product.title}</p>
+                  <p className='checkout-product-price'>${product.price}</p>
+                </div>
               </div>
-            </div>
+            )
+            )}
 
-            <div className='checkout-product'>
-              <div className='checkout-product-image-container'>
-                <img src='' alt='' />
-              </div>
-
-              <div>
-                <p>name</p>
-                <p>$price</p>
-              </div>
-            </div>
           </div>
 
           <div className='checkout-total-price-container checkout-container-padding'>
             <h3>Total:</h3>
-            <p>$1234</p>
+            <p>${totalPrice}</p>
           </div>
         </div>
         <div className='checkout-info-container'>

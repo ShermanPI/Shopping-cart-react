@@ -7,6 +7,10 @@ export const CartContextProvider = ({ children }) => {
   const [cartOpen, setCartOpen] = useState(false)
   const { cart, addCartItem, substractCartItem, deleteProductFromCart, clearCart } = useCart()
 
+  const totalPrice = cart.reduce((totalPrice, currentItem) => {
+    return totalPrice + (currentItem.product.price * currentItem.quantity)
+  }, 0).toFixed(2)
+
   return (
     <CartContext.Provider value={{
       cartOpen,
@@ -15,7 +19,8 @@ export const CartContextProvider = ({ children }) => {
       addCartItem,
       substractCartItem,
       deleteProductFromCart,
-      clearCart
+      clearCart,
+      totalPrice
     }}
     >
       {children}

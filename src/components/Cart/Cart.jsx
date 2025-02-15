@@ -11,7 +11,8 @@ const Cart = () => {
   const {
     cartOpen,
     setCartOpen,
-    cartItems
+    cartItems,
+    totalPrice
   } = useContext(CartContext)
 
   const navigate = useNavigate()
@@ -24,10 +25,6 @@ const Cart = () => {
     setCartOpen(false)
     navigate('/checkout')
   }
-
-  const totalPrice = cartItems.reduce((totalPrice, currentItem) => {
-    return totalPrice + (currentItem.product.price * currentItem.quantity)
-  }, 0).toFixed(2)
 
   return (
     <div className={`cart-shadow ${cartOpen ? '' : 'close'} `} onClick={closeCart}>

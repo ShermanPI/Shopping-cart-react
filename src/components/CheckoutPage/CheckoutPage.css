@@ -34,10 +34,21 @@
     border-top: 1px solid var(--border-color);
 }
 
+.checkout-total-price-container h3{
+    font-size: 1.6rem;
+}
+
+.checkout-total-price-container p{
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
 .checkout-products-container {
     padding-inline: 2.4rem;
     padding-bottom: 2.4rem;
-    max-height: 75vh;
+    max-height: 45vh;
+    overflow: auto;
+    border: solid 3px transparent;
 }
 
 .checkout-product {
@@ -61,4 +72,18 @@
     height: 60px;
     background-color: #eaeaea;
     border-radius: 0.5rem;
+}
+
+.checkout-product-name{
+    font-weight: bold;
+}
+
+.checkout-product-price{
+    color: #6b7280;
+}
+
+.checkout-product-info{
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;    
 }
