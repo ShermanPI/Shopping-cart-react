@@ -48,11 +48,11 @@ export const CheckoutPage = () => {
               <option value='goldfish'>Goldfish</option>
             </select>
 
-            <p>John Doe</p>
+            <p className='client-name'>John Doe</p>
             <p>123 Main St</p>
             <p>New York, 10001</p>
 
-            <button>
+            <button className='checkout-white-btn'>
               Edit address
             </button>
           </div>
@@ -63,7 +63,7 @@ export const CheckoutPage = () => {
             <label><input type='radio' name='option-1' value='1' /> Visa ending in 1234</label><br />
             <label><input type='radio' name='option-2' value='2' /> MasterCard ending in 5678 </label> <br />
 
-            <button>
+            <button className='checkout-white-btn'>
               Add new payment method
             </button>
           </div>
