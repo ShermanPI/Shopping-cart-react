@@ -18,7 +18,7 @@ export const CheckoutPage = () => {
 
           <div className='checkout-products-container black-scroll-bar'>
             {cartItems.map(({ product }) => (
-              <div className='checkout-product' key={product.key}>
+              <div className='checkout-product' key={product.id}>
                 <div className='checkout-product-image-container'>
                   <img src={product.thumbnail} alt={`image of product: ${product.title}`} />
                 </div>
@@ -39,12 +39,35 @@ export const CheckoutPage = () => {
           </div>
         </div>
         <div className='checkout-info-container'>
-          <div className='checkout-shipping-info white-checkout-container'>
-            <h2 className='checkout-container-subtitle checkout-container-padding'>Order Summary</h2>
+
+          <div className='checkout-shipping-info white-checkout-container checkout-container-padding'>
+            <h2 className='checkout-container-subtitle'>Shipping Address</h2>
+
+            <select name='addresses' id='client-addresses'>
+              <option value='spider'>Spider</option>
+              <option value='goldfish'>Goldfish</option>
+            </select>
+
+            <p>John Doe</p>
+            <p>123 Main St</p>
+            <p>New York, 10001</p>
+
+            <button>
+              Edit address
+            </button>
           </div>
-          <div className='checkout-payment-info white-checkout-container'>
-            <h2 className='checkout-container-subtitle checkout-container-padding'>Payment Method</h2>
+
+          <div className='checkout-payment-info white-checkout-container checkout-container-padding'>
+            <h2 className='checkout-container-subtitle '>Payment Method</h2>
+            <div className='' />
+            <label><input type='radio' name='option-1' value='1' /> Visa ending in 1234</label><br />
+            <label><input type='radio' name='option-2' value='2' /> MasterCard ending in 5678 </label> <br />
+
+            <button>
+              Add new payment method
+            </button>
           </div>
+
           <Button>
             Place Order
           </Button>
