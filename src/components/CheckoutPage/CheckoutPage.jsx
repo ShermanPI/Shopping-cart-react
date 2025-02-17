@@ -59,9 +59,11 @@ export const CheckoutPage = () => {
 
           <div className='checkout-payment-info white-checkout-container checkout-container-padding'>
             <h2 className='checkout-container-subtitle '>Payment Method</h2>
-            <div className='' />
-            <label><input type='radio' name='option-1' value='1' /> Visa ending in 1234</label><br />
-            <label><input type='radio' name='option-2' value='2' /> MasterCard ending in 5678 </label> <br />
+
+            <div className='payment-options'>
+              <label><input type='radio' name='payment-option' value='1' /> Visa ending in 1234</label>
+              <label><input type='radio' name='payment-option' value='2' /> MasterCard ending in 5678 </label>
+            </div>
 
             <button className='checkout-white-btn'>
               Add new payment method

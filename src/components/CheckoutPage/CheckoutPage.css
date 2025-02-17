@@ -114,5 +114,26 @@
 }
 
 .checkout-white-btn:hover{
-    background-color: #e4e4e7;
+    background-color: hsl(240 4.8% 95.9%);
 }
+
+.payment-options{
+    display: flex;
+    flex-direction: column;
+    margin-block: 1.6rem;
+    gap: 1.6rem;
+    font-size: 1.4rem;
+}
+
+.payment-options label{
+    cursor: pointer;
+    display: flex;
+    gap: 0.8rem;
+}
+
+.payment-options label input{
+    transform: scale(1.5);
+    cursor: pointer;
+    accent-color: #333;
+}
+
