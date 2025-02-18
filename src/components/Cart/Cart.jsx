@@ -63,9 +63,12 @@ const Cart = () => {
               ${totalPrice}
             </p>
           </div>
-          <Button onClick={checkoutHandle}>
-            Go to checkout
-          </Button>
+          {
+            Boolean(cartItems.length) &&
+              <Button onClick={checkoutHandle}>
+                Go to checkout
+              </Button>
+          }
         </div>
       </div>
     </div>

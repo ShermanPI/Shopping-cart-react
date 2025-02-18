@@ -1,6 +1,7 @@
 .checkout-page-container {
     width: 90%;
     margin-inline: auto;
+    padding-bottom: 3.6rem;
 }
 
 .checkout-container {
@@ -9,6 +10,8 @@
     align-items: start;
     gap: 3.2rem;
 }
+
+
 
 .checkout-container-padding {
     padding: 2.4rem;
@@ -156,4 +159,14 @@
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .checkout-container{
+    grid-template-columns: 1fr;
+    }
+
+    .checkout-products-container{
+        max-height: none;        
+    }
 }

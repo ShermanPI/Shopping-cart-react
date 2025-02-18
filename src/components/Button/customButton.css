@@ -12,7 +12,7 @@
         1px 1px 0px 0px white,
         2px 2px 0px 0px #b9b9b9;
     padding-inline: 4rem;
-    padding-block: 0.6rem;
+    padding-block: 1rem;
     width: 100%;
     cursor: pointer;
     display: flex;
@@ -22,6 +22,7 @@
     user-select: none;
     transition: 0.2s all ease;
     white-space: nowrap;
+    font-size: 1.4rem;
 }
 
 .regular-button svg{
