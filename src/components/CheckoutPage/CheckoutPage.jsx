@@ -2,6 +2,8 @@ import { useContext, useState } from 'react'
 import Button from '../Button/Button'
 import './checkoutPage.css'
 import { CartContext } from 'src/contexts/CartContext'
+import { updateAddress } from 'src/services/updateAddress'
+import { addPaymentMethod } from 'src/services/addPaymentMethod'
 
 export const CheckoutPage = () => {
   const addressesOptions = [
@@ -83,7 +85,7 @@ export const CheckoutPage = () => {
               <p>{selectedOpitonInfo.state}</p>
             </div>
 
-            <button className='checkout-white-button'>
+            <button className='checkout-white-button' onClick={updateAddress}>
               Edit address
             </button>
           </div>
@@ -96,7 +98,7 @@ export const CheckoutPage = () => {
               <label><input type='radio' name='payment-option' value='2' /> MasterCard ending in 5678 </label>
             </div>
 
-            <button className='checkout-white-button'>
+            <button className='checkout-white-button' onClick={addPaymentMethod}>
               Add new payment method
             </button>
           </div>
