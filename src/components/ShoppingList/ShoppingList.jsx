@@ -23,17 +23,28 @@ function ShoppingList ({ products, productsLoading = false }) {
           </div>
           )
         : (
-          <section className='products-container'>
-            {products.map(product => {
-              return (
-                <Fragment key={product.id}>
-                  <ProductCard onClick={() => saveIntoCartHandler(product)} product={product} />
-                </Fragment>
-              )
-            }
-            )}
-          </section>
-          )}
+            products.length
+              ? (
+                <section className='products-container'>
+                  {products.map(product => {
+                    return (
+                      <Fragment key={product.id}>
+                        <ProductCard onClick={() => saveIntoCartHandler(product)} product={product} />
+                      </Fragment>
+                    )
+                  }
+                  )}
+                </section>)
+              : (
+                <div className='no-items-container'>
+                  <h1>
+                    No items here!
+                  </h1>
+                  <h1>
+                    ¯\_(ツ)_/¯
+                  </h1>
+                </div>
+                ))}
     </>
   )
 }
