@@ -94,7 +94,7 @@ export const CheckoutPage = () => {
             <h2 className='checkout-container-subtitle '>Payment Method</h2>
 
             <div className='payment-options'>
-              <label><input type='radio' name='payment-option' value='1' /> Visa ending in 1234</label>
+              <label><input type='radio' name='payment-option' value='1' checked /> Visa ending in 1234</label>
               <label><input type='radio' name='payment-option' value='2' /> MasterCard ending in 5678 </label>
             </div>
 

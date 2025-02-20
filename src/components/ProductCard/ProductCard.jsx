@@ -17,8 +17,10 @@ function ProductCard ({ product, onClick }) {
     onClick()
   }
 
-  const truncateText = (text, length) =>
-    text.length > length ? text.substring(0, length) + '...' : text
+  const truncateText = (text, length) => {
+    const trimmedText = text.trim()
+    return trimmedText.length > length ? trimmedText.substring(0, length) + '...' : trimmedText
+  }
 
   const truncatedProductTitle = truncateText(product.title, 20)
   const truncatedProductDescription = truncateText(product.description, 65)
