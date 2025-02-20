@@ -272,3 +272,8 @@
     font-size: 2.6rem;
 }
 
+@media only screen and (max-width: 1240px) {
+    .logo-name{
+        width: 75%;
+    }
+}

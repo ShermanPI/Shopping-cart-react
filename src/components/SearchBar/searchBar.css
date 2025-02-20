@@ -41,3 +41,9 @@
     justify-content: center;
     align-items: center;
 }
+
+@media only screen and (max-width: 1240px) {
+    .search-bar-container {
+        max-width: 100%;
+    }
+}

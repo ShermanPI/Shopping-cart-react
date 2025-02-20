@@ -12,9 +12,20 @@
     border-bottom: 1px solid;
     border-color: var(--border-color);
     z-index: 5;
+    flex-wrap: wrap;
 }
 
-.shopping-logo-container{
+@media only screen and (max-width: 1240px) {
+    .main-header-container > .search-bar-container {
+        order: 2;
+    }
+
+    .main-header-container{
+        gap: 2rem;
+    }
+}
+
+.shopping-logo-container {
     padding: 1rem;
     cursor: pointer;
     border-radius: var(--button-border-radius);
@@ -25,11 +36,11 @@
     transition: all 0.3s linear;
 }
 
-.shopping-logo-container:hover{
+.shopping-logo-container:hover {
     background-color: var(--button-hover-background);
 }
 
-.shopping-logo-quantity{
+.shopping-logo-quantity {
     position: absolute;
     background-color: var(--button-background-color);
     z-index: 1;
