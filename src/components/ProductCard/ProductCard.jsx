@@ -17,6 +17,12 @@ function ProductCard ({ product, onClick }) {
     onClick()
   }
 
+  const truncateText = (text, length) =>
+    text.length > length ? text.substring(0, length) + '...' : text
+
+  const truncatedProductTitle = truncateText(product.title, 20)
+  const truncatedProductDescription = truncateText(product.description, 65)
+
   return (
     <>
       <div className={`card ${cardPreview.shouldRender ? 'hidden-card' : ''}`} onClick={openProductCard} ref={cardRef}>
@@ -29,7 +35,7 @@ function ProductCard ({ product, onClick }) {
           </div>
           <div className='name-price-container'>
             <p className='product-name'>
-              {product.title}
+              {truncatedProductTitle}
             </p>
             <p className='product-price'>
               {product.price}
@@ -37,7 +43,7 @@ function ProductCard ({ product, onClick }) {
           </div>
           <div className='product-description'>
             <p>
-              {product.description}
+              {truncatedProductDescription}
             </p>
           </div>
         </div>

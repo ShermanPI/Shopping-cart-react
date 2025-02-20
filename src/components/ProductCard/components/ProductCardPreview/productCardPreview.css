@@ -150,6 +150,7 @@
 
 .price-rating h2{
     font-size: 2.4rem;
+    align-self: center;
 }
 
 .dimensions-container{
