@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import Button from '../Button/Button'
-import './checkoutPage.css'
+import './checkout.css'
 import { CartContext } from 'src/contexts/CartContext'
 import { updateAddress } from 'src/services/updateAddress'
 import { addPaymentMethod } from 'src/services/addPaymentMethod'
