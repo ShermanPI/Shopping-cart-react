@@ -1,0 +1,17 @@
+.order-placed-modal{
+    background-color: var(--background-color);
+    width: 100%;
+    height: fit-content;
+    max-width: 600px;
+    max-height: 100vh;
+    margin: auto;
+    border-radius: var(--button-border-radius);
+    padding: 2rem;
+    opacity: 1;
+    transition: all	0.3s ease;
+}
+
+.behind-shadow.close{
+    opacity: 0;
+    pointer-events: none;
+}
