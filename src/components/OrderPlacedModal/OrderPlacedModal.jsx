@@ -4,8 +4,9 @@ import animateFireworks from 'src/helpers/animateFireworks'
 
 export const OrderPlacedModal = ({ setOpen, open }) => {
   useEffect(() => {
+    console.log('hey')
     if (open) {
-      animateFireworks({ duration: 5 })
+      animateFireworks({ duration: 2000, shapes: ['star', 'square'] })
     }
   }, [open])
 
