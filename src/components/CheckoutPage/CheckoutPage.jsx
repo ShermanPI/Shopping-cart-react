@@ -119,7 +119,10 @@ export const CheckoutPage = () => {
 
             <Button onClick={makeOrder}>
               {orderLoading
-                ? <LoadingProgressIcon width={20} height={20} />
+                ? (
+                  <div className='spinning'>
+                    <LoadingProgressIcon width={20} height={20} />
+                  </div>)
                 : <span className='place-order-btn-text'>Place Order</span>}
             </Button>
           </div>
