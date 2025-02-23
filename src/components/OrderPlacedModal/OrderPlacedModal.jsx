@@ -5,7 +5,7 @@ import animateFireworks from 'src/helpers/animateFireworks'
 export const OrderPlacedModal = ({ setOpen, open }) => {
   useEffect(() => {
     if (open) {
-      animateFireworks()
+      animateFireworks({ duration: 5 })
     }
   }, [open])
 

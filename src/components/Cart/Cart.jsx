@@ -4,7 +4,6 @@ import CloseIcon from '../../assets/Icons/CloseIcon'
 import './cart.css'
 import CartItem from './components/CartItem'
 import Button from '../Button/Button'
-// import animateFireworks from '../../helpers/animateFireworks'
 import { useNavigate } from 'react-router'
 
 const Cart = () => {

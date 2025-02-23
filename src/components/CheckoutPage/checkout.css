@@ -170,3 +170,7 @@
         max-height: none;        
     }
 }
+
+.place-order-btn-text{
+    font-size: 1.8rem;
+}

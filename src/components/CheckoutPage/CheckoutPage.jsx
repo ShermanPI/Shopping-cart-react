@@ -6,9 +6,11 @@ import { updateAddress } from 'src/services/updateAddress'
 import { addPaymentMethod } from 'src/services/addPaymentMethod'
 import { OrderPlacedModal } from '../OrderPlacedModal/OrderPlacedModal'
 import { placeOrder } from 'src/services/placeOrder'
+import { LoadingProgressIcon } from 'src/assets/Icons/LoadingProgress'
 
 export const CheckoutPage = () => {
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
+  const [orderLoading, setOrderLoading] = useState(false)
 
   const addressesOptions = [
     {
@@ -28,6 +30,13 @@ export const CheckoutPage = () => {
   const [selectedAddress, setSelectedAddress] = useState(addressesOptions[0].id)
 
   const selectedOpitonInfo = addressesOptions.find(el => el.id === selectedAddress)
+
+  const makeOrder = async () => {
+    setOrderLoading(true)
+    await placeOrder()
+    setOpen(true)
+    setOrderLoading(false)
+  }
 
   return (
     <>
@@ -108,8 +117,10 @@ export const CheckoutPage = () => {
               </button>
             </div>
 
-            <Button onClick={placeOrder}>
-              Place Order
+            <Button onClick={makeOrder}>
+              {orderLoading
+                ? <LoadingProgressIcon width={20} height={20} />
+                : <span className='place-order-btn-text'>Place Order</span>}
             </Button>
           </div>
         </section>
