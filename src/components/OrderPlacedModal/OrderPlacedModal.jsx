@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import './orderPlacedModal.css'
 import animateFireworks from 'src/helpers/animateFireworks'
 import { getCelebrationRandomEmoticon } from 'src/helpers/getFunnyEmoticon'
+import Button from '../Button/Button'
 
 export const OrderPlacedModal = ({ setOpen, open }) => {
   const emoticonRef = useRef(getCelebrationRandomEmoticon())
@@ -16,7 +17,6 @@ export const OrderPlacedModal = ({ setOpen, open }) => {
     <>
       <div
         className={`behind-shadow ${!open ? 'closed-order' : ''}`}
-        onClick={() => setOpen(false)}
       >
         <div className='order-placed-modal'>
           <span className='order-emoticon'>
@@ -33,14 +33,34 @@ export const OrderPlacedModal = ({ setOpen, open }) => {
 
           <div className='order-number-container'>
             <p>
-
               Order Number
             </p>
             <p>
-
               ORD-123-456-789
             </p>
           </div>
+
+          <div className='placed-order-info-container tracking-info-container'>
+            <b>
+              Track Your Order
+            </b>
+            <p>
+              Follow your order status online
+            </p>
+          </div>
+
+          <div className='placed-order-info-container order-confirmation-container'>
+            <b>
+              Order Confirmation
+            </b>
+            <p>
+              We sent you an email with your order details
+            </p>
+          </div>
+
+          <Button>
+            Keep Shopping
+          </Button>
 
         </div>
       </div>
