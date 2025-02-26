@@ -3,13 +3,17 @@ import './orderPlacedModal.css'
 import animateFireworks from 'src/helpers/animateFireworks'
 import { getCelebrationRandomEmoticon } from 'src/helpers/getFunnyEmoticon'
 import Button from '../Button/Button'
+import { useNavigate } from 'react-router'
+import { BoxIcon } from 'src/assets/Icons/BoxIcon'
+import { LetterIcon } from 'src/assets/Icons/LetterIcon'
 
 export const OrderPlacedModal = ({ setOpen, open }) => {
+  const navigate = useNavigate()
   const emoticonRef = useRef(getCelebrationRandomEmoticon())
 
   useEffect(() => {
     if (open) {
-      animateFireworks({ duration: 2000, shapes: ['star', 'square'] })
+      animateFireworks({ duration: 3000, shapes: ['star', 'square'] })
     }
   }, [open])
 
@@ -27,7 +31,7 @@ export const OrderPlacedModal = ({ setOpen, open }) => {
             Order Placed Successfully!
           </h2>
 
-          <p>
+          <p className='thanks-text'>
             Thank you for your order. We'll send you shipping confirmation when your order is on its way!
           </p>
 
@@ -41,24 +45,30 @@ export const OrderPlacedModal = ({ setOpen, open }) => {
           </div>
 
           <div className='placed-order-info-container tracking-info-container'>
-            <b>
-              Track Your Order
-            </b>
-            <p>
-              Follow your order status online
-            </p>
+            <BoxIcon />
+            <div>
+              <b className='info-title'>
+                Track Your Order
+              </b>
+              <p className='tracking-info'>
+                Follow your order status online
+              </p>
+            </div>
           </div>
 
           <div className='placed-order-info-container order-confirmation-container'>
-            <b>
-              Order Confirmation
-            </b>
-            <p>
-              We sent you an email with your order details
-            </p>
+            <LetterIcon />
+            <div>
+              <b className='info-title'>
+                Order Confirmation
+              </b>
+              <p className='tracking-info'>
+                We sent you an email with your order details
+              </p>
+            </div>
           </div>
 
-          <Button>
+          <Button onClick={() => navigate('/')}>
             Keep Shopping
           </Button>
 
