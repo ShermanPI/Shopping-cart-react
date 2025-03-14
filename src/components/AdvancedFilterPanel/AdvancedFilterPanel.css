@@ -76,3 +76,32 @@
     accent-color: black;
     cursor: pointer;
 }
+
+.advanced-filter{
+    display: flex;
+    justify-content: space-between;
+}
+
+.advanced-filter-item {
+    display: flex;
+    align-items: center;
+}
+
+.advanced-filter-icon-container {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--border-color);
+    border-radius: var(--button-border-radius);
+    padding: 0;
+    background-color: var(--background-color);
+    padding: 0.8rem;
+}
+
+.advanced-filter-icon-container:hover {
+    background-color: var(--button-hover-background);
+}
