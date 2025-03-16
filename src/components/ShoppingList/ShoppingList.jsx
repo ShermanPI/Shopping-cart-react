@@ -4,14 +4,30 @@ import { Fragment, useContext } from 'react'
 import Loader from 'components/Loader/Loader'
 import { shootingStarContext } from 'src/contexts/ShootingStarContext'
 import { CartContext } from 'src/contexts/CartContext'
+import { FiltersContext } from 'src/contexts/FiltersContext'
 
 function ShoppingList ({ products, productsLoading = false }) {
   const { addShootingStar } = useContext(shootingStarContext)
   const { addCartItem } = useContext(CartContext)
+  const { filters } = useContext(FiltersContext)
 
   const saveIntoCartHandler = (cartItem) => {
     addShootingStar()
     addCartItem(cartItem)
+  }
+
+  const orderProducts = () => {
+    const productsCopy = [...products]
+
+    if (filters.priceOrder === 'asc') {
+      return productsCopy.sort((a, b) => a.price - b.price)
+    }
+
+    if (filters.priceOrder === 'desc') {
+      return productsCopy.sort((a, b) => b.price - a.price)
+    }
+
+    return productsCopy
   }
 
   return (
@@ -26,7 +42,7 @@ function ShoppingList ({ products, productsLoading = false }) {
             products.length
               ? (
                 <section className='products-container'>
-                  {products.map(product => {
+                  {orderProducts().map(product => {
                     return (
                       <Fragment key={product.id}>
                         <ProductCard onClick={() => saveIntoCartHandler(product)} product={product} />

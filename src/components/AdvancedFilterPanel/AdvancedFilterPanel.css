@@ -84,6 +84,7 @@
 
 .advanced-filter-item {
     display: flex;
+    gap: 0.5rem;
     align-items: center;
 }
 
@@ -104,4 +105,9 @@
 
 .advanced-filter-icon-container:hover {
     background-color: var(--button-hover-background);
+}
+
+
+.clear-filters-btn:hover{
+    background-color: transparent;
 }
