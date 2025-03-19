@@ -2,15 +2,14 @@ import { useContext, useEffect, useRef, useState } from 'react'
 import './categoriesCarrousel.css'
 import CarrouselBtn from './components/CarrouselBtn'
 import ArrowRight from '../../assets/Icons/ArrowRight'
-import { useLocation, useNavigate, useSearchParams } from 'react-router'
+import { useLocation, useSearchParams } from 'react-router'
 import getAllCategories from 'src/services/getAllCategories'
 import { FiltersContext } from 'src/contexts/FiltersContext'
 
 function CategoriesCarrousel () {
   const [categories, setCategories] = useState([])
-  const [searchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
   const { setSearchValue } = useContext(FiltersContext)
-  const navigate = useNavigate()
   const location = useLocation()
 
   const carrouselBtnsContainerRef = useRef()
@@ -43,10 +42,12 @@ function CategoriesCarrousel () {
   const handleCarrouselClick = (category) => {
     if (category.slug === 'All') {
       setSearchValue('')
-      navigate('/')
+      searchParams.delete('category')
+      setSearchParams(searchParams)
       return
     }
-    navigate(`/?category=${category.slug}`)
+    searchParams.set('category', category.slug)
+    setSearchParams(searchParams)
   }
 
   const rightClick = () => handleMoveClick(1)
