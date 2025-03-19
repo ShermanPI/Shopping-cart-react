@@ -22,7 +22,7 @@ const AdvancedFilterPanel = () => {
   }
 
   const handleClearFilters = () => {
-    searchParams.set('priceOrder', 'high')
+    searchParams.delete('priceOrder')
     setSearchParams(searchParams)
   }
 
