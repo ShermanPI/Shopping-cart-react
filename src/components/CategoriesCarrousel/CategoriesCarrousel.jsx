@@ -40,6 +40,15 @@ function CategoriesCarrousel () {
     updateVisibility(newPosition, scrollableWidth)
   }
 
+  const handleCarrouselClick = (category) => {
+    if (category.slug === 'All') {
+      setSearchValue('')
+      navigate('/')
+      return
+    }
+    navigate(`/?category=${category.slug}`)
+  }
+
   const rightClick = () => handleMoveClick(1)
   const leftClick = () => handleMoveClick(-1)
 
@@ -70,14 +79,7 @@ function CategoriesCarrousel () {
         {categoriesAndAllOption?.map((category, index) =>
           <CarrouselBtn
             active={(categorySearchParam === category.slug || (categorySearchParam === '' && location.pathname === '/' && index === 0))}
-            onClick={() => {
-              if (category.slug === 'All') {
-                setSearchValue('')
-                navigate('/')
-                return
-              }
-              navigate(`/?category=${category.slug}`)
-            }}
+            onClick={() => handleCarrouselClick(category)}
             name={category.name} key={index}
           />)}
       </div>

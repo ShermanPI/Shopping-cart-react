@@ -1,17 +1,30 @@
 import './AdvancedFilterPanel.css'
 import FilterIcon from '../../assets/Icons/FilterIcon'
-import { useContext, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import DollarIcon from 'src/assets/Icons/DollarIcon'
 import UpIcon from 'src/assets/Icons/UpIcon'
-import { FiltersContext } from 'src/contexts/FiltersContext'
 import DownloadIcon from 'src/assets/Icons/DownloadIcon'
 import EqualIcon from 'src/assets/Icons/EqualIcon'
 import CloseIcon from 'src/assets/Icons/CloseIcon'
+import { useSearchParams } from 'react-router'
 
+// TODO: make the page does not make another request when the order is changed
 const AdvancedFilterPanel = () => {
   const [panelOpen, setPanelOpen] = useState(false)
   const panelOptionContainerRef = useRef()
-  const { filters, setFilters, clearFilters } = useContext(FiltersContext)
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  const searchParamPriceOrder = searchParams.get('priceOrder')
+
+  const handlePriceOrder = () => {
+    searchParams.set('priceOrder', searchParamPriceOrder === 'asc' ? 'desc' : 'asc')
+    setSearchParams(searchParams)
+  }
+
+  const handleClearFilters = () => {
+    searchParams.set('priceOrder', 'high')
+    setSearchParams(searchParams)
+  }
 
   return (
     <div className='all-filters-container' ref={panelOptionContainerRef}>
@@ -22,26 +35,25 @@ const AdvancedFilterPanel = () => {
         <div className='advanced-filter'>
           <div className='advanced-filter-item'>
             <DollarIcon />
-            PRICE
+            <p>
+              PRICE
+            </p>
           </div>
 
           <div className='advanced-filter-item'>
-            {filters.priceOrder &&
-              <button onClick={() => clearFilters()} className='advanced-filter-icon-container clear-filters-btn'>
+            {searchParamPriceOrder &&
+              <button onClick={handleClearFilters} className='advanced-filter-icon-container clear-filters-btn'>
                 <CloseIcon width={22} height={22} />
               </button>}
             <button
               className='advanced-filter-icon-container'
-              onClick={() => setFilters({
-                ...filters,
-                priceOrder: filters.priceOrder === 'asc' ? 'desc' : 'asc'
-              })}
+              onClick={handlePriceOrder}
             >
-              {!filters.priceOrder && <EqualIcon />}
+              {!searchParamPriceOrder && <EqualIcon />}
 
-              {filters.priceOrder === 'asc' && <UpIcon />}
+              {searchParamPriceOrder === 'asc' && <UpIcon />}
 
-              {filters.priceOrder === 'desc' && <DownloadIcon />}
+              {searchParamPriceOrder === 'desc' && <DownloadIcon />}
             </button>
           </div>
         </div>

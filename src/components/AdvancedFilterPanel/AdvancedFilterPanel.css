@@ -111,3 +111,8 @@
 .clear-filters-btn:hover{
     background-color: transparent;
 }
+
+.advanced-filter-item p{
+    font-size: 1.6rem;
+    font-weight: 500;
+}

@@ -4,26 +4,28 @@ import { Fragment, useContext } from 'react'
 import Loader from 'components/Loader/Loader'
 import { shootingStarContext } from 'src/contexts/ShootingStarContext'
 import { CartContext } from 'src/contexts/CartContext'
-import { FiltersContext } from 'src/contexts/FiltersContext'
+import { useSearchParams } from 'react-router'
 
 function ShoppingList ({ products, productsLoading = false }) {
   const { addShootingStar } = useContext(shootingStarContext)
   const { addCartItem } = useContext(CartContext)
-  const { filters } = useContext(FiltersContext)
+  const [searchParams] = useSearchParams()
 
   const saveIntoCartHandler = (cartItem) => {
     addShootingStar()
     addCartItem(cartItem)
   }
 
+  const priceOrder = searchParams.get('priceOrder')
+
   const orderProducts = () => {
     const productsCopy = [...products]
 
-    if (filters.priceOrder === 'asc') {
+    if (priceOrder === 'asc') {
       return productsCopy.sort((a, b) => a.price - b.price)
     }
 
-    if (filters.priceOrder === 'desc') {
+    if (priceOrder === 'desc') {
       return productsCopy.sort((a, b) => b.price - a.price)
     }
 
