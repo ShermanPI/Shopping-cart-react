@@ -1,6 +1,6 @@
 import './AdvancedFilterPanel.css'
 import FilterIcon from '../../assets/Icons/FilterIcon'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import DollarIcon from 'src/assets/Icons/DollarIcon'
 import UpIcon from 'src/assets/Icons/UpIcon'
 import DownloadIcon from 'src/assets/Icons/DownloadIcon'
@@ -8,7 +8,6 @@ import EqualIcon from 'src/assets/Icons/EqualIcon'
 import CloseIcon from 'src/assets/Icons/CloseIcon'
 import { useSearchParams } from 'react-router'
 
-// TODO: make the page does not make another request when the order is changed
 const AdvancedFilterPanel = () => {
   const [panelOpen, setPanelOpen] = useState(false)
   const panelOptionContainerRef = useRef()
@@ -25,6 +24,19 @@ const AdvancedFilterPanel = () => {
     searchParams.delete('priceOrder')
     setSearchParams(searchParams)
   }
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (!panelOptionContainerRef.current.contains(e.target) &&
+      e.target !== panelOptionContainerRef.current) {
+        setPanelOpen(false)
+      }
+    }
+
+    document.addEventListener('click', handleClickOutside)
+
+    return () => document.removeEventListener('click', handleClickOutside)
+  }, [])
 
   return (
     <div className='all-filters-container' ref={panelOptionContainerRef}>
