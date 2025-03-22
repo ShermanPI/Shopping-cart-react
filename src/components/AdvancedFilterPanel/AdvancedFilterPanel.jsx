@@ -7,6 +7,7 @@ import DownloadIcon from 'src/assets/Icons/DownloadIcon'
 import EqualIcon from 'src/assets/Icons/EqualIcon'
 import CloseIcon from 'src/assets/Icons/CloseIcon'
 import { useSearchParams } from 'react-router'
+import { getRandomColor } from 'src/helpers/getRandomColor'
 
 const AdvancedFilterPanel = () => {
   const [panelOpen, setPanelOpen] = useState(false)
@@ -39,8 +40,12 @@ const AdvancedFilterPanel = () => {
   }, [])
 
   return (
-    <div className='all-filters-container' ref={panelOptionContainerRef}>
-      <div onClick={() => setPanelOpen(!panelOpen)} className='filters-panel-btn'>
+    <div
+      className='all-filters-container'
+      ref={panelOptionContainerRef}
+
+    >
+      <div onClick={() => setPanelOpen(!panelOpen)} className='filters-panel-btn' style={{ color: searchParamPriceOrder ? getRandomColor() : '' }}>
         <FilterIcon width={18} />
       </div>
       <div className={`panel-options-container ${panelOpen ? 'open' : ''}`}>
