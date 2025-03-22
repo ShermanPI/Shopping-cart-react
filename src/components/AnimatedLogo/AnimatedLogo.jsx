@@ -4,8 +4,9 @@ import { useContext, useEffect, useRef, useState } from 'react'
 import { shootingStarContext } from '../../contexts/ShootingStarContext'
 import { useNavigate } from 'react-router'
 import { FiltersContext } from 'src/contexts/FiltersContext'
+import { getRandomColor } from 'src/helpers/getRandomColor'
 
-function AnimatedLogo ({ onClick }) {
+function AnimatedLogo () {
   const { shootingStarsArray } = useContext(shootingStarContext)
   const { setSearchValue } = useContext(FiltersContext)
   const [mouseOnIcon, setMouseOnIcon] = useState()
@@ -87,7 +88,7 @@ function AnimatedLogo ({ onClick }) {
               ))}
 
             {shootingStarsArray.map((starStyle, index) => (
-              <div className='shooting-star' key={index} style={starStyle}>
+              <div className='shooting-star' key={index} style={{ ...starStyle, color: getRandomColor() }}>
                 <DiscountStar />
               </div>
             ))}

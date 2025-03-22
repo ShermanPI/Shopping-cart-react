@@ -44,7 +44,6 @@
     position: fixed;
     user-select: none;
     pointer-events: none;
-    color: var(--secondary-color);
     font-size: 1.8rem;
 
     width: 1.8rem;

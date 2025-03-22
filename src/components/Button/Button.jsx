@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import './customButton.css'
+import { getRandomColor } from 'src/helpers/getRandomColor'
 
 function Button ({ children, onClick }) {
   const buttonRef = useRef(null)
@@ -11,6 +12,7 @@ function Button ({ children, onClick }) {
 
     plusOneDiv.style.left = `${e.clientX - 10}px`
     plusOneDiv.style.top = `${e.clientY - 20}px`
+    plusOneDiv.style.color = getRandomColor()
 
     // const buttonClientRect = buttonRef.current.getBoundingClientRect()
     // plusOneDiv.style.left = `${(buttonClientRect.left + window.scrollX) + (buttonClientRect.width / 2) - 9}px`
